@@ -1,0 +1,48 @@
+{% include 'header.html' %}
+        <main class="main-content">
+            <section class="theme-hero-section">
+                <figure>
+                    <img src="./assets/images/theme-hero-section.jpg" alt="">
+                    <figcaption>
+                        <h4 class="main-heading-font-medium">Login</h4>
+                    </figcaption>
+                </figure>
+            </section><!-- /.theme-hero-section -->
+            <section class="login-section">
+                <div class="container">
+                    <div class="login-section-inner">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="login-section-main d_flex col-inner">
+                                    <div class="inner">
+                                        <form action="#">
+                                            <h4 class="main-heading-font-small-medium title">Login</h4>
+                                            <div class="input-field login-field">
+                                                <input type="text" required>
+                                                <label>Email address *</label>
+                                            </div>
+                                            <div class="input-field login-field">
+                                                <input type="password" required>
+                                                <label>Password *</label>
+                                            </div>
+                                            <div class="forget">
+                                                <a href="#" class="lost-password theme-underline-button"><small>Lost your password?</small></a>
+                                            </div>
+                                            <button type="submit" class="submit-button theme-button-black">Log In</button>
+                                        </form>
+                                    </div><!-- /.inner -->
+                                </div><!-- /.login-section-left -->
+                            </div><!-- /.col-lg-6 -->
+                            <div class="col-lg-5 offset-lg-2">
+                                <div class="login-section-right col-inner">
+                                    <h4 class="main-heading-font-small-medium title">I'm new here</h4>
+                                    <p class="mb-4">Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails.</p>
+                                    <a href="{% url 'sign-up' %}" class="theme-underline-button register-button">Register<i class="icon-theme-link link-arrow"></i></a>
+                                </div><!-- /.login-section-right -->
+                            </div><!-- /.col-lg-6 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.login-section-inner -->
+                </div><!-- /.container -->
+            </section><!-- /.login-section -->
+        </main><!-- /.main-content -->
+        {% include 'footer.html' %}

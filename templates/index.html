@@ -1,0 +1,427 @@
+{% load static %}
+{% include 'header.html' %}
+    <main class="main-content">
+      <section class="main-hero-section">
+        <div class="main-hero-section-inner">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <figure>
+                  <img src="{% static './assets/images/main-hero-1.jpg' %}" alt="">
+                  <figcaption>
+                    <div class="container">
+                      <div class="figcaption-inner">
+                        <h2 class="main-hero-font">Gentle Luxury Style</h2>
+                        <small>Discover the hottest trends and must-have looks.</small>
+                        <a href="{% url 'shop' %}" class="theme-button-link">Shop Collection <i
+                            class="icon-small-arrow link-arrow"></i></a>
+                      </div><!-- /.figcaption-inner -->
+                    </div><!-- /.container -->
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="swiper-slide">
+                <figure>
+                  <img src="{% static './assets/images/main-hero-2.jpg' %}" alt="">
+                  <figcaption>
+                    <div class="container">
+                      <div class="figcaption-inner">
+                        <h2 class="main-hero-font">Gentle Luxury Style</h2>
+                        <small>Discover the hottest trends and must-have looks.</small>
+                        <a href="{% url 'shop' %}" class="theme-button-link">Shop Collection <i
+                            class="icon-small-arrow link-arrow"></i></a>
+                      </div><!-- /.figcaption-inner -->
+                    </div><!-- /.container -->
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="swiper-slide">
+                <figure>
+                  <img src="{% static './assets/images/main-hero-3.jpg' %}" alt="">
+                  <figcaption>
+                    <div class="container">
+                      <div class="figcaption-inner">
+                        <h2 class="main-hero-font">Gentle Luxury Style</h2>
+                        <small>Discover the hottest trends and must-have looks.</small>
+                        <a href="{% url 'shop' %}" class="theme-button-link">Shop Collection <i
+                            class="icon-small-arrow link-arrow"></i></a>
+                      </div><!-- /.figcaption-inner -->
+                    </div><!-- /.container -->
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <div class="container swiper-buttons-container">
+              <div class="swiper-buttons">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div><!-- /.swiper-buttons -->
+            </div><!-- /.container -->
+            <div class="container swiper-pagination"></div>
+          </div>
+        </div><!-- /.main-hero-section-inner -->
+      </section><!-- /.main-hero-section -->
+      <section class="categories-section">
+        <div class="container-fluid">
+          <div class="categories-section-inner">
+            <div class="row">
+              <div class="col-md-6 col-lg-4">
+                <div class="col-inner">
+                  <figure>
+                    <img loading="lazy" src="{% static './assets/images/cat-1.jpg' %}" alt="">
+                    <figcaption>
+                      <a href="{% url 'category' %}" class="theme-button">Women</a>
+                    </figcaption>
+                  </figure>
+                </div><!-- /.col-inner -->
+              </div><!-- /.col-lg-4 -->
+              <div class="col-md-6  col-lg-4">
+                <div class="col-inner">
+                  <div class="center-category">
+                    <figure>
+                      <img loading="lazy" src="assets/images/cat-2.jpg" alt="">
+                      <figcaption>
+                        <a href="{% url 'category' %}" class="theme-button">Footwear</a>
+                      </figcaption>
+                    </figure>
+                  </div><!-- /.center-top -->
+                  <div class="center-category">
+                    <figure>
+                      <img loading="lazy" src="assets/images/cat-3.jpg" alt="">
+                      <figcaption>
+                        <a href="{% url 'category' %}" class="theme-button">Accessories</a>
+                      </figcaption>
+                    </figure>
+                  </div><!-- /.center-bottom -->
+                </div><!-- /.col-inner -->
+              </div><!-- /.col-lg-4 -->
+              <div class="col-md-12  col-lg-4">
+                <div class="col-inner">
+                  <figure>
+                    <img loading="lazy" src="./assets/images/cat-4.jpg" alt="">
+                    <figcaption>
+                      <a href="{% url 'category' %}" class="theme-button">Men</a>
+                    </figcaption>
+                  </figure>
+                </div><!-- /.col-inner -->
+              </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+          </div><!-- /.categories-section-inner -->
+        </div><!-- /.container-fluid -->
+      </section><!-- /.categories-section -->
+      <section class="sale-section">
+        <div class="container">
+          <div class="sale-section-inner">
+            <div class="row flex-column-reverse flex-md-row">
+              <div class="col-md-4">
+                <div class="col-inner sale-section-content">
+                  <div class="inner">
+                    <small class="small-font sale">SPRING SALE 30% OFF</small>
+                    <h3 class="main-heading-font">Effortless Denim Delights</h3>
+                    <small class="small-font">Discover the versatility of denim with our collection of jeans,
+                      jackets</small>
+                    <a href="{% url 'shop' %}" class="theme-button-black">Shop Collection</a>
+                  </div><!-- /.inner -->
+                </div><!-- /.col-inner -->
+              </div><!-- /.col-md-4 -->
+              <div class="col-md-6 offset-md-2">
+                <div class="col-inner">
+                  <figure>
+                    <img loading="lazy" src="assets/images/sale-section.jpg" alt="">
+                  </figure>
+                </div><!-- /.col-inner -->
+              </div><!-- /.col-md-6 -->
+            </div><!-- /.row -->
+          </div><!-- /.sale-section-inner -->
+        </div><!-- /.container -->
+      </section><!-- /.sale-section -->
+      <section class="best-seller swiper-products-carousel swiper-default">
+        <div class="container">
+          <div class="best-seller-inner">
+            <div class="title">
+              <h3 class="main-heading-font-medium">Best seller</h3>
+            </div><!-- /.title -->
+            <div class="swiper mySwiper2">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide product-cards">
+                  <figure>
+                    <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
+                    <figcaption>
+                      <div class="top-icons">
+                        <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                        <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                      </div><!-- /.top-icons -->
+                      <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                        SHOP</a>
+                      <span class="sale-off">-36%</span>
+                    </figcaption>
+                  </figure>
+                  <div class="info">
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <a href="{% url 'product-detail' %}" class="product-carousel-anchor">V-neck linen Shirt</a>
+                    <small>$18.00</small>
+                  </div><!-- /.info -->
+                </div>
+                <div class="swiper-slide product-cards">
+                  <figure>
+                    <img loading="lazy" src="assets/images/prod-2.jpg" alt="">
+                    <figcaption>
+                      <div class="top-icons">
+                        <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                        <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                      </div><!-- /.top-icons -->
+                      <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                        SHOP</a>
+                    </figcaption>
+                  </figure>
+                  <div class="info">
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <a href="{% url 'product-detail' %}" class="product-carousel-anchor">V-neck linen Shirt</a>
+                    <small>$18.00</small>
+                  </div><!-- /.info -->
+                </div>
+                <div class="swiper-slide product-cards">
+                  <figure>
+                    <img loading="lazy" src="assets/images/prod-3.jpg" alt="">
+                    <figcaption>
+                      <div class="top-icons">
+                        <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                        <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                      </div><!-- /.top-icons -->
+                      <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                        SHOP</a>
+                    </figcaption>
+                  </figure>
+                  <div class="info">
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <a href="{% url 'product-detail' %}" class="product-carousel-anchor">V-neck linen Shirt</a>
+                    <small>$18.00</small>
+                  </div><!-- /.info -->
+                </div>
+                <div class="swiper-slide product-cards">
+                  <figure>
+                    <img loading="lazy" src="assets/images/prod-4.jpg" alt="">
+                    <figcaption>
+                      <div class="top-icons">
+                        <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                        <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                      </div><!-- /.top-icons -->
+                      <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                        SHOP</a>
+                      <span class="sale-off">-20%</span>
+                    </figcaption>
+                  </figure>
+                  <div class="info">
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <a href="{% url 'product-detail' %}" class="product-carousel-anchor">V-neck linen Shirt</a>
+                    <small>$18.00</small>
+                  </div><!-- /.info -->
+                </div>
+                <div class="swiper-slide product-cards">
+                  <figure>
+                    <img loading="lazy" src="assets/images/prod-5.jpg" alt="">
+                    <figcaption>
+                      <div class="top-icons">
+                        <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                        <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                      </div><!-- /.top-icons -->
+                      <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                        SHOP</a>
+                    </figcaption>
+                  </figure>
+                  <div class="info">
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <a href="{% url 'product-detail' %}" class="product-carousel-anchor">V-neck linen Shirt</a>
+                    <small>$18.00</small>
+                  </div><!-- /.info -->
+                </div>
+                <div class="swiper-slide product-cards">
+                  <figure>
+                    <img loading="lazy" src="assets/images/prod-6.jpg" alt="">
+                    <figcaption>
+                      <div class="top-icons">
+                        <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                        <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                      </div><!-- /.top-icons -->
+                      <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                        SHOP</a>
+                    </figcaption>
+                  </figure>
+                  <div class="info">
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <span><i class="icon-rating"></i></span>
+                    <a href="{% url 'product-detail' %}" class="product-carousel-anchor">V-neck linen Shirt</a>
+                    <small>$18.00</small>
+                  </div><!-- /.info -->
+                </div>
+              </div>
+              <div class="swiper-product-buttons">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div><!-- /.swiper-product-buttons -->
+            </div>
+          </div><!-- /.best-seller-inner -->
+        </div><!-- /.container -->
+      </section><!-- /.best-seller -->
+      <section class="accessories-galery">
+        <div class="container-fluid">
+          <div class="accessories-galery-inner">
+            <div class="swiper mySwiper3">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <figure>
+                    <a href="#">
+                      <img loading="lazy" src="assets/images/men-accessories.jpg" alt="">
+                    </a>
+                    <figcaption>
+                      <h4>Accessories Galore</h4>
+                      <small class="small-font">Shop through our latest selection of Fashion</small>
+                      <a href="#" class="theme-underline-button">Shop collection<i class="icon-theme-link link-arrow"></i></a>
+                    </figcaption>
+                  </figure>
+                </div>
+                <div class="swiper-slide">
+                  <figure>
+                    <a href="#">
+                      <img loading="lazy" src="assets/images/women-accessories.jpg" alt="">
+                    </a>
+                    <figcaption>
+                      <h4>Accessories Galore</h4>
+                      <small class="small-font">Shop through our latest selection of Fashion</small>
+                      <a href="#" class="theme-underline-button">Shop collection<i class="icon-theme-link link-arrow"></i></a>
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div><!-- /.accessories-galery-inner -->
+        </div><!-- /.container-fluid -->
+      </section><!-- /.accessories-galery -->
+      <hr>
+      <section class="our-store">
+        <div class="container">
+          <div class="our-store-inner">
+            <div class="title">
+              <h3 class="main-heading-font-medium">Visit our store</h3>
+            </div><!-- /.title -->
+            <div class="store-tabs theme-tabs">
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
+                    type="button" role="tab" aria-controls="pills-home" aria-selected="true">Hongkong</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
+                    type="button" role="tab" aria-controls="pills-profile" aria-selected="false">London</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
+                    type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Paris</button>
+                </li>
+              </ul>
+            </div><!-- /.store-tabs -->
+            <div class="store-tabs-inner">
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+                  tabindex="0">
+                  <div class="store-inner">
+                    <div class="content-wrapper">
+                      <div class="content-inner">
+                        <h4>Hongkong Store</h4>
+                        <span class="location">
+                          <small>301 Front St WToronto,</small>
+                          <small>UrbanFlux@support.com</small>
+                          <small>(08) 8942 1299</small>
+                        </span>
+                        <span class="timing">
+                          <small>Mon - Fri, 8:30am - 10:30pm</small>
+                          <small>Sunday Closed</small>
+                        </span>
+                      </div><!-- /.content-inner -->
+                    </div><!-- /.content-wrapper -->
+                    <div class="store-image">
+                      <figure>
+                        <img loading="lazy" src="assets/images/store-1.jpg" alt="">
+                      </figure>
+                    </div><!-- /.store-image -->
+                  </div><!-- /.store-inner -->
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                  tabindex="0">
+                  <div class="store-inner">
+                    <div class="content-wrapper">
+                      <div class="content-inner">
+                        <h4>London Store</h4>
+                        <span class="location">
+                          <small>301 Front St WToronto,</small>
+                          <small>UrbanFlux@support.com</small>
+                          <small>(08) 8942 1299</small>
+                        </span>
+                        <span class="timing">
+                          <small>Mon - Fri, 8:30am - 10:30pm</small>
+                          <small>Sunday Closed</small>
+                        </span>
+                      </div><!-- /.content-inner -->
+                    </div><!-- /.content-wrapper -->
+                    <div class="store-image">
+                      <figure>
+                        <img loading="lazy" src="assets/images/store-2.jpg" alt="">
+                      </figure>
+                    </div><!-- /.store-image -->
+                  </div><!-- /.store-inner -->
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                  tabindex="0">
+                  <div class="store-inner">
+                    <div class="content-wrapper">
+                      <div class="content-inner">
+                        <h4>Paris Store</h4>
+                        <span class="location">
+                          <small>301 Front St WToronto,</small>
+                          <small>UrbanFlux@support.com</small>
+                          <small>(08) 8942 1299</small>
+                        </span>
+                        <span class="timing">
+                          <small>Mon - Fri, 8:30am - 10:30pm</small>
+                          <small>Sunday Closed</small>
+                        </span>
+                      </div><!-- /.content-inner -->
+                    </div><!-- /.content-wrapper -->
+                    <div class="store-image">
+                      <figure>
+                        <img loading="lazy" src="assets/images/store-3.jpg" alt="">
+                      </figure>
+                    </div><!-- /.store-image -->
+                  </div><!-- /.store-inner -->
+                </div>
+              </div>
+            </div><!-- /.store-tabs-inner -->
+          </div><!-- /.our-store-inner -->
+        </div><!-- /.container -->
+      </section><!-- /.our-store -->
+    </main><!-- /.main-content -->
+{% include 'footer.html' %}
+

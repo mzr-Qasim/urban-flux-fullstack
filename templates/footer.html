@@ -1,0 +1,171 @@
+{% load static %}
+<footer class="footer">
+    <div class="container">
+      <hr class="my-5">
+      <div class="footer-inner">
+        <div class="row">
+          <div class="col-md-12 col-lg-6 col-xl-2">
+            <div class="col-inner">
+              <img loading="lazy" src="{% static 'assets/images/logo/main-logo.svg' %}" class="site-logo" alt="">
+              <ul class="mb-5">
+                <li>
+                  <small>Address: 1234 Fashion Street, Suite 567,
+                    New York, NY</small>
+                </li>
+                <li>
+                  <small>Email: info@fashionshop.com</small>
+                </li>
+                <li>
+                  <small>Phone: (212)555-1234</small>
+                </li>
+              </ul>
+              <ul class="footer-social-media-icons">
+                <li><a href=""><i class="icon-facebook"></i></a></li>
+                <li><a href=""><i class="icon-twitter"></i></a></li>
+                <li><a href=""><i class="icon-instagram"></i></a></li>
+                <li><a href=""><i class="icon-tiktok"></i></a></li>
+                <li><a href=""><i class="icon-pinterest"></i></a></li>
+              </ul>
+            </div><!-- /.col-inner -->
+          </div><!-- /.col-lg-2 -->
+          <div class="col-md-12 col-lg-6 col-xl-2 offset-xl-1">
+            <div class="col-inner">
+              <strong class="col-title">Help</strong>
+              <ul>
+                <li><a href=""><small>Privacy Policy</small></a></li>
+                <li><a href=""><small>Returns + Exchanges</small></a></li>
+                <li><a href=""><small>Shipping</small></a></li>
+                <li><a href=""><small>Terms & Conditions</small></a></li>
+                <li><a href=""><small>FAQ’s</small></a></li>
+                <li><a href=""><small>Compare Products</small></a></li>
+                <li><a href=""><small>My Wishlist</small></a></li>
+              </ul>
+            </div><!-- /.col-inner -->
+          </div><!-- /.col-lg-2 -->
+          <div class="col-md-12 col-lg-6 col-xl-2 offset-xl-1">
+            <div class="col-inner">
+              <strong class="col-title">Useful Links</strong>
+              <ul>
+                <li><a href=""><small>Our Store</small></a></li>
+                <li><a href=""><small>Visit Our Store</small></a></li>
+                <li><a href=""><small>Contact Us</small></a></li>
+                <li><a href=""><small>About Us</small></a></li>
+                <li><a href=""><small>Account</small></a></li>
+              </ul>
+            </div><!-- /.col-inner -->
+          </div><!-- /.col-lg-2 -->
+          <div class="col-md-12 col-lg-6 col-xl-4">
+            <div class="col-inner">
+              <strong class="col-title">Sign Up for Email</strong>
+              <p class="mb-4">Sign up to get first dibs on new arrivals, sales, exclusive content, events and more!</p>
+              <form class="row g-3">
+                <div class="col-md-12 news-letter-input">
+                  <input type="email" class="form-control" placeholder="Your email address" id="inputEmail4">
+                  <button type="submit" class="news-letter-subscribe subscribe-button">Subscribe<i class="icon-theme-link link-arrow"></i></button>
+                </div>
+              </form>
+            </div><!-- /.col-inner -->
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+      </div><!-- /.footer-inner -->
+      <hr class="mt-5">
+      <div class="copyright mb-3 just-center">
+          <small>&copy 2025 UbranFlux. All Rights Reserved</small>
+      </div><!-- /.copyright -->
+    </div><!-- /.container -->
+  </footer><!-- /.footer -->
+  <section class="filters" id="filters-sidebar">
+    <div class="filter-top">
+        <ul class="align-center-bet">
+            <li class="align-center"><i class="filter-close icon-filter-icon"></i><small>FILTER</small></li>
+            <li><button id="filter_close_button" class="links-hover"><i class="icon-close-icon"></i></button></li>
+        </ul>
+    </div><!-- /.filter-top -->
+    <div class="filter-inner">
+        <div class="product-categories">
+            <ul>
+                <li class="mb-3"><strong class="filters-sidebar-heading ">Product Categories</strong></li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="product-availability" id="product-availability1">
+                        <label class="form-check-label" for="product-availability1">
+                          Men
+                        </label>
+                      </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="product-availability" id="product-availability2" checked>
+                        <label class="form-check-label" for="product-availability2">
+                          Women
+                        </label>
+                      </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="product-availability" id="product-availability3" checked>
+                        <label class="form-check-label" for="product-availability3">
+                          Accessories
+                        </label>
+                      </div> 
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="product-availability" id="product-availability4" checked>
+                        <label class="form-check-label" for="product-availability4">
+                          Footwear
+                        </label>
+                      </div> 
+                </li>
+            </ul>
+        </div><!-- /.product-categories -->
+        <hr>
+        <div class="product-categories">
+            <ul>
+                <li class="mb-3"><strong class="filters-sidebar-heading ">Availability</strong></li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          On sale
+                        </label>
+                      </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          In stock
+                        </label>
+                      </div>
+                </li>
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+                        <label class="form-check-label" for="flexRadioDefault3">
+                          Out of stock
+                        </label>
+                      </div> 
+                </li>
+            </ul>
+        </div><!-- /.product-categories -->
+        <hr>
+        <div class="product-categories">
+            <ul>
+                <li class="mb-3"><strong class="filters-sidebar-heading ">Price</strong></li>
+                <li>
+                    <input type="range" class="form-range price-range" id="customRange1">
+                </li>
+                <li><small>Price: $2 — $156</small></li>
+            </ul>
+        </div><!-- /.product-categories -->
+        <hr>
+    </div><!-- /.filter-inner -->
+</section><!-- /.filters -->
+</div><!-- /.site-wrapper -->
+<script src="{% static './assets/libs/swiper.js' %}"></script>
+<script src="{% static './assets/js/bootstrap.js' %}"></script>
+<script src="{% static './assets/js/main.js' %}"></script>
+</body>
+
+</html>

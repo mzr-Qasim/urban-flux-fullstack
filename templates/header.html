@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UrbanFlux Fashion ecommerce store</title>
+  <link rel="icon" href="{% static './assets/images/favicon.png' %}" sizes="64x64" type="image/png">
+  <link rel="stylesheet" href="{% static 'assets/libs/swiper.css' %}">
+  <link rel="stylesheet" href=" {% static 'assets/css/main.css' %}">
+</head>
+
+<body>
+  <div class="site-wrapper">
+    <div class="search-bar" id="search-top-bar">
+      <div class="container">
+        <div class="search-bar-inner align-center-bet mb-5">
+          <h4>Search our site</h4>
+          <button id="search-bar-close" class="links-hover"><i class="icon-close-icon"></i></button>
+        </div><!-- /.search-bar-inner -->
+        <div class="searchinput">
+          <input type="text" placeholder="Search" class="main-search-bar">
+          <button class="search-submit-btn links-hover" type="submit"><i  class="icon-search"></i></button>
+        </div><!-- /.searchinput -->
+      </div><!-- /.container -->
+    </div><!-- /.search-bar -->
+    <header class="header">
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="{% static './assets/images/logo/main-logo.svg' %}" class="site-logo" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'shop' %}">Shop</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+            <ul class="nav-right-links align-center">
+                <li>
+                  <button class="lg-hide links-hover" id="search-btn"><i  class="icon-search"></i></button>
+                </li>
+              <li><a href="{% url 'login' %}" class="links-hover lg-hide"><i class="icon-login"></i></a></li>
+              <li><a href="{% url 'wishlist' %}" class="links-hover lg-hide count"><i class="icon-favourite"></i><span><small>2</small></span></a></li>
+              <li><a href="{% url 'shopping-cart' %}" class="links-hover lg-hide count"><i class="icon-cart"></i><span><small>2</small></span></a></li>
+            </ul><!-- /.nav-right-links -->
+          </div>
+          <div class="nav-right-links-mobile nav-right-links">
+          <div class="container">
+            <ul class="align-center-bet" >
+              <li>
+                <button class="links-hover" id="search-btn-2"><i  class="icon-search"></i></button>
+              </li>
+            <li><a href="{% url 'login' %}" class="links-hover"><i class="icon-login"></i></a></li>
+            <li><a href="{% url 'wishlist' %}" class="links-hover count"><i class="icon-favourite"></i><span><small>2</small></span></a></li>
+            <li><a href="{% url 'shopping-cart' %}" class="links-hover count"><i class="icon-cart"></i><span><small>2</small></span></a></li>
+          </ul><!-- /.nav-right-links-mobile -->
+        </div><!-- /.container -->
+          </div><!-- /.nav-right-links-mobile -->
+        </div><!-- /.container-fluid -->
+      </nav><!-- /.main-navbar -->
+    </header><!-- /.header -->
+

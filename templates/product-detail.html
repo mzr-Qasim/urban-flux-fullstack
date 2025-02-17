@@ -1,0 +1,346 @@
+{% load static %}
+{% include 'header.html' %}
+    <main class="main-content">
+      <section class="detail-main-section swiper-default my-5">
+        <div class="container">
+          <div class="detail-main-section-inner">
+            <div class="row">
+              <div class="col-lg-5">
+                <div class="col-inner gallery-swiper">
+                  <div class="gallery">
+                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper gallery-slider">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <img src="./assets/images/prod-1.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./assets/images/prod-2.jpg" loading="lazy" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./assets/images/prod-3.jpg" loading="lazy" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./assets/images/prod-4.jpg" loading="lazy" />
+                        </div>
+                      </div>
+                      <div class="swiper-button-next"></div>
+                      <div class="swiper-button-prev"></div>
+                      
+                    </div>
+                    <div thumbsSlider="" class="swiper gallery-thumbs">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <img src="./assets/images/prod-1.jpg" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./assets/images/prod-2.jpg" loading="lazy" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./assets/images/prod-3.jpg" loading="lazy" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./assets/images/prod-4.jpg" loading="lazy" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- /.col-inner -->
+              </div><!-- /.col-lg-5 -->
+              <div class="col-lg-6 offset-lg-1">
+                <div class="col-inner product-details">
+                  <div class="product-title">
+                    <div class="rating mb-3">
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                    </div><!-- /.rating -->
+                    <h4 class="mb-3">V-neck linen Shirt</h4>
+                    <small class="border-text mb-3">in stock</small>
+                    <h4 class="mb-4">$25.00</h4>
+                    <div class="row">
+                      <div class="col-lg-4 col-inner">
+                        <span class="quantity-selector">
+                          <a href="" class="quantity-increase">-</a><span class="quantity">1</span><a href=""
+                            class="quantity-decrease">+</a>
+                        </span>
+                      </div><!-- /.col-lg-4 -->
+                      <div class="col-lg-6 offset-lg-2 col-inner">
+                        <a href="" class="theme-button-black w_100 text-align-center"><small>Add to cart -
+                            $34.00</small></a>
+                      </div><!-- /.col-lg-6 -->
+                      <div class="col-lg-12">
+                        <a href="{% url 'checkout' %}" class="theme-button-black buy-now w_100 text-align-center"><small>BUY IT
+                            NOW</small></a>
+                      </div><!-- /.col-lg-12 -->
+                      <div class="col-lg-6">
+                        <div class="shipping-detail light-border">
+                          <i class="icon-delievery-icon mb-3"></i>
+                          <p><small>Estimate delivery times: <b>12-26 days</b> (International), <b>3-6 days</b> (United States).</small></p>
+                        </div><!-- /.shipping-detail -->
+                      </div><!-- /.col-lg-5 -->
+                      <div class="col-lg-6">
+                        <div class="shipping-detail light-border">
+                          <i class="icon-return-icon mb-3"></i>
+                          <p><small>Return within <b>30 days</b> of purchase. Duties & taxes are non-refundable.</small></p>
+                        </div><!-- /.shipping-detail -->
+                      </div><!-- /.col-lg-5 -->
+                    </div><!-- /.row -->
+                  </div><!-- /.col-inner -->
+                </div><!-- /.col-lg-6 -->
+              </div><!-- /.row -->
+            </div><!-- /.detail-main-section-inner -->
+          </div><!-- /.container -->
+      </section><!-- /.detail-main-section -->
+      <section class="description-information-tabs">
+        <div class="container">
+          <div class="description-information-tabs-inner  light-border">
+            <div class="description-information-tabs-inner-tabs theme-tabs">
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Description</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Reviews</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Policies</button>
+                </li>
+              </ul> 
+            </div><!-- /.tabs -->
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                <div class="tab-content-inner">
+                  <p class="mb-4"><small>Button-up shirt sleeves and a relaxed silhouette. It’s tailored with drapey, crinkle-texture fabric that’s made from LENZING™ ECOVERO™ Viscose — responsibly sourced wood-based fibres produced through a process that reduces impact on forests, biodiversity and water supply.</small></p>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="col-inner">
+                        <strong>Color</strong>
+                        <ul>
+                          <li>
+                            <small>Black</small>
+                            <small>White</small>
+                          </li>
+                        </ul>
+                      </div><!-- /.col-inner -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-lg-6">
+                      <div class="col-inner">
+                        <strong>Size</strong>
+                        <ul>
+                          <li>
+                            <small>S</small>
+                            <small>M</small>
+                            <small>L</small>
+                          </li>
+                        </ul>
+                      </div><!-- /.col-inner -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-lg-6">
+                      <div class="col-inner">
+                        <strong>Features</strong>
+                        <ul>
+                          <li>
+                            <small>Front button placket</small>
+                            <small>Adjustable sleeve tabs</small>
+                            <small>Babaton embroidered crest at placket and hem</small>
+                          </li>
+                        </ul>
+                      </div><!-- /.col-inner -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-lg-6">
+                      <div class="col-inner">
+                        <strong>Materials Care</strong>
+                        <ul>
+                          <li>
+                            <small>Content: 100% LENZING™ ECOVERO™ Viscose</small>
+                            <small>Care: Hand wash</small>
+                            <small>Imported</small>
+                          </li>
+                        </ul>
+                      </div><!-- /.col-inner -->
+                    </div><!-- /.col-lg-6 -->
+                  </div><!-- /.row -->
+                </div><!-- /.tab-content-inner -->
+              </div>
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                <div class="tab-content-inner">
+                  <div class="review-inner">
+                    <h4 class="mb-3">Customer Reviews</h4>
+                    <div class="rating mb-4">
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                    </div><!-- /.rating -->
+                    <a href="" class="theme-button-black">Write a review</a>
+                  </div><!-- /.review-inner -->
+
+              </div><!-- /.tab-content-inner -->
+              </div>
+              <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                <div class="tab-content-inner">
+                  <p class="pb-3"><small>The Company Private Limited and each of their respective subsidiary, parent and affiliated companies is deemed to operate this Website (“we” or “us”) recognizes that you care how information about you is used and shared. We have created this Privacy Policy to inform you what information we collect on the Website, how we use your information and the choices you have about the way your information is collected and used. Please read this Privacy Policy carefully. Your use of the Website indicates that you have read and accepted our privacy practices, as outlined in this Privacy Policy.</small></p>
+                  <p class="pb-3"><small>Please be advised that the practices described in this Privacy Policy apply to information gathered by us or our subsidiaries, affiliates or agents: (i) through this Website, (ii) where applicable, through our Customer Service Department in connection with this Website, (iii) through information provided to us in our free standing retail stores, and (iv) through information provided to us in conjunction with marketing promotions and sweepstakes.</small></p>
+                  <p class="pb-3"><small>If you provide information to us or access or use the Website in any way after this Privacy Policy has been changed, you will be deemed to have unconditionally consented and agreed to such changes. The most current version of this Privacy Policy will be available on the Website and will supersede all previous versions of this Privacy Policy</small></p>
+              </div><!-- /.tab-content-inner -->
+            </div> 
+          </div><!-- /.description-information-tabs-inner -->
+        </div><!-- /.container -->
+      </section><!-- /.description-information-tabs -->
+      <section class="related-products">
+        <div class="container">
+            <div class="swiper-products-carousel related-products-inner swiper-default">
+              <div class="title">
+                <h3 class="main-heading-font-medium">Related products</h3>
+              </div><!-- /.title -->
+              <div class="swiper mySwiper_related_products">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide product-cards">
+                    <figure>
+                      <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
+                      <figcaption>
+                        <div class="top-icons">
+                          <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                          <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                        </div><!-- /.top-icons -->
+                        <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                          SHOP</a>
+                        <span class="sale-off">-36%</span>
+                      </figcaption>
+                    </figure>
+                    <div class="info">
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
+                      <small>$18.00</small>
+                    </div><!-- /.info -->
+                  </div>
+                  <div class="swiper-slide product-cards">
+                    <figure>
+                      <img loading="lazy" src="assets/images/prod-2.jpg" alt="">
+                      <figcaption>
+                        <div class="top-icons">
+                          <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                          <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                        </div><!-- /.top-icons -->
+                        <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                          SHOP</a>
+                      </figcaption>
+                    </figure>
+                    <div class="info">
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
+                      <small>$18.00</small>
+                    </div><!-- /.info -->
+                  </div>
+                  <div class="swiper-slide product-cards">
+                    <figure>
+                      <img loading="lazy" src="assets/images/prod-3.jpg" alt="">
+                      <figcaption>
+                        <div class="top-icons">
+                          <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                          <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                        </div><!-- /.top-icons -->
+                        <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                          SHOP</a>
+                      </figcaption>
+                    </figure>
+                    <div class="info">
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
+                      <small>$18.00</small>
+                    </div><!-- /.info -->
+                  </div>
+                  <div class="swiper-slide product-cards">
+                    <figure>
+                      <img loading="lazy" src="assets/images/prod-4.jpg" alt="">
+                      <figcaption>
+                        <div class="top-icons">
+                          <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                          <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                        </div><!-- /.top-icons -->
+                        <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                          SHOP</a>
+                        <span class="sale-off">-20%</span>
+                      </figcaption>
+                    </figure>
+                    <div class="info">
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
+                      <small>$18.00</small>
+                    </div><!-- /.info -->
+                  </div>
+                  <div class="swiper-slide product-cards">
+                    <figure>
+                      <img loading="lazy" src="assets/images/prod-5.jpg" alt="">
+                      <figcaption>
+                        <div class="top-icons">
+                          <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                          <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                        </div><!-- /.top-icons -->
+                        <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                          SHOP</a>
+                      </figcaption>
+                    </figure>
+                    <div class="info">
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
+                      <small>$18.00</small>
+                    </div><!-- /.info -->
+                  </div>
+                  <div class="swiper-slide product-cards">
+                    <figure>
+                      <img loading="lazy" src="assets/images/prod-6.jpg" alt="">
+                      <figcaption>
+                        <div class="top-icons">
+                          <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                          <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                        </div><!-- /.top-icons -->
+                        <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                          SHOP</a>
+                      </figcaption>
+                    </figure>
+                    <div class="info">
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <span><i class="icon-rating"></i></span>
+                      <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
+                      <small>$18.00</small>
+                    </div><!-- /.info -->
+                  </div>
+                </div>
+                <div class="swiper-product-buttons">
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div><!-- /.swiper-product-buttons -->
+              </div>
+            </div><!-- /.related-products-inner-->
+
+        </div><!-- /.container -->
+      </section><!-- /.related-products -->
+    </main><!-- /.main-content -->
+    {% include 'footer.html' %}

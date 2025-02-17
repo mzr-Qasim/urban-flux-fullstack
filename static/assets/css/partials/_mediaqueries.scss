@@ -1,0 +1,125 @@
+@media(max-width: 1200px){
+        .footer-inner{
+        .row [class^="col-"] {
+            padding-bottom: 1rem!important;
+        }    
+    }
+}
+@media(max-width:991px){
+
+    .lg-hide{
+        display: none;
+    }
+    .nav-right-links-mobile{
+        transform: translateX(0);
+    }
+    .site-logo{
+        width: 150px;
+    }
+    .main-navbar{
+        .nav-right-links{
+            flex-direction: column;
+            align-items: start;
+        }
+        
+    .w_full{
+        width: 100%!important;
+    }
+    }
+    // home- main hero section
+    .main-hero-section{
+        .swiper-slide{
+            figure{
+                img{
+                    object-position: center top;
+                }
+            }
+        }
+    }
+    // home- categories section
+    .categories-section{
+        .row [class^="col-"] {
+            &:not(:last-child){
+                padding-bottom: 2rem;
+            }
+        }    
+        .center-category{
+            height: 100%!important;
+
+            &:not(:last-child){
+                margin-bottom: 2rem;
+            }
+        } 
+    }
+    // home- store section
+    .store-tabs-inner{
+        .store-inner{
+            flex-direction: column-reverse;
+            .content-wrapper{
+                width: 100%;
+            }
+            .store-image{
+                width: 100%;
+            }
+        }
+    }
+
+    // product-detail page
+    .detail-main-section{
+    
+        .gallery-swiper{
+            margin-bottom:  3rem;  
+        }
+        .product-details{  
+            .row [class^="col-"] {
+                padding-bottom: 1rem!important;
+            }  
+        }
+    }
+        // shopping cart
+    section.shopping-cart {
+        .shop__cart__table {
+            overflow-x: auto!important;
+          }
+        
+          .shop__cart__table tbody tr .cart__product__item img {
+            float: none;
+          }
+    }
+        
+
+
+}
+
+@media(max-width:767px){
+    .theme-button{
+        padding: .8rem 1.2rem;
+    }
+    .theme-button-black{
+        padding: .8rem 1.2rem;  
+    }
+    .sale-section {
+        .sale-section-inner {
+            .col-inner{
+                align-items: center;
+            }
+        }
+    }
+
+    // shopping cart
+    section.shopping-cart {
+        .shop__cart__table {
+            overflow-x: auto!important;
+            table {
+                width: 700px;
+            }
+          }
+        }
+
+
+
+
+    
+
+}
+
