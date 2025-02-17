@@ -5,51 +5,23 @@
         <div class="main-hero-section-inner">
           <div class="swiper mySwiper">
             <div class="swiper-wrapper">
+              {% for slide in hero_slider_data %}
               <div class="swiper-slide">
                 <figure>
-                  <img src="{% static './assets/images/main-hero-1.jpg' %}" alt="">
+                  <img src="{{slide.image.url}}" alt="">
                   <figcaption>
                     <div class="container">
                       <div class="figcaption-inner">
-                        <h2 class="main-hero-font">Gentle Luxury Style</h2>
-                        <small>Discover the hottest trends and must-have looks.</small>
-                        <a href="{% url 'shop' %}" class="theme-button-link">Shop Collection <i
+                        <h2 class="main-hero-font">{{slide.title}}</h2>
+                        <small>{{slide.info}}</small>
+                        <a href="{% url 'shop' %}" class="theme-button-link">{{slide.link_name}}<i
                             class="icon-small-arrow link-arrow"></i></a>
                       </div><!-- /.figcaption-inner -->
                     </div><!-- /.container -->
                   </figcaption>
                 </figure>
               </div>
-              <div class="swiper-slide">
-                <figure>
-                  <img src="{% static './assets/images/main-hero-2.jpg' %}" alt="">
-                  <figcaption>
-                    <div class="container">
-                      <div class="figcaption-inner">
-                        <h2 class="main-hero-font">Gentle Luxury Style</h2>
-                        <small>Discover the hottest trends and must-have looks.</small>
-                        <a href="{% url 'shop' %}" class="theme-button-link">Shop Collection <i
-                            class="icon-small-arrow link-arrow"></i></a>
-                      </div><!-- /.figcaption-inner -->
-                    </div><!-- /.container -->
-                  </figcaption>
-                </figure>
-              </div>
-              <div class="swiper-slide">
-                <figure>
-                  <img src="{% static './assets/images/main-hero-3.jpg' %}" alt="">
-                  <figcaption>
-                    <div class="container">
-                      <div class="figcaption-inner">
-                        <h2 class="main-hero-font">Gentle Luxury Style</h2>
-                        <small>Discover the hottest trends and must-have looks.</small>
-                        <a href="{% url 'shop' %}" class="theme-button-link">Shop Collection <i
-                            class="icon-small-arrow link-arrow"></i></a>
-                      </div><!-- /.figcaption-inner -->
-                    </div><!-- /.container -->
-                  </figcaption>
-                </figure>
-              </div>
+              {% endfor %}
             </div>
             <div class="container swiper-buttons-container">
               <div class="swiper-buttons">
@@ -65,46 +37,44 @@
         <div class="container-fluid">
           <div class="categories-section-inner">
             <div class="row">
+              {% for category in categories_data %}
+              {% if category.category_col_height == 'full' %}
               <div class="col-md-6 col-lg-4">
                 <div class="col-inner">
                   <figure>
-                    <img loading="lazy" src="{% static './assets/images/cat-1.jpg' %}" alt="">
+                    <img loading="lazy" src="{{category.cat_image.url}}" alt="">
                     <figcaption>
-                      <a href="{% url 'category' %}" class="theme-button">Women</a>
+                      <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
                     </figcaption>
                   </figure>
                 </div><!-- /.col-inner -->
               </div><!-- /.col-lg-4 -->
+              {% else %}
               <div class="col-md-6  col-lg-4">
                 <div class="col-inner">
                   <div class="center-category">
                     <figure>
-                      <img loading="lazy" src="assets/images/cat-2.jpg" alt="">
+                      <img loading="lazy" src="{{category.cat_image.url}}" alt="">
                       <figcaption>
-                        <a href="{% url 'category' %}" class="theme-button">Footwear</a>
+                        <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
                       </figcaption>
                     </figure>
                   </div><!-- /.center-top -->
+                  {% if category.cat_image_half_col %}
                   <div class="center-category">
                     <figure>
-                      <img loading="lazy" src="assets/images/cat-3.jpg" alt="">
+                      <img loading="lazy" src="{{category.cat_image_half_col.url}}" alt="">
+                      
                       <figcaption>
-                        <a href="{% url 'category' %}" class="theme-button">Accessories</a>
+                        <a href="{% url 'category' %}" class="theme-button">{{category.cat_half_col_name}}</a>
                       </figcaption>
                     </figure>
                   </div><!-- /.center-bottom -->
+                  {% endif %}
                 </div><!-- /.col-inner -->
               </div><!-- /.col-lg-4 -->
-              <div class="col-md-12  col-lg-4">
-                <div class="col-inner">
-                  <figure>
-                    <img loading="lazy" src="./assets/images/cat-4.jpg" alt="">
-                    <figcaption>
-                      <a href="{% url 'category' %}" class="theme-button">Men</a>
-                    </figcaption>
-                  </figure>
-                </div><!-- /.col-inner -->
-              </div><!-- /.col-lg-4 -->
+              {% endif %}
+              {% endfor %}
             </div><!-- /.row -->
           </div><!-- /.categories-section-inner -->
         </div><!-- /.container-fluid -->

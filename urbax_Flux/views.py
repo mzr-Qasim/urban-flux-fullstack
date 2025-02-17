@@ -1,7 +1,16 @@
 from django.shortcuts import render
+from Hero_Slider.models import Hero_Slider
+from Category.models import Category
 
 def home(request):
-    return render(request, 'index.html')
+    hero_slider = Hero_Slider.objects.all()
+    categories =  Category.objects.all()
+
+    Data = {
+        "hero_slider_data": hero_slider,
+        "categories_data": categories,
+    }
+    return render(request, 'index.html', Data)
 
 
 
