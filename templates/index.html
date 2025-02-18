@@ -38,20 +38,23 @@
       <div class="categories-section-inner">
         <div class="row">
           {% for category in categories_data %}
-          {% if category.category_col_height == 'full' %}
-          <div class="col-md-6 col-lg-4">
-            <div class="col-inner">
-              <figure>
-                <img loading="lazy" src="{{category.cat_image.url}}" alt="">
-                <figcaption>
-                  <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
-                </figcaption>
-              </figure>
-            </div><!-- /.col-inner -->
-          </div><!-- /.col-lg-4 -->
-          {% else %}
-          <div class="col-md-6  col-lg-4">
-            <div class="col-inner">
+          
+              {% if forloop.counter0 == 1 or forloop.counter0 == 2 %}
+
+              <div class="col-md-6  col-lg-4">
+                <div class="col-inner">
+                  <div class="center-category">
+                    <figure>
+                      <img loading="lazy" src="{{category.cat_image.url}}" alt="">
+                      <figcaption>
+                        <a href="#" class="theme-button">{{category.category_name}}</a>
+                      </figcaption>
+                    </figure>
+                  </div><!-- /.center-top -->
+                </div><!-- /.col-inner -->
+              </div><!-- /.col-lg-4 -->
+
+              <!-- <div class="col-inner">
               <div class="center-category">
                 <figure>
                   <img loading="lazy" src="{{category.cat_image.url}}" alt="">
@@ -59,21 +62,31 @@
                     <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
                   </figcaption>
                 </figure>
-              </div><!-- /.center-top -->
-              {% if category.cat_image_half_col %}
-              <div class="center-category">
-                <figure>
-                  <img loading="lazy" src="{{category.cat_image_half_col.url}}" alt="">
+              </div>
+            </div> -->
+              {% else %}
 
+              <div class="col-md-6 col-lg-4">
+                <div class="col-inner">
+                  <figure>
+                    <img loading="lazy" src="{{category.cat_image.url}}" alt="">
+                    <figcaption>
+                      <a href="#" class="theme-button">{{category.category_name}}</a>
+                    </figcaption>
+                  </figure>
+                </div><!-- /.col-inner -->
+              </div><!-- /.col-lg-4 -->
+
+              <!-- <div class="col-inner">
+                <figure>
+                  <img loading="lazy" src="{{category.cat_image.url}}" alt="">
                   <figcaption>
-                    <a href="{% url 'category' %}" class="theme-button">{{category.cat_half_col_name}}</a>
+                    <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
                   </figcaption>
                 </figure>
-              </div><!-- /.center-bottom -->
+              </div> -->
               {% endif %}
-            </div><!-- /.col-inner -->
-          </div><!-- /.col-lg-4 -->
-          {% endif %}
+          
           {% endfor %}
         </div><!-- /.row -->
       </div><!-- /.categories-section-inner -->
@@ -84,22 +97,25 @@
       <div class="sale-section-inner">
         <div class="row flex-column-reverse flex-md-row">
           <div class="col-md-4">
+            {% for section in sale_section_data %}
             <div class="col-inner sale-section-content">
               <div class="inner">
-                <small class="small-font sale">SPRING SALE 30% OFF</small>
-                <h3 class="main-heading-font">Effortless Denim Delights</h3>
-                <small class="small-font">Discover the versatility of denim with our collection of jeans,
-                  jackets</small>
-                <a href="{% url 'shop' %}" class="theme-button-black">Shop Collection</a>
+                <small class="small-font sale">{{section.title}}</small>
+                <h3 class="main-heading-font">{{section.heading}}</h3>
+                <small class="small-font">{{section.description}}</small>
+                <a href="{% url 'shop' %}" class="theme-button-black">{{section.link_button_name}}</a>
               </div><!-- /.inner -->
             </div><!-- /.col-inner -->
+            {% endfor %}
           </div><!-- /.col-md-4 -->
           <div class="col-md-6 offset-md-2">
+            {% for section in sale_section_data %}
             <div class="col-inner">
               <figure>
-                <img loading="lazy" src="assets/images/sale-section.jpg" alt="">
+                <img loading="lazy" src="{{section.image.url}}" alt="">
               </figure>
             </div><!-- /.col-inner -->
+            {% endfor %}
           </div><!-- /.col-md-6 -->
         </div><!-- /.row -->
       </div><!-- /.sale-section-inner -->

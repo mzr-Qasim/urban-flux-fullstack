@@ -2,16 +2,21 @@ from django.shortcuts import render
 from Hero_Slider.models import Hero_Slider
 from Category.models import Category
 from Store.models import Store
+from Sale_Section.models import Sale_Section
 
 def home(request):
     hero_slider = Hero_Slider.objects.all()
     categories =  Category.objects.all()
     Products = Store.objects.all()
+    sale_section = Sale_Section.objects.all()
+
+
 
     Data = {
         "hero_slider_data": hero_slider,
         "categories_data": categories,
         "Product_Data" : Products,
+        "sale_section_data" : sale_section,
     }
     return render(request, 'index.html', Data)
 

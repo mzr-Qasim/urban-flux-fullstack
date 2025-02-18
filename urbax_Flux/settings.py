@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Hero_Slider',
     'Category',
     'Store',
+    'Sale_Section',
 ]
 
 MIDDLEWARE = [
