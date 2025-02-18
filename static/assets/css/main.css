@@ -12153,6 +12153,10 @@ small, .small {
   text-align: center;
 }
 
+.d_none {
+  display: none;
+}
+
 .w_100 {
   width: 100%;
 }
@@ -12625,17 +12629,20 @@ small, .small {
   justify-content: center;
   flex: 1;
 }
-.navbar-nav li .search-box {
+.navbar-nav li.nav-bar-links .search-box {
   margin-right: 0;
 }
-.navbar-nav li a.nav-link {
+.navbar-nav li.nav-bar-links a.nav-link {
   font-weight: 500;
   color: #000000;
 }
-.navbar-nav li:not(:last-child) {
+.navbar-nav li.nav-bar-links:not(:last-child) {
   margin-right: 2rem;
 }
 
+.nav-right-links li i {
+  font-size: 1.2rem !important;
+}
 .nav-right-links li:not(:last-child) {
   margin-right: 1.5rem;
 }
@@ -12663,67 +12670,6 @@ small, .small {
   align-items: center;
   justify-content: center;
   transform: translate(-50%, -50%);
-}
-.nav-right-links li .search-box {
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  position: relative;
-}
-.nav-right-links li .input-search {
-  height: 50px;
-  width: 50px;
-  border-style: none;
-  padding: 10px;
-  font-size: 18px;
-  letter-spacing: 2px;
-  outline: none;
-  border-radius: 25px;
-  transition: all 0.5s ease-in-out;
-  padding-right: 40px;
-  color: #000000;
-}
-.nav-right-links li .input-search::-moz-placeholder {
-  color: #000000;
-  font-size: 18px;
-  letter-spacing: 2px;
-  font-weight: 100;
-}
-.nav-right-links li .input-search::placeholder {
-  color: #000000;
-  font-size: 18px;
-  letter-spacing: 2px;
-  font-weight: 100;
-}
-.nav-right-links li .btn-search {
-  width: 50px;
-  height: 50px;
-  border-style: none;
-  font-size: 20px;
-  font-weight: bold;
-  outline: none;
-  cursor: pointer;
-  border-radius: 50%;
-  position: absolute;
-  right: 0px;
-  color: #000000;
-  background-color: transparent;
-  pointer-events: painted;
-}
-.nav-right-links li .btn-search:focus ~ .input-search {
-  width: 300px;
-  border-radius: 0px;
-  background-color: transparent;
-  border-bottom: 1px solid #000000;
-  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
-}
-.nav-right-links li .input-search:focus {
-  width: 300px;
-  border-radius: 0px;
-  background-color: transparent;
-  border-bottom: 1px solid #000000;
-  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 
 .nav-right-links-mobile {

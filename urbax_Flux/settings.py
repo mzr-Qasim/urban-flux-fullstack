@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Hero_Slider',
-    'Category'
+    'Category',
+    'Store',
 ]
 
 MIDDLEWARE = [

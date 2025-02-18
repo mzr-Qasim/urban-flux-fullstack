@@ -33,10 +33,11 @@
                 <div class="container">
                     <div class="theme-product-cards-inner">
                         <div class="row">
+                            {% for product in Product_Data %}
                             <div class="col-md-6 col-lg-4 col-xl-3">
                                 <div class="product-cards">
                                     <figure>
-                                        <img loading="lazy" src="{% static 'assets/images/prod-1.jpg' %}" alt="">
+                                        <img loading="lazy" src="{{product.Image.url}}" alt="">
                                         <figcaption>
                                             <div class="top-icons">
                                                 <a href="#"><i
@@ -47,7 +48,11 @@
                                             <a href="#" class="product-carousel-shop-button quick-shop"><i
                                                     class="icon-cart"></i>QUICK
                                                 SHOP</a>
-                                            <span class="sale-off">-36%</span>
+                                                {% if product.sale %}
+                                            <span class="sale-off">-{{product.sale}}%</span>
+                                            {% else %}
+                                            <span class="d_none"></span>
+                                            {% endif %}
                                         </figcaption>
                                     </figure>
                                     <div class="info">
@@ -56,11 +61,12 @@
                                         <span><i class="icon-rating"></i></span>
                                         <span><i class="icon-rating"></i></span>
                                         <span><i class="icon-rating"></i></span>
-                                        <a href="{% url 'product-detail' %}" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                        <small>$18.00</small>
+                                        <a href="{% url 'product-detail' %}" class="product-carousel-anchor">{{product.product_name}}</a>
+                                        <small>${{product.price}}</small>
                                     </div><!-- /.info -->
                                 </div><!-- /.product-cards -->
                             </div><!-- /.col-xl-3 -->
+                            {% endfor %}
                         </div><!-- /.row -->
                     </div><!-- /.theme-product-cards-inner -->
                     <div class="pagination just-center my-5">
