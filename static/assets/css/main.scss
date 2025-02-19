@@ -190,6 +190,10 @@
 .categories-section {
     margin-bottom: $section-space-large;
 
+    .row [class^="col-"] {
+            padding-bottom: 1rem;
+    }
+
     .col-inner {
         height: 100%;
         display: flex;

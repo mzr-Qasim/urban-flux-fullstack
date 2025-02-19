@@ -6,7 +6,9 @@
         <div class="row">
           <div class="col-md-12 col-lg-6 col-xl-2">
             <div class="col-inner">
-              <img loading="lazy" src="{% static 'assets/images/logo/main-logo.svg' %}" class="site-logo" alt="">
+              {% for logo in site_settings_data %}
+              <img loading="lazy" src="{{logo.site_logo.url}}" class="site-logo" alt="">
+              {% endfor %}
               <ul class="mb-5">
                 <li>
                   <small>Address: 1234 Fashion Street, Suite 567,

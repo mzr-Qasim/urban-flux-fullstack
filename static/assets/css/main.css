@@ -12755,6 +12755,9 @@ small, .small {
 .categories-section {
   margin-bottom: 6rem;
 }
+.categories-section .row [class^=col-] {
+  padding-bottom: 1rem;
+}
 .categories-section .col-inner {
   height: 100%;
   display: flex;
@@ -13744,8 +13747,8 @@ section.checkout .checkout__order__widget label .checkmark:after {
     -o-object-position: center top;
        object-position: center top;
   }
-  .categories-section .row [class^=col-]:not(:last-child) {
-    padding-bottom: 2rem;
+  .categories-section .row [class^=col-] {
+    padding-bottom: 1rem;
   }
   .categories-section .center-category {
     height: 100% !important;

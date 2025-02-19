@@ -29,7 +29,11 @@
     <header class="header">
       <nav class="navbar navbar-expand-lg main-navbar">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="{% static './assets/images/logo/main-logo.svg' %}" class="site-logo" alt=""></a>
+          {% for logo in site_settings_data %}
+          <a class="navbar-brand" href="#">
+            <img src="{{logo.site_logo.url}}" class="site-logo" alt="">
+          </a>
+          {% endfor %}
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">

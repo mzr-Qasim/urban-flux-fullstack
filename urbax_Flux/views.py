@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from Site_Settings.models import Site_Settings
 from Hero_Slider.models import Hero_Slider
 from Category.models import Category
 from Store.models import Store
 from Sale_Section.models import Sale_Section
 
 def home(request):
+    site_settings = Site_Settings.objects.all()
     hero_slider = Hero_Slider.objects.all()
     categories =  Category.objects.all()
     Products = Store.objects.all()
@@ -13,10 +15,11 @@ def home(request):
 
 
     Data = {
+        "site_settings_data": site_settings,
         "hero_slider_data": hero_slider,
         "categories_data": categories,
-        "Product_Data" : Products,
         "sale_section_data" : sale_section,
+        "Product_Data" : Products,
     }
     return render(request, 'index.html', Data)
 
@@ -26,10 +29,12 @@ def home(request):
 
 
 def shop(request):
+    site_settings = Site_Settings.objects.all()
     Products = Store.objects.all()
     categories =  Category.objects.all()
 
     Data = {
+        "site_settings_data": site_settings,
         "Product_Data" : Products,
         "categories_data": categories,
     }
@@ -44,22 +49,46 @@ def product_detail(request):
 
 
 def product_category(request):
-    return render(request, 'category.html')
+    site_settings = Site_Settings.objects.all()
+    
+    Data = {
+        "site_settings_data": site_settings,
+    }
+    return render(request, 'category.html' , Data)
 
 
 def login(request):
-    return render(request, 'login.html')
+    site_settings = Site_Settings.objects.all()
+    Data = {
+        "site_settings_data": site_settings,
+    }
+    return render(request, 'login.html', Data)
 
-def sign_up(request):
-    return render(request, 'sign-up.html')
+def sign_up(request):  
+    site_settings = Site_Settings.objects.all()
+ 
+    Data = {
+        "site_settings_data": site_settings,
+    }
+    return render(request, 'sign-up.html', Data)
 
 
 def wish_list(request):
-    return render(request, 'wishlist.html')
+    site_settings = Site_Settings.objects.all()
+
+    Data = {
+        "site_settings_data": site_settings,
+    }
+    return render(request, 'wishlist.html' , Data)
 
 
 def shopping_cart(request):
-    return render(request, 'shopping-cart.html')
+    site_settings = Site_Settings.objects.all()
+
+    Data = {
+        "site_settings_data": site_settings,
+    }
+    return render(request, 'shopping-cart.html', Data)
 
 
 def checkout(request):

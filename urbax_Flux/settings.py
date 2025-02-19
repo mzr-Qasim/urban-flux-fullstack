@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Category',
     'Store',
     'Sale_Section',
+    'Site_Settings',
 ]
 
 MIDDLEWARE = [

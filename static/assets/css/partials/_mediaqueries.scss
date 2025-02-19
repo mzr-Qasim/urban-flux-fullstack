@@ -39,9 +39,7 @@
     // home- categories section
     .categories-section{
         .row [class^="col-"] {
-            &:not(:last-child){
-                padding-bottom: 2rem;
-            }
+                padding-bottom: 1rem;
         }    
         .center-category{
             height: 100%!important;

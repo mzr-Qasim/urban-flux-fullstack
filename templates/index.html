@@ -38,23 +38,9 @@
       <div class="categories-section-inner">
         <div class="row">
           {% for category in categories_data %}
-          
-              {% if forloop.counter0 == 1 or forloop.counter0 == 2 %}
-
-              <div class="col-md-6  col-lg-4">
-                <div class="col-inner">
-                  <div class="center-category">
-                    <figure>
-                      <img loading="lazy" src="{{category.cat_image.url}}" alt="">
-                      <figcaption>
-                        <a href="#" class="theme-button">{{category.category_name}}</a>
-                      </figcaption>
-                    </figure>
-                  </div><!-- /.center-top -->
-                </div><!-- /.col-inner -->
-              </div><!-- /.col-lg-4 -->
-
-              <!-- <div class="col-inner">
+          {% if forloop.counter == 2 %}
+          <div class="col-md-6 col-lg-4 second-column">
+            <div class="col-inner">
               <div class="center-category">
                 <figure>
                   <img loading="lazy" src="{{category.cat_image.url}}" alt="">
@@ -62,31 +48,30 @@
                     <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
                   </figcaption>
                 </figure>
-              </div>
-            </div> -->
-              {% else %}
-
-              <div class="col-md-6 col-lg-4">
-                <div class="col-inner">
-                  <figure>
-                    <img loading="lazy" src="{{category.cat_image.url}}" alt="">
-                    <figcaption>
-                      <a href="#" class="theme-button">{{category.category_name}}</a>
-                    </figcaption>
-                  </figure>
-                </div><!-- /.col-inner -->
-              </div><!-- /.col-lg-4 -->
-
-              <!-- <div class="col-inner">
+              </div><!-- /.center-category -->
+              {% elif forloop.counter == 3 %}
+              <div class="center-category">
                 <figure>
                   <img loading="lazy" src="{{category.cat_image.url}}" alt="">
                   <figcaption>
                     <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
                   </figcaption>
                 </figure>
-              </div> -->
-              {% endif %}
-          
+              </div><!-- /.center-category -->
+            </div><!-- /.col-inner -->
+          </div><!-- /.col-lg-4 -->
+          {% else %}
+          <div class="col-md-6 col-lg-4">
+            <div class="col-inner">
+              <figure>
+                <img loading="lazy" src="{{category.cat_image.url}}" alt="">
+                <figcaption>
+                  <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
+                </figcaption>
+              </figure>
+            </div><!-- /.col-inner -->
+          </div><!-- /.col-lg-4 -->
+          {% endif %}
           {% endfor %}
         </div><!-- /.row -->
       </div><!-- /.categories-section-inner -->
@@ -131,7 +116,7 @@
           <div class="swiper-wrapper">
             {% for best_seller in Product_Data %}
             {% if best_seller.product_type == 'best seller' %}
-             <div class="swiper-slide product-cards">
+            <div class="swiper-slide product-cards">
               <figure>
                 <img loading="lazy" src="{{best_seller.Image.url}}" alt="">
                 <figcaption>

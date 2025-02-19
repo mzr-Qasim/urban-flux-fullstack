@@ -2,7 +2,9 @@
         <main class="main-content">
             <section class="theme-hero-section">
                 <figure>
-                    <img src="./assets/images/theme-hero-section.jpg" alt="">
+                    {% for theme in site_settings_data %}
+                    <img src="{{theme.theme_hero_section.url}}" alt="">
+                    {% endfor %}
                     <figcaption>
                         <h4 class="main-heading-font-medium">Login</h4>
                     </figcaption>
