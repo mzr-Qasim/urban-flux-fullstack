@@ -139,7 +139,7 @@
                 <span><i class="icon-rating"></i></span>
                 <span><i class="icon-rating"></i></span>
                 <span><i class="icon-rating"></i></span>
-                <a href="{% url 'product-detail' %}" class="product-carousel-anchor">{{best_seller.product_name}}</a>
+                <a href="{% url 'product-detail' best_seller.id %}" class="product-carousel-anchor">{{best_seller.product_name}}</a>
                 <small>${{best_seller.price}}</small>
               </div><!-- /.info -->
             </div>

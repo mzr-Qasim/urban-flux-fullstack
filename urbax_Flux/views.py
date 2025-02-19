@@ -25,9 +25,6 @@ def home(request):
 
 
 
-
-
-
 def shop(request):
     site_settings = Site_Settings.objects.all()
     Products = Store.objects.all()
@@ -44,8 +41,17 @@ def shop(request):
 
 
 
-def product_detail(request):
-    return render(request, 'product-detail.html')
+def product_detail(request, id): 
+    site_settings = Site_Settings.objects.all()   
+    Products = Store.objects.all()
+    single_product = Store.objects.get(id__exact=id)
+    Data = {
+        "site_settings_data": site_settings,
+        "product_data" : Products,
+        "single_product_data": single_product,
+        "current_id": int(id),
+    }
+    return render(request, 'product-detail.html', Data)
 
 
 def product_category(request):
@@ -84,12 +90,18 @@ def wish_list(request):
 
 def shopping_cart(request):
     site_settings = Site_Settings.objects.all()
+    current_url_name = request.resolver_match.url_name.replace('-',' ')
 
     Data = {
         "site_settings_data": site_settings,
+        "url_name" : current_url_name
     }
     return render(request, 'shopping-cart.html', Data)
 
 
 def checkout(request):
-    return render(request, 'checkout.html')
+    site_settings = Site_Settings.objects.all()
+    Data = {
+        "site_settings_data": site_settings,
+    }
+    return render(request, 'checkout.html', Data)

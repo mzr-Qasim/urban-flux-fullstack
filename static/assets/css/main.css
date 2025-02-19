@@ -12161,6 +12161,14 @@ small, .small {
   width: 100%;
 }
 
+.red_color {
+  color: red !important;
+}
+
+.none_pointers {
+  pointer-events: none !important;
+}
+
 .light-border {
   border: 1px solid #ddd;
   border-radius: 3px;
@@ -13793,5 +13801,13 @@ section.checkout .checkout__order__widget label .checkmark:after {
   }
   section.shopping-cart .shop__cart__table table {
     width: 700px;
+  }
+}
+@media (max-width: 575px) {
+  .nav-right-links-mobile {
+    transform: translateX(0);
+  }
+  .nav-right-links-mobile ul {
+    justify-content: center;
   }
 }/*# sourceMappingURL=main.css.map */

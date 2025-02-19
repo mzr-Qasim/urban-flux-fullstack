@@ -25,11 +25,10 @@ body{
     font-family: 'ATC Arquette';
 }
 
-// .custom-container{
+// .container-custom{
 //     max-width: 1700px;
 //     margin: 0 auto;
 //     padding: 0 1rem;
-
 // }
 
 h1, h2, h3, h4, p, ul, li, figure{
@@ -90,6 +89,14 @@ small{
 
 .w_100{
     width: 100%;
+}
+
+.red_color{
+    color: $theme-color-red!important;
+}
+
+.none_pointers{
+    pointer-events: none!important;
 }
 
 .light-border{

@@ -113,11 +113,18 @@
             }
           }
         }
-
-
-
-
-    
+ 
 
 }
 
+
+@media (max-width: 575px){
+
+    // header
+    .nav-right-links-mobile{
+        transform: translateX(0);
+        ul{
+            justify-content: center;
+        }
+    }
+}

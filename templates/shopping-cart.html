@@ -6,7 +6,7 @@
                     <img src="{{theme.theme_hero_section.url}}" alt="">
                     {% endfor %}
                     <figcaption>
-                        <h4 class="main-heading-font-medium">Shopping Cart</h4>
+                        <h4 class="main-heading-font-medium">{{url_name}}</h4>
                     </figcaption>
                 </figure>
             </section><!-- /.theme-hero-section -->
@@ -140,7 +140,7 @@
                                   <li>Subtotal <span>$ 750.0</span></li>
                                   <li>Total <span>$ 750.0</span></li>
                               </ul>
-                              <a href="./checkout.html" class="theme-button-black">Proceed to checkout</a>
+                              <a href="{% url 'checkout' %}" class="theme-button-black">Proceed to checkout</a>
                           </div>
                       </div>
                   </div>
