@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 from Category.models import Category
@@ -30,6 +31,10 @@ class Store(models.Model):
     product_image_3 = models.ImageField(upload_to='Products')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
+
+
+    def get_url(self):
+        return reverse('products_detail', args=(self.category.slug))
 
     class Meta():
         verbose_name = ''

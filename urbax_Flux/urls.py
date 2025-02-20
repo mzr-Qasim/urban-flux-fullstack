@@ -26,6 +26,7 @@ urlpatterns = [
     path('shop/', views.shop, name='shop'), 
     path('product-detail/<id>', views.product_detail, name='product-detail'), 
     path('category/', views.product_category, name='category'), 
+    path('category/<int:category>', views.product_category, name='category'), 
     path('login/', views.login, name='login'), 
     path('register/', views.sign_up, name='sign-up'), 
     path('wishlist/', views.wish_list, name='wishlist'), 

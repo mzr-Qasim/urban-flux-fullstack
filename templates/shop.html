@@ -63,7 +63,7 @@
                                         <span><i class="icon-rating"></i></span>
                                         <span><i class="icon-rating"></i></span>
                                         <span><i class="icon-rating"></i></span>
-                                        <a href="#" class="product-carousel-anchor">{{product.product_name}}</a>
+                                        <a href="{% url 'product-detail' product.id %}" class="product-carousel-anchor">{{product.product_name}}</a>
                                         <small>${{product.price}}</small>
                                     </div><!-- /.info -->
                                 </div><!-- /.product-cards -->

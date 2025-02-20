@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,  get_object_or_404
 from Site_Settings.models import Site_Settings
 from Hero_Slider.models import Hero_Slider
 from Category.models import Category
 from Store.models import Store
 from Sale_Section.models import Sale_Section
+from Cloth_Class.models import Cloth_Class
 
 def home(request):
     site_settings = Site_Settings.objects.all()
@@ -11,6 +12,7 @@ def home(request):
     categories =  Category.objects.all()
     Products = Store.objects.all()
     sale_section = Sale_Section.objects.all()
+    cloth_class_section = Cloth_Class.objects.all()
 
 
 
@@ -20,6 +22,7 @@ def home(request):
         "categories_data": categories,
         "sale_section_data" : sale_section,
         "Product_Data" : Products,
+        "Cloth_Class_Data": cloth_class_section,
     }
     return render(request, 'index.html', Data)
 
@@ -54,11 +57,17 @@ def product_detail(request, id):
     return render(request, 'product-detail.html', Data)
 
 
-def product_category(request):
+def product_category(request, category):
+    categories =  Category.objects.all()
+    category_obj = get_object_or_404(Category, id=category)
+    product_by_cat = Store.objects.filter( category_id=category)
     site_settings = Site_Settings.objects.all()
     
     Data = {
         "site_settings_data": site_settings,
+        "categories_data": categories,
+        "cat_obj" : category_obj,
+        "product_by_cat_data" : product_by_cat 
     }
     return render(request, 'category.html' , Data)
 

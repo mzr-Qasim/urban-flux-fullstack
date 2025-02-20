@@ -45,7 +45,7 @@
                 <figure>
                   <img loading="lazy" src="{{category.cat_image.url}}" alt="">
                   <figcaption>
-                    <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
+                    <a href="{% url 'category' %}{{category.id}}" class="theme-button">{{category.category_name}}</a>
                   </figcaption>
                 </figure>
               </div><!-- /.center-category -->
@@ -54,7 +54,7 @@
                 <figure>
                   <img loading="lazy" src="{{category.cat_image.url}}" alt="">
                   <figcaption>
-                    <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
+                    <a href="{% url 'category' %}{{category.id}}" class="theme-button">{{category.category_name}}</a>
                   </figcaption>
                 </figure>
               </div><!-- /.center-category -->
@@ -66,7 +66,7 @@
               <figure>
                 <img loading="lazy" src="{{category.cat_image.url}}" alt="">
                 <figcaption>
-                  <a href="{% url 'category' %}" class="theme-button">{{category.category_name}}</a>
+                  <a href="{% url 'category' %}{{category.id}}" class="theme-button">{{category.category_name}}</a>
                 </figcaption>
               </figure>
             </div><!-- /.col-inner -->
@@ -159,32 +159,21 @@
       <div class="accessories-galery-inner">
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
+            {% for class in Cloth_Class_Data %}
             <div class="swiper-slide">
               <figure>
-                <a href="#">
-                  <img loading="lazy" src="assets/images/men-accessories.jpg" alt="">
+                <a href="{% url 'shop' %}">
+                  <img loading="lazy" src="{{class.image.url}}" alt="">
                 </a>
                 <figcaption>
-                  <h4>Accessories Galore</h4>
-                  <small class="small-font">Shop through our latest selection of Fashion</small>
-                  <a href="#" class="theme-underline-button">Shop collection<i
+                  <h4>{{class.cloth_class_name}}</h4>
+                  <small class="small-font">{{class.cloth_class_info}}</small>
+                  <a href="{% url 'shop' %}" class="theme-underline-button">{{class.cloth_class_link_name}}<i
                       class="icon-theme-link link-arrow"></i></a>
                 </figcaption>
               </figure>
             </div>
-            <div class="swiper-slide">
-              <figure>
-                <a href="#">
-                  <img loading="lazy" src="assets/images/women-accessories.jpg" alt="">
-                </a>
-                <figcaption>
-                  <h4>Accessories Galore</h4>
-                  <small class="small-font">Shop through our latest selection of Fashion</small>
-                  <a href="#" class="theme-underline-button">Shop collection<i
-                      class="icon-theme-link link-arrow"></i></a>
-                </figcaption>
-              </figure>
-            </div>
+            {% endfor %}
           </div>
         </div>
       </div><!-- /.accessories-galery-inner -->

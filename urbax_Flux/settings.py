@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Store',
     'Sale_Section',
     'Site_Settings',
+    'Cloth_Class',
 ]
 
 MIDDLEWARE = [

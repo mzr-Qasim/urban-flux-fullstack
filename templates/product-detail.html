@@ -164,9 +164,21 @@
                         <strong>Size</strong>
                         <ul>
                           <li>
-                            <small>S</small>
-                            <small>M</small>
-                            <small>L</small>
+                            {% if single_product_data.Size_1  %}
+                            <small>{{single_product_data.Size_1}}</small>
+                            {% else %}
+                            <small class="d_none"></small>
+                            {% endif %}
+                            {% if single_product_data.Size_2  %}
+                            <small>{{single_product_data.Size_2}}</small>
+                            {% else %}
+                            <small class="d_none"></small>
+                            {% endif %}
+                            {% if single_product_data.Size_3  %}
+                            <small>{{single_product_data.Size_3}}</small>
+                            {% else %}
+                            <small class="d_none"></small>
+                            {% endif %}
                           </li>
                         </ul>
                       </div><!-- /.col-inner -->
@@ -176,9 +188,21 @@
                         <strong>Features</strong>
                         <ul>
                           <li>
-                            <small>Front button placket</small>
-                            <small>Adjustable sleeve tabs</small>
-                            <small>Babaton embroidered crest at placket and hem</small>
+                            {% if single_product_data.Feature_1  %}
+                            <small>{{single_product_data.Feature_1}}</small>
+                            {% else %}
+                            <small class="d_none"></small>
+                            {% endif %}
+                            {% if single_product_data.Feature_2  %}
+                            <small>{{single_product_data.Feature_2}}</small>
+                            {% else %}
+                            <small class="d_none"></small>
+                            {% endif %}
+                            {% if single_product_data.Feature_3  %}
+                            <small>{{single_product_data.Feature_3}}</small>
+                            {% else %}
+                            <small class="d_none"></small>
+                            {% endif %}
                           </li>
                         </ul>
                       </div><!-- /.col-inner -->
@@ -188,9 +212,21 @@
                         <strong>Materials Care</strong>
                         <ul>
                           <li>
-                            <small>Content: 100% LENZING™ ECOVERO™ Viscose</small>
-                            <small>Care: Hand wash</small>
-                            <small>Imported</small>
+                            {% if single_product_data.Materials_Care_1  %}
+                            <small>{{single_product_data.Materials_Care_1}}</small>
+                            {% else %}
+                            <small class="d_none"></small>
+                            {% endif %}
+                            {% if single_product_data.Materials_Care_2  %}
+                            <small>{{single_product_data.Materials_Care_2}}</small>
+                            {% else %}
+                            <small class="d_none"></small>
+                            {% endif %}
+                            {% if single_product_data.Materials_Care_3  %}
+                            <small>{{single_product_data.Materials_Care_3}}</small>
+                            {% else %}
+                            <small class="d_none"></small>
+                            {% endif %}
                           </li>
                         </ul>
                       </div><!-- /.col-inner -->
