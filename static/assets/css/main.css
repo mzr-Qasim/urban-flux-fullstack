@@ -12102,6 +12102,10 @@ body {
   font-family: "ATC Arquette";
 }
 
+.container-lg {
+  max-width: 1800px;
+}
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, p, ul, li, figure {
   margin: 0;
   padding: 0;
@@ -13801,13 +13805,5 @@ section.checkout .checkout__order__widget label .checkmark:after {
   }
   section.shopping-cart .shop__cart__table table {
     width: 700px;
-  }
-}
-@media (max-width: 575px) {
-  .nav-right-links-mobile {
-    transform: translateX(0);
-  }
-  .nav-right-links-mobile ul {
-    justify-content: center;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -44,15 +44,24 @@ def shop(request):
 
 
 
+
 def product_detail(request, id): 
     site_settings = Site_Settings.objects.all()   
     Products = Store.objects.all()
     single_product = Store.objects.get(id__exact=id)
+    sale = single_product.sale
+    price = single_product.price
+
+    if sale is None:
+        discount_price = price
+    else: 
+        discount_price = price * (1 - sale / 100)
     Data = {
         "site_settings_data": site_settings,
         "product_data" : Products,
         "single_product_data": single_product,
         "current_id": int(id),
+        "final_discount_price": discount_price,
     }
     return render(request, 'product-detail.html', Data)
 
