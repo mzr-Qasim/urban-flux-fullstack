@@ -6,6 +6,7 @@ $secondary-color: #fc5732;
 $tertiary-color: #fcfbf9;
 $theme-color-red: red;
 $loading-color: #dcdcdc;
+$before-price-color: #676767; 
 
 $light-border-color: #ddd;
 
@@ -620,6 +621,7 @@ small{
         }
 
         &::after {
+            pointer-events: none;
             content: '';
             position: absolute;
             top: 0;
@@ -641,9 +643,15 @@ small{
         margin-top: 1rem;
 
         small {
-            font-size: calc(.8rem + .2vw);
+            display: inline-block;
+            font-size: calc(1rem + .2vw);
             color: $uni-color-1;
             font-weight: 500;
+        }
+        small.before-price{
+            font-weight: 300;
+            text-decoration: line-through;
+            color: $before-price-color;
         }
     }
 

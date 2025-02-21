@@ -1,3 +1,4 @@
+{% load custom_tags %}
 {% load static %}
 {% include 'header.html' %}
         <main class="main-content">
@@ -38,6 +39,7 @@
                             {% for product in Product_Data %}
                             <div class="col-md-6 col-lg-4 col-xl-3">
                                 <div class="product-cards">
+                                    <a href="{% url 'product-detail' product.id %}">
                                     <figure>
                                         <img loading="lazy" src="{{product.Image.url}}" alt="">
                                         <figcaption>
@@ -57,6 +59,7 @@
                                             {% endif %}
                                         </figcaption>
                                     </figure>
+                                </a>
                                     <div class="info">
                                         <span><i class="icon-rating"></i></span>
                                         <span><i class="icon-rating"></i></span>
@@ -64,7 +67,11 @@
                                         <span><i class="icon-rating"></i></span>
                                         <span><i class="icon-rating"></i></span>
                                         <a href="{% url 'product-detail' product.id %}" class="product-carousel-anchor">{{product.product_name}}</a>
-                                        <small>${{product.price}}</small>
+                                        {% if product.sale >= 1 %}
+                                        <small class="before-price">${{product.price}}</small><span><small  class="red_color px-3">${% calculate_discount_price product.price product.sale %}</small></span>
+                                        {% else %}
+                                      <small>${{product.price}}</small>
+                                      {% endif %}
                                     </div><!-- /.info -->
                                 </div><!-- /.product-cards -->
                             </div><!-- /.col-xl-3 -->

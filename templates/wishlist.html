@@ -1,238 +1,52 @@
 {% include 'header.html' %}
-        <main class="main-content">
-            <section class="theme-hero-section">
-                <figure>
-                    {% for theme in site_settings_data %}
-                    <img src="{{theme.theme_hero_section.url}}" alt="">
-                    {% endfor %}
-                    <figcaption>
-                        <h4 class="main-heading-font-medium">Wishlist</h4>
-                    </figcaption>
-                </figure>
-            </section><!-- /.theme-hero-section -->
-            <section class="theme-product-cards wishlist-cards">
-                <div class="container">
-                    <div class="theme-product-cards-inner">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="product-cards">
-                                    <figure>
-                                        <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
-                                        <figcaption>
-                                            <div class="top-icons">
-                                                <a href="#"><i
-                                                        class="icon-compare product-carousel-position-icons"></i></a>
-                                            </div><!-- /.top-icons -->
-                                            <a href="#" class="product-carousel-shop-button quick-shop"><i
-                                                    class="icon-cart"></i>QUICK
-                                                SHOP</a>
-                                            <span class="sale-off">-36%</span>
-                                            <a href="#" class="wishlist-delete-button align-center"><i class="icon-delete-icon"></i></a>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="info">
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                        <small>$18.00</small>
-                                    </div><!-- /.info -->
-                                </div><!-- /.product-cards -->
-                            </div><!-- /.col-xl-3 -->
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="product-cards">
-                                    <figure>
-                                        <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
-                                        <figcaption>
-                                            <div class="top-icons">
-                                                <a href="#"><i
-                                                        class="icon-compare product-carousel-position-icons"></i></a>
-                                            </div><!-- /.top-icons -->
-                                            <a href="#" class="product-carousel-shop-button quick-shop"><i
-                                                    class="icon-cart"></i>QUICK
-                                                SHOP</a>
-                                            <span class="sale-off">-36%</span>
-                                            <a href="#" class="wishlist-delete-button align-center"><i class="icon-delete-icon"></i></a>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="info">
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                        <small>$18.00</small>
-                                    </div><!-- /.info -->
-                                </div><!-- /.product-cards -->
-                            </div><!-- /.col-xl-3 -->
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="product-cards">
-                                    <figure>
-                                        <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
-                                        <figcaption>
-                                            <div class="top-icons">
-                                                <a href="#"><i
-                                                        class="icon-compare product-carousel-position-icons"></i></a>
-                                            </div><!-- /.top-icons -->
-                                            <a href="#" class="product-carousel-shop-button quick-shop"><i
-                                                    class="icon-cart"></i>QUICK
-                                                SHOP</a>
-                                            <span class="sale-off">-36%</span>
-                                            <a href="#" class="wishlist-delete-button align-center"><i class="icon-delete-icon"></i></a>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="info">
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                        <small>$18.00</small>
-                                    </div><!-- /.info -->
-                                </div><!-- /.product-cards -->
-                            </div><!-- /.col-xl-3 -->
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="product-cards">
-                                    <figure>
-                                        <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
-                                        <figcaption>
-                                            <div class="top-icons">
-                                                <a href="#"><i
-                                                        class="icon-compare product-carousel-position-icons"></i></a>
-                                            </div><!-- /.top-icons -->
-                                            <a href="#" class="product-carousel-shop-button quick-shop"><i
-                                                    class="icon-cart"></i>QUICK
-                                                SHOP</a>
-                                            <span class="sale-off">-36%</span>
-                                            <a href="#" class="wishlist-delete-button align-center"><i class="icon-delete-icon"></i></a>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="info">
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                        <small>$18.00</small>
-                                    </div><!-- /.info -->
-                                </div><!-- /.product-cards -->
-                            </div><!-- /.col-xl-3 -->
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="product-cards">
-                                    <figure>
-                                        <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
-                                        <figcaption>
-                                            <div class="top-icons">
-                                                <a href="#"><i
-                                                        class="icon-compare product-carousel-position-icons"></i></a>
-                                            </div><!-- /.top-icons -->
-                                            <a href="#" class="product-carousel-shop-button quick-shop"><i
-                                                    class="icon-cart"></i>QUICK
-                                                SHOP</a>
-                                            <span class="sale-off">-36%</span>
-                                            <a href="#" class="wishlist-delete-button align-center"><i class="icon-delete-icon"></i></a>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="info">
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                        <small>$18.00</small>
-                                    </div><!-- /.info -->
-                                </div><!-- /.product-cards -->
-                            </div><!-- /.col-xl-3 -->
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="product-cards">
-                                    <figure>
-                                        <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
-                                        <figcaption>
-                                            <div class="top-icons">
-                                                <a href="#"><i
-                                                        class="icon-compare product-carousel-position-icons"></i></a>
-                                            </div><!-- /.top-icons -->
-                                            <a href="#" class="product-carousel-shop-button quick-shop"><i
-                                                    class="icon-cart"></i>QUICK
-                                                SHOP</a>
-                                            <span class="sale-off">-36%</span>
-                                            <a href="#" class="wishlist-delete-button align-center"><i class="icon-delete-icon"></i></a>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="info">
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                        <small>$18.00</small>
-                                    </div><!-- /.info -->
-                                </div><!-- /.product-cards -->
-                            </div><!-- /.col-xl-3 -->
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="product-cards">
-                                    <figure>
-                                        <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
-                                        <figcaption>
-                                            <div class="top-icons">
-                                                <a href="#"><i
-                                                        class="icon-compare product-carousel-position-icons"></i></a>
-                                            </div><!-- /.top-icons -->
-                                            <a href="#" class="product-carousel-shop-button quick-shop"><i
-                                                    class="icon-cart"></i>QUICK
-                                                SHOP</a>
-                                            <span class="sale-off">-36%</span>
-                                            <a href="#" class="wishlist-delete-button align-center"><i class="icon-delete-icon"></i></a>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="info">
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                        <small>$18.00</small>
-                                    </div><!-- /.info -->
-                                </div><!-- /.product-cards -->
-                            </div><!-- /.col-xl-3 -->
-                            <div class="col-md-6 col-lg-4 col-xl-3">
-                                <div class="product-cards">
-                                    <figure>
-                                        <img loading="lazy" src="assets/images/prod-1.jpg" alt="">
-                                        <figcaption>
-                                            <div class="top-icons">
-                                                <a href="#"><i
-                                                        class="icon-compare product-carousel-position-icons"></i></a>
-                                            </div><!-- /.top-icons -->
-                                            <a href="#" class="product-carousel-shop-button quick-shop"><i
-                                                    class="icon-cart"></i>QUICK
-                                                SHOP</a>
-                                            <span class="sale-off">-36%</span>
-                                            <a href="#" class="wishlist-delete-button align-center"><i class="icon-delete-icon"></i></a>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="info">
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <span><i class="icon-rating"></i></span>
-                                        <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                        <small>$18.00</small>
-                                    </div><!-- /.info -->
-                                </div><!-- /.product-cards -->
-                            </div><!-- /.col-xl-3 -->
-                        </div><!-- /.row -->
-                    </div><!-- /.theme-product-cards-inner -->
-                </div><!-- /.container -->
-            </section><!-- /.theme-product-cards -->
-        </main><!-- /.main-content -->
-       {% include 'footer.html' %}
+{% load static %}
+<main class="main-content">
+    <section class="theme-hero-section">
+        <figure>
+            {% for theme in site_settings_data %}
+            <img src="{{theme.theme_hero_section.url}}" alt="">
+            {% endfor %}
+            <figcaption>
+                <h4 class="main-heading-font-medium">Wishlist</h4>
+            </figcaption>
+        </figure>
+    </section><!-- /.theme-hero-section -->
+    <section class="theme-product-cards wishlist-cards">
+        <div class="container">
+            <div class="theme-product-cards-inner">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <div class="product-cards">
+                            <a href="">
+                                <figure>
+                                    <img loading="lazy" src="{% static './assets/images/prod-1.jpg' %}" alt="">
+                                    <figcaption>
+                                        <div class="top-icons">
+                                            <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
+                                        </div><!-- /.top-icons -->
+                                        <a href="#" class="product-carousel-shop-button quick-shop"><i
+                                                class="icon-cart"></i>QUICK
+                                            SHOP</a>
+                                        <span class="sale-off">-36%</span>
+                                        <a href="#" class="wishlist-delete-button align-center"><i
+                                                class="icon-delete-icon"></i></a>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                            <div class="info">
+                                <span><i class="icon-rating"></i></span>
+                                <span><i class="icon-rating"></i></span>
+                                <span><i class="icon-rating"></i></span>
+                                <span><i class="icon-rating"></i></span>
+                                <span><i class="icon-rating"></i></span>
+                                <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
+                                <small>$18.00</small>
+                            </div><!-- /.info -->
+                        </div><!-- /.product-cards -->
+                    </div><!-- /.col-xl-3 -->
+                </div><!-- /.row -->
+            </div><!-- /.theme-product-cards-inner -->
+        </div><!-- /.container -->
+    </section><!-- /.theme-product-cards -->
+</main><!-- /.main-content -->
+{% include 'footer.html' %}

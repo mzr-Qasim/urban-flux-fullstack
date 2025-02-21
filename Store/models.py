@@ -6,7 +6,7 @@ from Category.models import Category
 
 class Store(models.Model):
     product_name = models.CharField(max_length=100)
-    price = models.IntegerField()
+    price = models.IntegerField(null=True)
     product_type = models.CharField(max_length=15)
     description = models.TextField(max_length=500)
     Color_1 = models.CharField(max_length=10 , null=True)

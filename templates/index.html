@@ -1,5 +1,7 @@
+{% load custom_tags %}
 {% load static %}
 {% include 'header.html' %}
+
 <main class="main-content">
   <section class="main-hero-section">
     <div class="main-hero-section-inner">
@@ -42,33 +44,39 @@
           <div class="col-md-6 col-lg-4 second-column">
             <div class="col-inner">
               <div class="center-category">
-                <figure>
-                  <img loading="lazy" src="{{category.cat_image.url}}" alt="">
-                  <figcaption>
-                    <a href="{% url 'category' %}{{category.id}}" class="theme-button">{{category.category_name}}</a>
-                  </figcaption>
-                </figure>
+                <a href="{% url 'category' %}{{category.id}}">
+                  <figure>
+                    <img loading="lazy" src="{{category.cat_image.url}}" alt="">
+                    <figcaption>
+                      <a href="{% url 'category' %}{{category.id}}" class="theme-button">{{category.category_name}}</a>
+                    </figcaption>
+                  </figure>
+                </a>
               </div><!-- /.center-category -->
               {% elif forloop.counter == 3 %}
               <div class="center-category">
-                <figure>
-                  <img loading="lazy" src="{{category.cat_image.url}}" alt="">
-                  <figcaption>
-                    <a href="{% url 'category' %}{{category.id}}" class="theme-button">{{category.category_name}}</a>
-                  </figcaption>
-                </figure>
+                <a href="{% url 'category' %}{{category.id}}">
+                  <figure>
+                    <img loading="lazy" src="{{category.cat_image.url}}" alt="">
+                    <figcaption>
+                      <a href="{% url 'category' %}{{category.id}}" class="theme-button">{{category.category_name}}</a>
+                    </figcaption>
+                  </figure>
+                </a>
               </div><!-- /.center-category -->
             </div><!-- /.col-inner -->
           </div><!-- /.col-lg-4 -->
           {% else %}
           <div class="col-md-6 col-lg-4">
             <div class="col-inner">
-              <figure>
-                <img loading="lazy" src="{{category.cat_image.url}}" alt="">
-                <figcaption>
-                  <a href="{% url 'category' %}{{category.id}}" class="theme-button">{{category.category_name}}</a>
-                </figcaption>
-              </figure>
+              <a href="{% url 'category' %}{{category.id}}">
+                <figure>
+                  <img loading="lazy" src="{{category.cat_image.url}}" alt="">
+                  <figcaption>
+                    <a href="{% url 'category' %}{{category.id}}" class="theme-button">{{category.category_name}}</a>
+                  </figcaption>
+                </figure>
+              </a>
             </div><!-- /.col-inner -->
           </div><!-- /.col-lg-4 -->
           {% endif %}
@@ -117,6 +125,7 @@
             {% for best_seller in Product_Data %}
             {% if best_seller.product_type == 'best seller' %}
             <div class="swiper-slide product-cards">
+              <a href="{% url 'product-detail' best_seller.id %}">
               <figure>
                 <img loading="lazy" src="{{best_seller.Image.url}}" alt="">
                 <figcaption>
@@ -133,14 +142,20 @@
                   {% endif %}
                 </figcaption>
               </figure>
+            </a>
               <div class="info">
                 <span><i class="icon-rating"></i></span>
                 <span><i class="icon-rating"></i></span>
                 <span><i class="icon-rating"></i></span>
                 <span><i class="icon-rating"></i></span>
                 <span><i class="icon-rating"></i></span>
-                <a href="{% url 'product-detail' best_seller.id %}" class="product-carousel-anchor">{{best_seller.product_name}}</a>
+                <a href="{% url 'product-detail' best_seller.id %}"
+                  class="product-carousel-anchor">{{best_seller.product_name}}</a>
+                  {% if best_seller.sale >= 1 %}
+                  <small class="before-price">${{best_seller.price}}</small><span><small  class="red_color px-3">${% calculate_discount_price best_seller.price best_seller.sale %}</small></span>
+                  {% else %}
                 <small>${{best_seller.price}}</small>
+                {% endif %}
               </div><!-- /.info -->
             </div>
             {% endif %}

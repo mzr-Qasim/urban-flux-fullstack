@@ -80,7 +80,7 @@
     position: fixed;
     bottom: 0; 
     left: 0; 
-    z-index: 2000; 
+    z-index: 1000; 
     width: 100%; 
     padding-top: 2rem;
     padding-bottom: 1rem;
@@ -228,6 +228,7 @@
             }
 
             &::after {
+                pointer-events: none;
                 position: absolute;
                 content: '';
                 top: 0;
@@ -795,7 +796,7 @@ section.filters {
     color: $uni-color-1;
     transition: ease-in-out .5s;
     // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    z-index: 100;
+    z-index: 1001;
     transform: translateX(-100%);
 
     .filter-top {
