@@ -204,7 +204,7 @@
         <div class="store-tabs theme-tabs">
           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             {% for store in Our_Stores_section_data %} 
-            <li class="nav-item" role="presentation">
+            <li class="nav-item mb-5" role="presentation">
               <button class="nav-link {% if forloop.counter == 1 %}  active {% else %} {% endif %}"  data-bs-toggle="pill" data-bs-target="#{{store.location_city}}"
                 type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{store.location_city}}</button>
             </li>

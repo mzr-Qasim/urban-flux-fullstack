@@ -1,3 +1,4 @@
+{% load custom_tags %}
 {% load static %}
 {% include 'header.html' %}
     <main class="main-content">
@@ -282,10 +283,12 @@
               </div><!-- /.title -->
               <div class="swiper mySwiper_related_products">
                 <div class="swiper-wrapper">
+                  {% for related in product_data %}
+                  {% if related.category == single_product_data.category and related.id != single_product_data.id  %}
                   <div class="swiper-slide product-cards">
-                    <a href="">
+                    <a href="{% url 'product-detail' related.id %}">
                     <figure>
-                      <img loading="lazy" src="{% static './assets/images/prod-1.jpg' %}" alt="">
+                      <img loading="lazy" src="{{related.Image.url}}" alt="">
                       <figcaption>
                         <div class="top-icons">
                           <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
@@ -293,7 +296,11 @@
                         </div><!-- /.top-icons -->
                         <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
                           SHOP</a>
-                        <span class="sale-off">-36%</span>
+                          {% if related.sale %}
+                        <span class="sale-off">-{{related.sale}}%</span>
+                        {% else %}
+                        <span class="d_none"></span>
+                        {% endif %}
                       </figcaption>
                     </figure>
                     </a>
@@ -303,10 +310,16 @@
                       <span><i class="icon-rating"></i></span>
                       <span><i class="icon-rating"></i></span>
                       <span><i class="icon-rating"></i></span>
-                      <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
+                      <a href="{% url 'product-detail' related.id %}" class="product-carousel-anchor">{{related.product_name}}</a>
+                      {% if related.sale >= 1  %}
+                      <small class="before-price">${{related.price}}</small><span><small  class="red_color px-3">${% calculate_discount_price related.price related.sale %}</small></span>
+                      {% else %}
                       <small>$18.00</small>
+                      {% endif %}
                     </div><!-- /.info -->
                   </div>
+                  {% endif %}
+                  {% endfor %}
                 </div>
                 <div class="swiper-product-buttons">
                   <div class="swiper-button-next"></div>
