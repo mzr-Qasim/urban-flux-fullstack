@@ -63,7 +63,7 @@
                     <small class="border-text mb-3 red_color">out of stock</small>
                     {% endif %}
                     {% if single_product_data.sale >= 1 %}
-                    <h4 class="mb-4"><small style="text-decoration: line-through; display: inline-block;">${{single_product_data.price}} </small><span class="red_color px-3">${{final_discount_price}}</span><small style="display: inline-block; background-color: red;" class="sale-off">-{{single_product_data.sale}}%</small></h4>
+                    <h4 class="mb-4 price"><small class="off-price">${{single_product_data.price}} </small><span class="red_color px-3">${{final_discount_price}}</span><small style="display: inline-block; background-color: red;" class="sale-off">-{{single_product_data.sale}}%</small></h4>
                     {% else %}
                     <h4 class="mb-4">${{single_product_data.price}}</h4>
                     {% endif %}

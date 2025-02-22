@@ -5,6 +5,7 @@ from Category.models import Category
 from Store.models import Store
 from Sale_Section.models import Sale_Section
 from Cloth_Class.models import Cloth_Class
+from Our_Locations.models import Our_Locations
 
 def home(request):
     site_settings = Site_Settings.objects.all()
@@ -13,6 +14,7 @@ def home(request):
     Products = Store.objects.all()
     sale_section = Sale_Section.objects.all()
     cloth_class_section = Cloth_Class.objects.all()
+    our_Stores_section = Our_Locations.objects.all()
 
 
 
@@ -23,6 +25,7 @@ def home(request):
         "sale_section_data" : sale_section,
         "Product_Data" : Products,
         "Cloth_Class_Data": cloth_class_section,
+        "Our_Stores_section_data" : our_Stores_section
     }
     return render(request, 'index.html', Data)
 

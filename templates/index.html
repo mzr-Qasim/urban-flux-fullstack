@@ -203,95 +203,42 @@
         </div><!-- /.title -->
         <div class="store-tabs theme-tabs">
           <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            
+            {% for store in Our_Stores_section_data %} 
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home"
-                type="button" role="tab" aria-controls="pills-home" aria-selected="true">Hongkong</button>
+              <button class="nav-link {% if forloop.counter == 1 %}  active {% else %} {% endif %}"  data-bs-toggle="pill" data-bs-target="#{{store.location_city}}"
+                type="button" role="tab" aria-controls="pills-home" aria-selected="true">{{store.location_city}}</button>
             </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile"
-                type="button" role="tab" aria-controls="pills-profile" aria-selected="false">London</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact"
-                type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Paris</button>
-            </li>
+            {% endfor %}
           </ul>
         </div><!-- /.store-tabs -->
         <div class="store-tabs-inner">
           <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
-              tabindex="0">
+            {% for store in Our_Stores_section_data %}
+            <div class="tab-pane fade {% if forloop.counter == 1 %} show active {% else %} {% endif %}" id="{{store.location_city}}" role="tabpanel" 
+              tabindex="{{forloop.counter}}">
               <div class="store-inner">
                 <div class="content-wrapper">
                   <div class="content-inner">
-                    <h4>Hongkong Store</h4>
+                    <h4>{{store.location_city}} Store</h4>
                     <span class="location">
-                      <small>301 Front St WToronto,</small>
-                      <small>UrbanFlux@support.com</small>
-                      <small>(08) 8942 1299</small>
+                      <small>{{store.location}}</small>
+                      <small>{{store.email}}</small>
+                      <small>{{store.phone}}</small>
                     </span>
                     <span class="timing">
-                      <small>Mon - Fri, 8:30am - 10:30pm</small>
-                      <small>Sunday Closed</small>
+                      <small>{{store.timings}}</small>
+                      <small>{{store.close_detail}}</small>
                     </span>
                   </div><!-- /.content-inner -->
                 </div><!-- /.content-wrapper -->
                 <div class="store-image">
                   <figure>
-                    <img loading="lazy" src="assets/images/store-1.jpg" alt="">
+                    <img loading="lazy" src="{{store.Image.url}}" alt="">
                   </figure>
                 </div><!-- /.store-image -->
               </div><!-- /.store-inner -->
             </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
-              tabindex="0">
-              <div class="store-inner">
-                <div class="content-wrapper">
-                  <div class="content-inner">
-                    <h4>London Store</h4>
-                    <span class="location">
-                      <small>301 Front St WToronto,</small>
-                      <small>UrbanFlux@support.com</small>
-                      <small>(08) 8942 1299</small>
-                    </span>
-                    <span class="timing">
-                      <small>Mon - Fri, 8:30am - 10:30pm</small>
-                      <small>Sunday Closed</small>
-                    </span>
-                  </div><!-- /.content-inner -->
-                </div><!-- /.content-wrapper -->
-                <div class="store-image">
-                  <figure>
-                    <img loading="lazy" src="assets/images/store-2.jpg" alt="">
-                  </figure>
-                </div><!-- /.store-image -->
-              </div><!-- /.store-inner -->
-            </div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
-              tabindex="0">
-              <div class="store-inner">
-                <div class="content-wrapper">
-                  <div class="content-inner">
-                    <h4>Paris Store</h4>
-                    <span class="location">
-                      <small>301 Front St WToronto,</small>
-                      <small>UrbanFlux@support.com</small>
-                      <small>(08) 8942 1299</small>
-                    </span>
-                    <span class="timing">
-                      <small>Mon - Fri, 8:30am - 10:30pm</small>
-                      <small>Sunday Closed</small>
-                    </span>
-                  </div><!-- /.content-inner -->
-                </div><!-- /.content-wrapper -->
-                <div class="store-image">
-                  <figure>
-                    <img loading="lazy" src="assets/images/store-3.jpg" alt="">
-                  </figure>
-                </div><!-- /.store-image -->
-              </div><!-- /.store-inner -->
-            </div>
+            {% endfor %}
           </div>
         </div><!-- /.store-tabs-inner -->
       </div><!-- /.our-store-inner -->

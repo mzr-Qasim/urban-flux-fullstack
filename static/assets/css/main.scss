@@ -424,6 +424,9 @@
 
 // footer
 
+
+
+
 .footer-inner {
     .site-logo {
         margin-bottom: 2rem;
@@ -577,8 +580,16 @@
             display: flex;
             align-items: center;
             margin-bottom: 1rem;
-        }
 
+        }
+        h4.price{
+            small.off-price{
+                font-weight: 300;
+                color: $before-price-color;
+                text-decoration: line-through; 
+                display: inline-block;
+            }
+        }
         .quantity {
             text-align: center;
         }
