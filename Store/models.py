@@ -33,6 +33,7 @@ class Store(models.Model):
 
 
 
+
     def get_url(self):
         return reverse('products_detail', args=(self.category.slug))
 

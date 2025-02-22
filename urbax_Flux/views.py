@@ -31,15 +31,17 @@ def home(request):
 
 
 
-def shop(request):
+def shop(request, type_name):
     site_settings = Site_Settings.objects.all()
     Products = Store.objects.all()
     categories =  Category.objects.all()
+    product_type = Store.objects.filter(type=type_name)
 
     Data = {
         "site_settings_data": site_settings,
         "Product_Data" : Products,
         "categories_data": categories,
+        "product_types" : product_type
     }
     return render(request, 'shop.html', Data)
 
