@@ -11,6 +11,8 @@ def validate_logo(value):
 
 
 class Site_Settings(models.Model):
+    estimated_delivery = models.TextField(max_length= 200, null=True)
+    return_time = models.TextField(max_length= 200 , null=True)
     site_logo = models.FileField(upload_to='site_logo', validators=[validate_logo])
     theme_hero_section = models.ImageField(upload_to= 'theme_hero_section')
     tax_rate = models.IntegerField()

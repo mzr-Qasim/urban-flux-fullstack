@@ -69,7 +69,7 @@
                     {% endif %}
                     <div class="row">
                       <div class="col-lg-4 col-inner">
-                        {% if single_product_data.is_available %}
+                        <!-- {% if single_product_data.is_available %}
                         <span class="quantity-selector">
                           <a href="" class="quantity-increase">-</a><span class="quantity">1</span><a href=""
                             class="quantity-decrease">+</a>
@@ -79,15 +79,19 @@
                           <a href="" class="quantity-increase none_pointers">-</a><span class="quantity">1</span><a href=""
                             class="quantity-decrease none_pointers">+</a>
                         </span>
-                        {% endif %}
+                        {% endif %} -->
+                        <div data-mdb-input-init class="form-outline quantity-selector">
+                          <input class="quantity mb-2" type="number" id="typeNumber" class="form-control" {% if single_product_data.is_available  %}{% else %}disabled{% endif %} value="1" min="1" max="{{single_product_data.stock}}" />
+                          <label class="form-label" for="typeNumber">Select Quantity</label>
+                      </div>
                       </div><!-- /.col-lg-4 -->
                       <div class="col-lg-6 offset-lg-2 col-inner">
                         {% if single_product_data.is_available %}
                         <a href="" class="theme-button-black w_100 text-align-center"><small>Add to cart -
-                            $34.00</small></a>
+                            ${{final_discount_price}}</small></a>
                         {% else %}
                         <a href="#" class="theme-button-black w_100 text-align-center none_pointers"><small>Add to cart -
-                          $34.00</small></a>
+                          ${{final_discount_price}}</small></a>
                         {% endif %}
                       </div><!-- /.col-lg-6 -->
                       <div class="col-lg-12">
@@ -102,13 +106,19 @@
                       <div class="col-lg-6">
                         <div class="shipping-detail light-border">
                           <i class="icon-delievery-icon mb-3"></i>
-                          <p><small>Estimate delivery times: <b>12-26 days</b> (International), <b>3-6 days</b> (United States).</small></p>
+                          <!-- <p><small>Estimate delivery times: <b>12-26 days</b> (International), <b>3-6 days</b> (United States).</small></p> -->
+                          {% for settings in site_settings_data %}
+                          <p><small>{{settings.estimated_delivery}}</small></p>
+                          {% endfor %}
                         </div><!-- /.shipping-detail -->
                       </div><!-- /.col-lg-5 -->
                       <div class="col-lg-6">
                         <div class="shipping-detail light-border">
                           <i class="icon-return-icon mb-3"></i>
-                          <p><small>Return within <b>30 days</b> of purchase. Duties & taxes are non-refundable.</small></p>
+                          {% for settings in site_settings_data %}
+                          <p><small>{{settings.return_time}}</small></p>
+                          {% endfor %}
+                          <!-- <p><small>Return within <b>30 days</b> of purchase. Duties & taxes are non-refundable.</small></p> -->
                         </div><!-- /.shipping-detail -->
                       </div><!-- /.col-lg-5 -->
                     </div><!-- /.row -->

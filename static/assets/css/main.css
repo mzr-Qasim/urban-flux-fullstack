@@ -12516,20 +12516,8 @@ small, .small {
   font-size: calc(1.2rem + 0.2vw);
   border-radius: 3px;
 }
-.quantity-selector a {
-  color: #000000;
-  width: 25px;
-  height: 25px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: normal;
-  border-radius: 50%;
-  transition: ease-in-out 0.3s;
-}
-.quantity-selector a:hover {
-  color: #ffffff;
-  background-color: #000000;
+.quantity-selector label {
+  font-size: 1rem;
 }
 
 .product-cards figure {
@@ -13065,7 +13053,7 @@ small, .small {
   margin-bottom: 1rem;
 }
 .detail-main-section .product-details .quantity {
-  margin: 0 1rem;
+  text-align: center;
 }
 .detail-main-section .product-details .theme-button-black {
   padding: 0.7rem;
