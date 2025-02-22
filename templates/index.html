@@ -10,7 +10,7 @@
           {% for slide in hero_slider_data %}
           <div class="swiper-slide">
             <figure>
-              <img src="{{slide.image.url}}" alt="">
+              <img src="{{slide.image.url}}"  {% if forloop.counter == 1 %}{% else %} loading="lazy" {% endif %} alt="">
               <figcaption>
                 <div class="container">
                   <div class="figcaption-inner">
@@ -66,6 +66,7 @@
               </div><!-- /.center-category -->
             </div><!-- /.col-inner -->
           </div><!-- /.col-lg-4 -->
+          {% elif category.type  %}
           {% else %}
           <div class="col-md-6 col-lg-4">
             <div class="col-inner">
@@ -128,7 +129,7 @@
               <a href="{% url 'product-detail' best_seller.id %}">
               <figure>
                 <img loading="lazy" src="{{best_seller.Image.url}}" alt="">
-                <figcaption>
+                <figcaption {% if best_seller.category.type == 'LUXURY' %} class="class-prod luxury-prod" {% elif best_seller.category.type == 'FORMAL' %} class="class-prod formal-prod" {% else %}{% endif %}>
                   <div class="top-icons">
                     <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
                     <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
@@ -152,7 +153,7 @@
                 <a href="{% url 'product-detail' best_seller.id %}"
                   class="product-carousel-anchor">{{best_seller.product_name}}</a>
                   {% if best_seller.sale >= 1 %}
-                  <small class="before-price">${{best_seller.price}}</small><span><small  class="red_color px-3">${% calculate_discount_price best_seller.price best_seller.sale %}</small></span>
+                  <small class="before-price">${{best_seller.price}}</small><span><small  class="red_color px-3  {% if best_seller.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${% calculate_discount_price best_seller.price best_seller.sale %}</small></span>
                   {% else %}
                 <small>${{best_seller.price}}</small>
                 {% endif %}
@@ -174,20 +175,22 @@
       <div class="accessories-galery-inner">
         <div class="swiper mySwiper3">
           <div class="swiper-wrapper">
-            {% for class in Cloth_Class_Data %}
+            {% for type in categories_data %}
+            {% if type.type %}
             <div class="swiper-slide">
               <figure>
-                <a href="{% url 'shop' %}">
-                  <img loading="lazy" src="{{class.image.url}}" alt="">
+                <a href="{% url 'category' %}{{type.id}}">
+                  <img loading="lazy" src="{{type.cat_image.url}}" alt="">
                 </a>
                 <figcaption>
-                  <h4>{{class.cloth_class_name}}</h4>
-                  <small class="small-font">{{class.cloth_class_info}}</small>
-                  <a href="{% url 'shop' %}" class="theme-underline-button">{{class.cloth_class_link_name}}<i
+                  <h4>{{type.category_name}}</h4>
+                  <small class="small-font">{{type.type_description}}</small>
+                  <a href="{% url 'category' %}{{type.id}}" class="theme-underline-button">{{type.type_button}}<i
                       class="icon-theme-link link-arrow"></i></a>
                 </figcaption>
               </figure>
             </div>
+            {% endif %}
             {% endfor %}
           </div>
         </div>

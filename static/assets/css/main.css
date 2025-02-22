@@ -22,8 +22,24 @@
 }
 @font-face {
   font-family: "icomoon";
-  src: url("fonts/icomoon.eot?lgussq");
-  src: url("fonts/icomoon.eot?lgussq#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?lgussq") format("truetype"), url("fonts/icomoon.woff?lgussq") format("woff"), url("fonts/icomoon.svg?lgussq#icomoon") format("svg");
+  src: url("fonts/icomoon.eot?1yt00u");
+  src: url("fonts/icomoon.eot?1yt00u#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?1yt00u") format("truetype"), url("fonts/icomoon.woff?1yt00u") format("woff"), url("fonts/icomoon.svg?1yt00u#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?5fe4z6");
+  src: url("fonts/icomoon.eot?5fe4z6#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?5fe4z6") format("truetype"), url("fonts/icomoon.woff?5fe4z6") format("woff"), url("fonts/icomoon.svg?5fe4z6#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?1yt00u");
+  src: url("fonts/icomoon.eot?1yt00u#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?1yt00u") format("truetype"), url("fonts/icomoon.woff?1yt00u") format("woff"), url("fonts/icomoon.svg?1yt00u#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -78,52 +94,60 @@
   content: "\e908";
 }
 
-.icon-instagram:before {
+.icon-formal-icon:before {
   content: "\e909";
 }
 
-.icon-login:before {
+.icon-instagram:before {
   content: "\e90a";
 }
 
-.icon-long-arrow:before {
+.icon-login:before {
   content: "\e90b";
 }
 
-.icon-pinterest:before {
+.icon-long-arrow:before {
   content: "\e90c";
 }
 
-.icon-quick-view:before {
+.icon-luxury-icon:before {
   content: "\e90d";
 }
 
-.icon-rating:before {
+.icon-pinterest:before {
   content: "\e90e";
 }
 
-.icon-return-icon:before {
+.icon-quick-view:before {
   content: "\e90f";
 }
 
-.icon-search:before {
+.icon-rating:before {
   content: "\e910";
 }
 
-.icon-small-arrow:before {
+.icon-return-icon:before {
   content: "\e911";
 }
 
-.icon-theme-link:before {
+.icon-search:before {
   content: "\e912";
 }
 
-.icon-tiktok:before {
+.icon-small-arrow:before {
   content: "\e913";
 }
 
-.icon-twitter:before {
+.icon-theme-link:before {
   content: "\e914";
+}
+
+.icon-tiktok:before {
+  content: "\e915";
+}
+
+.icon-twitter:before {
+  content: "\e916";
 }
 
 /*!
@@ -12103,11 +12127,7 @@ body {
 }
 
 .container-lg {
-  max-width: 1600px;
-}
-
-.container-sm {
-  max-width: 1100px;
+  max-width: 1800px;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, p, ul, li, figure {
@@ -12171,6 +12191,10 @@ small, .small {
 
 .red_color {
   color: red !important;
+}
+
+.luxury_color {
+  color: #000080 !important;
 }
 
 .none_pointers {
@@ -12329,7 +12353,7 @@ small, .small {
 }
 
 .swiper-buttons .swiper-button-next::after {
-  content: "\e911";
+  content: "\e913";
   font-family: "icomoon";
   font-size: 1.6rem;
   text-transform: none !important;
@@ -12346,7 +12370,7 @@ small, .small {
   color: #ffffff;
 }
 .swiper-buttons .swiper-button-prev::after {
-  content: "\e911";
+  content: "\e913";
   rotate: 180deg;
   font-family: "icomoon";
   font-size: 1.6rem;
@@ -12365,7 +12389,7 @@ small, .small {
 }
 
 .swiper-default .swiper-button-next::after {
-  content: "\e911";
+  content: "\e913";
   font-family: "icomoon";
   font-size: 1rem;
   text-transform: none !important;
@@ -12383,7 +12407,7 @@ small, .small {
   color: #ffffff;
 }
 .swiper-default .swiper-button-prev::after {
-  content: "\e911";
+  content: "\e913";
   rotate: 180deg;
   font-family: "icomoon";
   font-size: 1rem;
@@ -12513,8 +12537,6 @@ small, .small {
 }
 
 .quantity-selector {
-  background-color: #fcfbf9;
-  padding: 0.5rem;
   color: #000000;
   font-weight: normal;
   font-size: calc(1.2rem + 0.2vw);
@@ -12625,6 +12647,38 @@ small, .small {
   align-items: center;
   justify-content: center;
   transform: translate(0, -50%);
+}
+
+.class-prod::before {
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 2 !important;
+  transform: translate(0, 0);
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.luxury-prod::before {
+  font-family: "icomoon" !important;
+  content: "\e90d";
+  color: #000000;
+  background-color: #00FFFF;
+}
+
+.formal-prod::before {
+  font-family: "icomoon" !important;
+  content: "\e909";
+  color: #000000;
+  background-color: #ffffff;
 }
 
 .main-navbar {
@@ -13814,5 +13868,8 @@ section.checkout .checkout__order__widget label .checkmark:after {
   }
   section.shopping-cart .shop__cart__table table {
     width: 700px;
+  }
+  .product-cards figure {
+    aspect-ratio: 1/1.1;
   }
 }/*# sourceMappingURL=main.css.map */

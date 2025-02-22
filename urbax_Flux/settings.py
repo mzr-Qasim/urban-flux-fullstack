@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'Store',
     'Sale_Section',
     'Site_Settings',
-    'Cloth_Class',
     'Our_Locations',
 ]
 

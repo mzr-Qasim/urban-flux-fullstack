@@ -42,7 +42,7 @@
                                     <a href="{% url 'product-detail' product.id %}">
                                     <figure>
                                         <img loading="lazy" src="{{product.Image.url}}" alt="">
-                                        <figcaption>
+                                        <figcaption {% if product.category.type == 'LUXURY' %} class="class-prod luxury-prod" {% elif product.category.type == 'FORMAL' %} class="class-prod formal-prod" {% else %}{% endif %}>
                                             <div class="top-icons">
                                                 <a href="#"><i
                                                         class="icon-favourite product-carousel-position-icons"></i></a>
@@ -68,7 +68,7 @@
                                         <span><i class="icon-rating"></i></span>
                                         <a href="{% url 'product-detail' product.id %}" class="product-carousel-anchor">{{product.product_name}}</a>
                                         {% if product.sale >= 1 %}
-                                        <small class="before-price">${{product.price}}</small><span><small  class="red_color px-3">${% calculate_discount_price product.price product.sale %}</small></span>
+                                        <small class="before-price">${{product.price}}</small><span><small  class="red_color px-3  {% if product.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${% calculate_discount_price product.price product.sale %}</small></span>
                                         {% else %}
                                       <small>${{product.price}}</small>
                                       {% endif %}

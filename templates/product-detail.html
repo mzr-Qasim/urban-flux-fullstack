@@ -64,7 +64,7 @@
                     <small class="border-text mb-3 red_color">out of stock</small>
                     {% endif %}
                     {% if single_product_data.sale >= 1 %}
-                    <h4 class="mb-4 price"><small class="off-price">${{single_product_data.price}} </small><span class="red_color px-3">${{final_discount_price}}</span><small style="display: inline-block; background-color: red;" class="sale-off">-{{single_product_data.sale}}%</small></h4>
+                    <h4 class="mb-4 price"><small class="off-price">${{single_product_data.price}} </small><span class="red_color px-3">${% calculate_discount_price single_product_data.price single_product_data.sale %}</span><small style="display: inline-block; background-color: red;" class="sale-off">-{{single_product_data.sale}}%</small></h4>
                     {% else %}
                     <h4 class="mb-4">${{single_product_data.price}}</h4>
                     {% endif %}
@@ -89,10 +89,10 @@
                       <div class="col-lg-6 offset-lg-2 col-inner">
                         {% if single_product_data.is_available %}
                         <a href="" class="theme-button-black w_100 text-align-center"><small>Add to cart -
-                            ${{final_discount_price}}</small></a>
+                            ${% calculate_discount_price single_product_data.price single_product_data.sale %}</small></a>
                         {% else %}
                         <a href="#" class="theme-button-black w_100 text-align-center none_pointers"><small>Add to cart -
-                          ${{final_discount_price}}</small></a>
+                          ${% calculate_discount_price single_product_data.price single_product_data.sale %}</small></a>
                         {% endif %}
                       </div><!-- /.col-lg-6 -->
                       <div class="col-lg-12">
@@ -148,7 +148,7 @@
             <div class="tab-content" id="pills-tabContent">
               <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                 <div class="tab-content-inner">
-                  <p class="mb-4"><small>{{single_product_data.description}}</small></p>
+                  <p class="mb-4">{{single_product_data.description}}</p>
                   <div class="row">
                     <div class="col-lg-6">
                       <div class="col-inner">
@@ -268,7 +268,7 @@
               <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
                 <div class="tab-content-inner">
                   {% for theme in site_settings_data %}
-                  <p class="pb-3"><small>{{theme.product_policies}}</small></p>
+                  <p class="pb-3">{{theme.product_policies}}</p>
                   {% endfor %}
               </div><!-- /.tab-content-inner -->
             </div> 
