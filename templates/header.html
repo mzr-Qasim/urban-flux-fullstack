@@ -7,7 +7,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UrbanFlux Fashion ecommerce store</title>
-  <link rel="icon" href="{% static './assets/images/favicon.png' %}" sizes="64x64" type="image/png">
+  {% for icon in site_settings_data %}
+  <link rel="icon" href="{{icon.fav_icon.url}}" sizes="64x64" type="image/png">
+  {% endfor %}
   <link rel="stylesheet" href="{% static 'assets/libs/swiper.css' %}">
   <link rel="stylesheet" href=" {% static 'assets/css/main.css' %}">
 </head>

@@ -14,6 +14,7 @@ class Site_Settings(models.Model):
     estimated_delivery = models.TextField(max_length= 200, null=True)
     return_time = models.TextField(max_length= 200 , null=True)
     site_logo = models.FileField(upload_to='site_logo', validators=[validate_logo])
+    fav_icon = models.FileField(upload_to= 'fav_icon', validators= [validate_logo], null=True)
     theme_hero_section = models.ImageField(upload_to= 'theme_hero_section')
     tax_rate = models.IntegerField()
     product_policies = models.TextField(max_length=400)

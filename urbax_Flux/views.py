@@ -30,7 +30,7 @@ def home(request):
 
 def shop(request):
     site_settings = Site_Settings.objects.all()
-    Products = Store.objects.all()
+    Products = reversed(Store.objects.all())
     categories =  Category.objects.all()
 
     Data = {
