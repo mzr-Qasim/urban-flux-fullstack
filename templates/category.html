@@ -69,7 +69,7 @@
                                     {% if c.sale >= 1 %}
                                         <small class="before-price">${{c.price}}</small><span><small  class="red_color px-3  {% if c.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${% calculate_discount_price c.price c.sale %}</small></span>
                                         {% else %}
-                                      <small>${{c.price}}</small>
+                                      <small  class="{% if c.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${{c.price}}</small>
                                       {% endif %}
                             </div><!-- /.info -->
                         </div><!-- /.product-cards -->

@@ -155,7 +155,7 @@
                   {% if best_seller.sale >= 1 %}
                   <small class="before-price">${{best_seller.price}}</small><span><small  class="red_color px-3  {% if best_seller.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${% calculate_discount_price best_seller.price best_seller.sale %}</small></span>
                   {% else %}
-                <small>${{best_seller.price}}</small>
+                <small class="{% if best_seller.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}" >${{best_seller.price}}</small>
                 {% endif %}
               </div><!-- /.info -->
             </div>
