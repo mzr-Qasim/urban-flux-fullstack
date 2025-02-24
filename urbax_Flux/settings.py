@@ -55,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+
+
 ]
 
 ROOT_URLCONF = 'urbax_Flux.urls'
@@ -95,6 +97,9 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost', 
         'PORT': '3306',
+         'OPTIONS': {
+        'ssl': {'ca': None},  # This disables SSL
+        },
     }
 
 
