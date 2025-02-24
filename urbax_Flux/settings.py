@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-yqv)jzq82v6)@o7)!-p9y-&a)^u8obs!98sqv77b9+qefzmq@%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['urbanflux.malikqasim.info','www.urbanflux.malikqasim.info']
 
 
 # Application definition
