@@ -8,36 +8,20 @@
                     <img src="{{theme.theme_hero_section.url}}" alt="">
                     {% endfor %}
                     <figcaption>
-                        <h4 class="main-heading-font-medium">New Arrival</h4>
+                        <h4 class="main-heading-font-medium">{{search_product_count_data}} {% if search_product_count_data <= 1 %}item{% else %}items{% endif %} found for "{{SearchTerm}}"</h4>
                     </figcaption>
                 </figure>
             </section><!-- /.theme-hero-section -->
-            <div class="theme-filters-container">
-                <div class="container">
-                    <div class="theme-filters-container-inner align-center-bet">
-                        <button class="align-center theme-filter-button light-border" id="filter_button"><i
-                                class="filter-close icon-filter-icon"></i><small>FILTER</small></button>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Sort by latest
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Sort by popularity</a></li>
-                                    <li><a class="dropdown-item" href="#">Sort by average rating</a></li>
-                                    <li><a class="dropdown-item" href="#">Sory by latest</a></li>
-                                </ul>
-                            </div><!-- /.nav-item -->
-                            
-                    </div><!-- /.theme-filters-container-inner -->
-                </div><!-- /.container -->
-            </div><!-- /.theme-filters-container -->
             <section class="theme-product-cards">
                 <div class="container">
                     <div class="theme-product-cards-inner">
                         <div class="row">
-                            {% for product in Product_Data %}
-                            <div class="col-md-6 col-lg-4 col-xl-3 product-item" data-category="{{ product.category.id }}">
+                                {% if search_product_count_data < 1 %}
+                                    <h4 class="pb-3 main-heading-font-medium">No Products Found</h4>
+                                    <p class="main-heading-font-small-medium">We couldn't find any products matching your search criteria.</p>
+                                {% else %}
+                                    {% for product in Search_products %}
+                                        <div class="col-md-6 col-lg-4 col-xl-3 product-item" data-category="{{ product.category.id }}">
                                 <div class="product-cards">
                                     <a href="{% url 'product-detail' product.id %}">
                                     <figure>
@@ -74,21 +58,11 @@
                                       {% endif %}
                                     </div><!-- /.info -->
                                 </div><!-- /.product-cards -->
-                            </div><!-- /.col-xl-3 -->
-                            {% endfor %}
+                                        </div><!-- /.col-xl-3 -->
+                                    {% endfor %}
+                                {% endif %}
                         </div><!-- /.row -->
                     </div><!-- /.theme-product-cards-inner -->
-                    <div class="pagination just-center my-5">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                            </ul>
-                          </nav>
-                    </div><!-- /.pagination -->
                 </div><!-- /.container -->
             </section><!-- /.theme-product-cards -->
         </main><!-- /.main-content -->

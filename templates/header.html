@@ -22,10 +22,11 @@
           <h4>Search our site</h4>
           <button id="search-bar-close" class="links-hover"><i class="icon-close-icon"></i></button>
         </div><!-- /.search-bar-inner -->
-        <div class="searchinput">
-          <input type="text" placeholder="Search" class="main-search-bar">
+        <form class="searchinput" action="{% url 'search-results' %}" method="get">
+          <input type="text" placeholder="Search" name="Search" class="main-search-bar">
           <button class="search-submit-btn links-hover" type="submit"><i  class="icon-search"></i></button>
-        </div><!-- /.searchinput -->
+        </form><!-- /.searchinput -->
+        <ul id="search-results"></ul>
       </div><!-- /.container -->
     </div><!-- /.search-bar -->
     <header class="header">

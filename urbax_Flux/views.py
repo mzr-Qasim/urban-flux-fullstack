@@ -28,6 +28,23 @@ def home(request):
 
 
 
+def search_results(request):
+    site_settings = Site_Settings.objects.all()
+    searchTerm = request.GET['Search']
+    search_product = Store.objects.filter(product_name__icontains = searchTerm )
+    search_product_count = search_product.count()
+    Data = {
+        "site_settings_data": site_settings,
+        "SearchTerm" : searchTerm,
+        "Search_products": search_product,
+        "search_product_count_data" : search_product_count
+    }
+    return render (request, 'search_results.html', Data)
+
+
+
+
+
 def shop(request):
     site_settings = Site_Settings.objects.all()
     Products = reversed(Store.objects.all())

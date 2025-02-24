@@ -168,3 +168,41 @@ filter_button.addEventListener('click', function () {
 // Quantity Selector
 
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all the filter category radio buttons
+  const filterCategoryRadios = document.querySelectorAll('input[name="filter_category"]');
+
+  // Listen for when a radio button is selected
+  filterCategoryRadios.forEach(function(radio) {
+      radio.addEventListener('change', function() {
+          const selectedCategoryId = this.getAttribute('data-category'); // Get the selected category ID
+
+          // Get all product items
+          const productItems = document.querySelectorAll('.product-item');
+
+          productItems.forEach(function(item) {
+              // If the category is "All", show all products
+              if (selectedCategoryId === "All") {
+                  item.style.display = 'block';
+              } else {
+                  // Otherwise, compare the selected category with the product's category
+                  if (item.getAttribute('data-category') == selectedCategoryId) {
+                      item.style.display = 'block';  // Show the product if it matches
+                  } else {
+                      item.style.display = 'none';  // Hide the product if it doesn't match
+                  }
+              }
+          });
+      });
+  });
+});
+
+
+
+
+
+
+
+
+
