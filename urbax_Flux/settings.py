@@ -99,14 +99,17 @@ DATABASES = {
         # 'PASSWORD': '',
         'USER': 'malikqas_qasim_dev',   		
 
-        'PASSWORD': 'pE?{AK0af7Bs',
-        'DATABASE': 'malikqas_urbanflux',
+        'PASSWORD': 'v2AT;$b7M??~',
+        'DATABASE': 'malikqas_urbanflux', 
         'HOST': 'localhost', 
         'PORT': '3306',
          'OPTIONS': {
         'ssl': {'ca': None},  # This disables SSL
         },
     }
+
+
+
 
 
 }
