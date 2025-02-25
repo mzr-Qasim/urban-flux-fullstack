@@ -92,7 +92,8 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'urbanflux',
+        # 'NAME': 'urbanflux',
+        'NAME': 'malikqas_urbanflux',
         # 'DATABASE': 'urbanflux',
         # 'USER': 'root',
         # 'PASSWORD': '',
