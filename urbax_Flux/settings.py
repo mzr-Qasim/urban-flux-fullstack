@@ -106,8 +106,7 @@ DATABASES = {
          'OPTIONS': {
         'ssl': {'ca': None},  # This disables SSL
         },
-    }
-
+    } 
 
 
 
