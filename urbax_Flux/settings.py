@@ -96,7 +96,7 @@ DATABASES = {
         # 'DATABASE': 'urbanflux',
         # 'USER': 'root',
         # 'PASSWORD': '',
-        'USER': 'qasim_dev',
+        'USER': 'malikqas_qasim_dev',
         'PASSWORD': 'pE?{AK0af7Bs',
         'DATABASE': 'malikqas_urbanflux',
         'HOST': 'localhost', 
