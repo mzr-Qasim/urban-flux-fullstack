@@ -93,11 +93,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'urbanflux',
-        'DATABASE': 'urbanflux',
+        # 'DATABASE': 'urbanflux',
         # 'USER': 'root',
         # 'PASSWORD': '',
         'USER': 'qasim_dev',
         'PASSWORD': 'pE?{AK0af7Bs',
+        'DATABASE': 'malikqas_urbanflux',
         'HOST': 'localhost', 
         'PORT': '3306',
          'OPTIONS': {
