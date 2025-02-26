@@ -12,4 +12,4 @@ class Locations_map(models.Model):
 
     class Meta:
         verbose_name = ''
-        verbose_name_plural = 'Locations Map'
+        verbose_name_plural = 'Locations Map' 
