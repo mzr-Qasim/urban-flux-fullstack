@@ -1,10 +1,12 @@
 from django.shortcuts import render,  get_object_or_404
+from django.core.paginator import Paginator
 from Site_Settings.models import Site_Settings
 from Hero_Slider.models import Hero_Slider
 from Category.models import Category
 from Store.models import Store
 from Sale_Section.models import Sale_Section
 from Our_Locations.models import Our_Locations
+from Locations_map.models import Locations_map
 
 def home(request):
     site_settings = Site_Settings.objects.all()
@@ -47,17 +49,20 @@ def search_results(request):
 
 def shop(request):
     site_settings = Site_Settings.objects.all()
-    Products = reversed(Store.objects.all())
+    Products = (Store.objects.all())
+    product_data = Products.count()
+    products_limit = 12
+    paginator = Paginator(Products, products_limit)
     categories =  Category.objects.all()
 
     Data = {
         "site_settings_data": site_settings,
         "Product_Data" : Products,
         "categories_data": categories,
+        "product_data" : product_data,
+        "products_show_data" : products_limit,
     }
     return render(request, 'shop.html', Data)
-
-
 
 
 
@@ -89,6 +94,29 @@ def product_category(request, category):
         "product_by_cat_data" : product_by_cat 
     }
     return render(request, 'category.html' , Data)
+
+
+
+def contact_us(request):
+    site_settings = Site_Settings.objects.all()  
+    our_Stores_section = Our_Locations.objects.all()
+    locations_map_section = Locations_map.objects.all()
+
+    Data = {
+        "site_settings_data": site_settings,
+        "Our_Stores_section_data" : our_Stores_section,
+        "locations_map_data" : locations_map_section,
+    } 
+    return render(request, 'contact-us.html', Data)
+
+
+
+
+
+
+
+
+
 
 
 def login(request):

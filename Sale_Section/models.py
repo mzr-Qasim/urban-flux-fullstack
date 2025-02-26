@@ -8,7 +8,7 @@ class Sale_Section(models.Model):
     description = models.TextField(max_length=100)
     link_button_name = models.CharField(max_length =15)
     button_link = models.CharField (max_length= 200, blank=True , null=True)
-    image = models.ImageField(upload_to= 'Sale Section')
+    image = models.ImageField(upload_to= 'Sale_Section')
 
 
     class Meta:

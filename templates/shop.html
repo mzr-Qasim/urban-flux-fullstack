@@ -78,6 +78,9 @@
                             {% endfor %}
                         </div><!-- /.row -->
                     </div><!-- /.theme-product-cards-inner -->
+                    {% if  product_data < products_show_data  %}
+                    <div class="d_none"></div><!-- /.pagination -->
+                    {% else %}
                     <div class="pagination just-center my-5">
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
@@ -89,6 +92,7 @@
                             </ul>
                           </nav>
                     </div><!-- /.pagination -->
+                    {% endif %}
                 </div><!-- /.container -->
             </section><!-- /.theme-product-cards -->
         </main><!-- /.main-content -->

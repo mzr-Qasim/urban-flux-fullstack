@@ -1,0 +1,66 @@
+{% load custom_tags %}
+{% load static %}
+{% include 'header.html' %}
+<main class="main-content">
+    <section class="theme-hero-section mb-5">
+        <figure>
+            {% for theme in site_settings_data %}
+            <img src="{{theme.theme_hero_section.url}}" alt="">
+            {% endfor %}
+            <figcaption>
+                <h4 class="main-heading-font-medium">Contact us</h4>
+            </figcaption>
+        </figure>
+    </section><!-- /.theme-hero-section -->
+    <section class="our-store">
+        <div class="container">
+            <div class="our-store-inner">
+                <div class="title">
+                    <h3 class="main-heading-font-medium">Visit our store</h3>
+                </div><!-- /.title -->
+                <div class="store-tabs theme-tabs">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        {% for store in locations_map_data %}
+                        <li class="nav-item mb-5" role="presentation">
+                            <button class="nav-link {% if forloop.counter == 1 %}  active {% else %} {% endif %}"
+                                data-bs-toggle="pill" data-bs-target="#{{store.location_title}}" type="button" role="tab"
+                                aria-controls="pills-home" aria-selected="true">{{store.location_title}}</button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div><!-- /.store-tabs -->
+                <div class="store-tabs-inner">
+                    <div class="tab-content" id="pills-tabContent">
+                        {% for store in locations_map_data %}
+                        <div class="tab-pane fade {% if forloop.counter == 1 %} show active {% else %} {% endif %}"
+                            id="{{store.location_title}}" role="tabpanel" tabindex="{{forloop.counter}}">
+                            <div class="store-inner">
+                                <div class="content-wrapper">
+                                    <div class="content-inner map-content-inner">
+                                        <a href="https://maps.app.goo.gl/eGP253BqQ3kGQwGj9">
+                                            <figure>
+                                                <img src="{{store.location_map_image.url}}" alt="">
+                                                {{store.location_svg_code|safe}}                                                                                      
+                                            </figure>
+                                        </a>
+                                    </div><!-- /.content-inner -->
+                                </div><!-- /.content-wrapper -->
+                                <div class="store-image store-image-map">
+                                    <figure>
+                                        {% for store in Our_Stores_section_data  %}
+                                        <img loading="lazy" src="{{ store.Image.url }}" alt="">
+                                        {% endfor %}
+                                    </figure>
+                                </div><!-- /.store-image -->
+                            </div><!-- /.store-inner -->
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div><!-- /.store-tabs-inner -->
+            </div><!-- /.our-store-inner -->
+        </div><!-- /.container -->
+    </section><!-- /.our-store -->
+</main><!-- /.main-content -->
+
+
+{% include 'footer.html' %}
