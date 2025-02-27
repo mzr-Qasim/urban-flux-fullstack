@@ -94,11 +94,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'malikqas_urbanflux',
-        'USER': 'root',
-        'PASSWORD': '',
-        # 'USER': 'malikqas_qasim_dev',   		
+        # 'USER': 'root',
+        # 'PASSWORD': '',
+        'USER': 'malikqas_qasim_dev',   		
 
-        # 'PASSWORD': 'v2AT;$b7M??~',
+        'PASSWORD': 'v2AT;$b7M??~',
         'DATABASE': 'malikqas_urbanflux', 
         'HOST': 'localhost', 
         'PORT': '3306',
