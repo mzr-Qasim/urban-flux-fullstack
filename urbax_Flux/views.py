@@ -15,6 +15,7 @@ def home(request):
     Products = reversed(Store.objects.all())
     sale_section = Sale_Section.objects.all()
     our_Stores_section = Our_Locations.objects.all()
+    
 
 
 
@@ -24,9 +25,22 @@ def home(request):
         "categories_data": categories,
         "sale_section_data" : sale_section,
         "Product_Data" : Products,
-        "Our_Stores_section_data" : our_Stores_section
+        "Our_Stores_section_data" : our_Stores_section,
+        
     }
     return render(request, 'index.html', Data)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -101,6 +115,7 @@ def contact_us(request):
     site_settings = Site_Settings.objects.all()  
     our_Stores_section = Our_Locations.objects.all()
     locations_map_section = Locations_map.objects.all()
+
 
     Data = {
         "site_settings_data": site_settings,

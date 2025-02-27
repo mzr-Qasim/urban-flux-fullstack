@@ -51,6 +51,10 @@
     }
     // home- store section
     .store-tabs-inner{
+        .store-inner-map{
+            flex-direction: column!important;
+        }
+
         .store-inner{
             flex-direction: column-reverse;
             .content-wrapper{
@@ -62,6 +66,10 @@
             .store-image-map{
                 width: 100%;
             }
+        }
+
+        .map-content-wrapper{
+            width: 100%;
         }
     }
 

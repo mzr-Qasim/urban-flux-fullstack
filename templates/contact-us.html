@@ -34,9 +34,9 @@
                         {% for store in locations_map_data %}
                         <div class="tab-pane fade {% if forloop.counter == 1 %} show active {% else %} {% endif %}"
                             id="{{store.location_title}}" role="tabpanel" tabindex="{{forloop.counter}}">
-                            <div class="store-inner">
-                                <div class="content-wrapper">
-                                    <div class="content-inner map-content-inner">
+                            <div class="store-inner store-inner-map">
+                                <div class="map-content-wrapper">
+                                    <div class="map-content-inner">
                                         <a href="https://maps.app.goo.gl/eGP253BqQ3kGQwGj9">
                                             <figure>
                                                 <img src="{{store.location_map_image.url}}" alt="">
@@ -45,11 +45,9 @@
                                         </a>
                                     </div><!-- /.content-inner -->
                                 </div><!-- /.content-wrapper -->
-                                <div class="store-image store-image-map">
+                                <div class="store-image-map">
                                     <figure>
-                                        {% for store in Our_Stores_section_data  %}
-                                        <img loading="lazy" src="{{ store.Image.url }}" alt="">
-                                        {% endfor %}
+                                        <img loading="lazy" src="/media/{{store.img}}" alt="">
                                     </figure>
                                 </div><!-- /.store-image -->
                             </div><!-- /.store-inner -->
