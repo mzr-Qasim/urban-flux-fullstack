@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-yqv)jzq82v6)@o7)!-p9y-&a)^u8obs!98sqv77b9+qefzmq@%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['urbanflux.malikqasim.info','www.urbanflux.malikqasim.info']
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['urbanflux.malikqasim.info','www.urbanflux.malikqasim.info']
 
 
 # Application definition
@@ -94,11 +94,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'malikqas_urbanflux',
-        # 'USER': 'root',
-        # 'PASSWORD': '',
+        'USER': 'root',
+        'PASSWORD': '',
 
-        'USER': 'malikqas_qasim_dev',   		
-        'PASSWORD': 'v2AT;$b7M??~',
+        # 'USER': 'malikqas_qasim_dev',   		
+        # 'PASSWORD': 'v2AT;$b7M??~',
         'DATABASE': 'malikqas_urbanflux', 
         'HOST': 'localhost', 
         'PORT': '3306',
