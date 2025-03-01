@@ -12242,6 +12242,10 @@ small, .small {
   color: #000000;
 }
 
+.rotate-arrow {
+  rotate: 180deg !important;
+}
+
 .theme-button {
   background-color: #ffffff;
   color: #000000;
@@ -12336,6 +12340,14 @@ small, .small {
   font-size: 0.7rem;
 }
 
+.pagination li:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.pagination-links {
+  width: 2.5rem;
+  height: 2.5rem;
+}
 .pagination-links:focus {
   outline: none !important;
   box-shadow: none !important;

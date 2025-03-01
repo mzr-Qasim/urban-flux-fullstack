@@ -153,6 +153,10 @@ small{
     color: $uni-color-1;
 }
 
+.rotate-arrow{
+    rotate: 180deg!important;
+}
+
 .theme-button{
     background-color: $uni-color-2;
     color: $uni-color-1;
@@ -262,7 +266,18 @@ small{
     font-size: .7rem;
 }
 
+
+.pagination{
+    li{
+        &:not(:last-child){
+            margin-right: 1rem;
+        }
+    }
+}
+
 .pagination-links{
+    width: 2.5rem;
+    height: 2.5rem;
     &:focus{
         outline: none !important;
         box-shadow: none !important;
@@ -272,6 +287,9 @@ small{
         color: $uni-color-2!important;
     }
 }
+
+
+
 
 .pagination_active{
     background-color: $uni-color-1;

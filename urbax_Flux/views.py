@@ -86,6 +86,12 @@ def shop(request):
 
 
 
+
+
+
+
+
+
 def product_detail(request, id): 
     site_settings = Site_Settings.objects.all()   
     Products = Store.objects.all()

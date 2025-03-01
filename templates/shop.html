@@ -85,13 +85,13 @@
                         <nav aria-label="Page navigation example">
                             <ul class="pagination">
                                 {% if products_per_page.has_previous %}
-                                    <li class="page-item"><a class="page-link pagination-links" href="?page={{ products_per_page.previous_page_number }}">Previous</a></li>
+                                    <li class="page-item"><a class="page-link pagination-links rotate-arrow just-center align-center" href="?page={{ products_per_page.previous_page_number }}"><i class="icon-small-arrow"></i></a></li>
                                 {% endif %}
                                 {% for page in page_obj_count %}
-                                    <li class="page-item "><a class="page-link  pagination-links {% if products_per_page.number == page %} pagination_active {% endif %}" href="?page={{page}}">{{page}}</a></li>
+                                    <li class="page-item"><a class="page-link   pagination-links just-center align-center {% if products_per_page.number == page %} pagination_active {% endif %}" href="?page={{page}}">{{page}}</a></li>
                                 {% endfor %}
                                 {% if products_per_page.has_next %}
-                                    <li class="page-item"><a class="page-link pagination-links" href="?page={{ products_per_page.next_page_number }}">Next</a></li>
+                                    <li class="page-item"><a class="page-link pagination-links just-center align-center" href="?page={{ products_per_page.next_page_number }}"><i class="icon-small-arrow"></i></a></li>
                                 {% endif %}
                             </ul>
                           </nav>
