@@ -69,24 +69,14 @@
                     <h4 class="mb-4">${{single_product_data.price}}</h4>
                     {% endif %}
                     <div class="row">
-                      <div class="col-lg-4 col-inner">
-                        <!-- {% if single_product_data.is_available %}
-                        <span class="quantity-selector">
-                          <a href="" class="quantity-increase">-</a><span class="quantity">1</span><a href=""
-                            class="quantity-decrease">+</a>
-                        </span>
-                        {% else %}
-                        <span class="quantity-selector">
-                          <a href="" class="quantity-increase none_pointers">-</a><span class="quantity">1</span><a href=""
-                            class="quantity-decrease none_pointers">+</a>
-                        </span>
-                        {% endif %} -->
+                      <!-- <div class="col-lg-4 col-inner">
+                       
                         <div data-mdb-input-init class="form-outline quantity-selector">
-                          <input class="quantity mb-2" type="number" id="typeNumber" class="form-control" {% if single_product_data.is_available  %}{% else %}disabled{% endif %} value="1" min="1" max="{{single_product_data.stock}}" />
+                          <input class="quantity mb-2" type="number" id="typeNumber" class="form-control" style="pointer-events: none;" {% if single_product_data.is_available  %}{% else %}disabled{% endif %} value="1" min="1" max="{{single_product_data.stock}}" />
                           <label class="form-label" for="typeNumber">Select Quantity</label>
                       </div>
-                      </div><!-- /.col-lg-4 -->
-                      <div class="col-lg-6 offset-lg-2 col-inner">
+                      </div> -->
+                      <div class="col-lg-6 col-inner">
                         {% if single_product_data.is_available %}
                         <a href="" class="theme-button-black w_100 text-align-center"><small>Add to cart -
                             ${% calculate_discount_price single_product_data.price single_product_data.sale %}</small></a>
