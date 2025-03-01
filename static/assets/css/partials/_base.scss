@@ -262,6 +262,23 @@ small{
     font-size: .7rem;
 }
 
+.pagination-links{
+    &:focus{
+        outline: none !important;
+        box-shadow: none !important;
+    }
+    &:hover{
+        background-color: $uni-color-1;
+        color: $uni-color-2!important;
+    }
+}
+
+.pagination_active{
+    background-color: $uni-color-1;
+    color: $uni-color-2!important;
+
+}
+
 .swiper-nav-black{
     color: $uni-color-2;
 

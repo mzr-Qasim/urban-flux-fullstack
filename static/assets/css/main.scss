@@ -808,7 +808,7 @@ section.filters {
     width: 300px;
     background-color: $uni-color-2;
     overflow: hidden;
-    overflow-y: auto;
+    overflow-y: auto!important;
     color: $uni-color-1;
     transition: ease-in-out .5s;
     // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -838,6 +838,16 @@ section.filters {
                     .form-check-input:checked {
                         background-color: $theme-color-red;
                         border-color: $theme-color-red;
+                    }
+
+                    a{
+                        color: $uni-color-1;
+                        font-weight: 400;
+                        transition: ease-in-out .3s;
+
+                        &:hover{
+                            color: $theme-color-red;
+                        }
                     }
 
                     &:not(:last-child) {
@@ -875,6 +885,8 @@ section.filters {
     &.open {
         transform: translateX(0);
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        overflow: hidden;
+        overflow-y: auto!important;
     }
 
     &.closed {

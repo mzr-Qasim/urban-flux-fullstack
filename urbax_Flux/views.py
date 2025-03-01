@@ -63,10 +63,13 @@ def search_results(request):
 
 def shop(request):
     site_settings = Site_Settings.objects.all()
-    Products = (Store.objects.all())
+    Products = Store.objects.all()
     product_data = Products.count()
-    products_limit = 12
-    paginator = Paginator(Products, products_limit)
+    products_limit = 8
+    Products = Paginator(Products, products_limit)
+    page = request.GET.get("page")
+    page_obj = Products.get_page(page)
+    page_obj_count =  [x+1 for x in range(Products.num_pages)]
     categories =  Category.objects.all()
 
     Data = {
@@ -75,6 +78,8 @@ def shop(request):
         "categories_data": categories,
         "product_data" : product_data,
         "products_show_data" : products_limit,
+        "products_per_page" : page_obj,
+        "page_obj_count" : page_obj_count,
     }
     return render(request, 'shop.html', Data)
 
@@ -100,6 +105,7 @@ def product_category(request, category):
     category_obj = get_object_or_404(Category, id=category)
     product_by_cat = Store.objects.filter( category_id=category)
     site_settings = Site_Settings.objects.all()
+    
     
     Data = {
         "site_settings_data": site_settings,

@@ -12336,6 +12336,20 @@ small, .small {
   font-size: 0.7rem;
 }
 
+.pagination-links:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.pagination-links:hover {
+  background-color: #000000;
+  color: #ffffff !important;
+}
+
+.pagination_active {
+  background-color: #000000;
+  color: #ffffff !important;
+}
+
 .swiper-nav-black {
   color: #ffffff;
 }
@@ -13314,7 +13328,7 @@ section.filters {
   width: 300px;
   background-color: #ffffff;
   overflow: hidden;
-  overflow-y: auto;
+  overflow-y: auto !important;
   color: #000000;
   transition: ease-in-out 0.5s;
   z-index: 1001;
@@ -13333,6 +13347,14 @@ section.filters .filter-inner {
 section.filters .filter-inner .product-categories ul li .form-check-input:checked {
   background-color: red;
   border-color: red;
+}
+section.filters .filter-inner .product-categories ul li a {
+  color: #000000;
+  font-weight: 400;
+  transition: ease-in-out 0.3s;
+}
+section.filters .filter-inner .product-categories ul li a:hover {
+  color: red;
 }
 section.filters .filter-inner .product-categories ul li:not(:last-child) {
   margin-bottom: 1rem;
@@ -13358,6 +13380,8 @@ section.filters .filter-inner .product-categories:not(:last-child) {
 section.filters.open {
   transform: translateX(0);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto !important;
 }
 section.filters.closed {
   transform: translateX(-100%);
