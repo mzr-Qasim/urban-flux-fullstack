@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'Site_Settings',
     'Our_Locations',
     'Locations_map',
+    'wish_list',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'Store.middleware.NoCacheMiddleware',
 
 
 ]

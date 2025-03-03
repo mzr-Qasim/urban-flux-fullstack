@@ -19,6 +19,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import toggle_wishlist, wishlist_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,7 +35,9 @@ urlpatterns = [
     path('logout-user/', views.logoutUser, name='logout-user'),
     path('register/', views.sign_up, name='sign-up'), 
     path('register-user', views.registerUser, name='register-user'), 
-    path('wishlist/', views.wish_list, name='wishlist'), 
+    # path('wishlist/', views.wish_list, name='wishlist'), 
+    path('toggle-wishlist/<int:product_id>/', toggle_wishlist, name='toggle_wishlist'),
+    path('wishlist/', views.wishlist_view, name='wishlist'),
     path('cart/', views.shopping_cart, name='Shopping-cart'), 
     path('checkout/', views.checkout, name='checkout'), 
 ]

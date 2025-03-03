@@ -43,11 +43,10 @@
                                     <img loading="lazy" src="{{c.Image.url}}" alt="">
                                     <figcaption {% if c.category.type == 'LUXURY' %} class="class-prod luxury-prod" {% elif c.category.type == 'FORMAL' %} class="class-prod formal-prod" {% else %}{% endif %}>
                                         <div class="top-icons">
-                                            <a href="#"><i
-                                                    class="icon-favourite product-carousel-position-icons"></i></a>
+                                            <a href="{% if user.is_authenticated %}{% url 'toggle_wishlist' c.id %}{% else %}{% url 'login' %}{% endif %}"><i class="icon-favourite product-carousel-position-icons"></i></a>  
                                             <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
                                         </div><!-- /.top-icons -->
-                                        <a href="#" class="product-carousel-shop-button quick-shop"><i
+                                        <a href="{% if user.is_authenticated %} {% url 'shop' %} {% else %} {% url 'login' %}{% endif %}" class="product-carousel-shop-button quick-shop"><i
                                                 class="icon-cart"></i>QUICK
                                             SHOP</a>
                                         {% if c.sale %}

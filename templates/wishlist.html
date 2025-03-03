@@ -1,5 +1,7 @@
+{% load custom_tags %}
 {% include 'header.html' %}
 {% load static %}
+
 <main class="main-content">
     <section class="theme-hero-section">
         <figure>
@@ -13,22 +15,45 @@
     </section><!-- /.theme-hero-section -->
     <section class="theme-product-cards wishlist-cards">
         <div class="container">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-warning just-center alert-message" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
             <div class="theme-product-cards-inner">
                 <div class="row">
+                    {% if wishlist_count == 0 %}
+                    <div class="col-lg-6  mx-auto">
+                        <div class="inner my-5 text-align-center">
+                            <h4 class="pb-3">Wishlist is empty.</h4>
+                            <p class="pb-5">You don't have any products in the wishlist yet. You will find a lot of interesting products on our "Shop" page.</p>
+                            <a href="{% url 'shop' %}" class="theme-button-black">Return to shop</a>
+                        </div><!-- /.inner -->
+                    </div>
+                    {% else %}
+                    {% for item in wishlist_items %}
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div class="product-cards">
-                            <a href="">
+                            <a href="{% url 'product-detail' item.product.id %}">
                                 <figure>
-                                    <img loading="lazy" src="{% static './assets/images/prod-1.jpg' %}" alt="">
+                                    <img loading="lazy" src="{{item.product.Image.url}}" alt="">
                                     <figcaption>
                                         <div class="top-icons">
                                             <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
                                         </div><!-- /.top-icons -->
-                                        <a href="#" class="product-carousel-shop-button quick-shop"><i
+                                        
+                                        <a href="" class="product-carousel-shop-button quick-shop"><i
                                                 class="icon-cart"></i>QUICK
                                             SHOP</a>
-                                        <span class="sale-off">-36%</span>
-                                        <a href="#" class="wishlist-delete-button align-center"><i
+                                        {% if item.product.sale %}
+                                        <span class="sale-off">-{{item.product.sale}}%</span>
+                                        {% else %}
+                                        <span class="d_none"></span>
+                                        {% endif %}
+                                        <a href="{% url 'toggle_wishlist' item.product.id %}"
+                                            class="wishlist-delete-button align-center"><i
                                                 class="icon-delete-icon"></i></a>
                                     </figcaption>
                                 </figure>
@@ -39,11 +64,20 @@
                                 <span><i class="icon-rating"></i></span>
                                 <span><i class="icon-rating"></i></span>
                                 <span><i class="icon-rating"></i></span>
-                                <a href="#" class="product-carousel-anchor">V-neck linen Shirt</a>
-                                <small>$18.00</small>
+                                <a href="{% url 'product-detail' item.product.id %}" class="product-carousel-anchor">{{item.product.product_name}}</a>
+                                {% if item.product.sale >= 1 %}
+                                <small class="before-price">${{item.product.price}}</small><span><small
+                                        class="red_color px-3  {% if item.product.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${% calculate_discount_price item.product.price item.product.sale %}</small></span>
+                                {% else %}
+                                <small
+                                    class="{% if item.product.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${{item.product.price}}</small>
+
+                                {% endif %}
                             </div><!-- /.info -->
                         </div><!-- /.product-cards -->
                     </div><!-- /.col-xl-3 -->
+                    {% endfor %}
+                    {% endif %}
                 </div><!-- /.row -->
             </div><!-- /.theme-product-cards-inner -->
         </div><!-- /.container -->

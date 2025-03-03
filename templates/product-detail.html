@@ -78,19 +78,19 @@
                       </div> -->
                       <div class="col-lg-6 col-inner">
                         {% if single_product_data.is_available %}
-                        <a href="" class="theme-button-black w_100 text-align-center"><small>Add to cart -
+                        <a href="{% if user.is_authenticated %} {% url 'shop' %} {% else %} {% url 'login' %}{% endif %}" class="theme-button-black w_100 text-align-center"><small>Add to cart -
                             ${% calculate_discount_price single_product_data.price single_product_data.sale %}</small></a>
                         {% else %}
-                        <a href="#" class="theme-button-black w_100 text-align-center none_pointers"><small>Add to cart -
+                        <a href="{% if user.is_authenticated %} {% url 'shop' %} {% else %} {% url 'login' %}{% endif %}" class="theme-button-black w_100 text-align-center none_pointers"><small>Add to cart -
                           ${% calculate_discount_price single_product_data.price single_product_data.sale %}</small></a>
                         {% endif %}
                       </div><!-- /.col-lg-6 -->
                       <div class="col-lg-12">
                         {% if single_product_data.is_available %}
-                        <a href="{% url 'checkout' %}" class="theme-button-black buy-now w_100 text-align-center"><small>BUY IT
+                        <a href="{% if user.is_authenticated %} {% url 'shop' %} {% else %} {% url 'login' %}{% endif %}" class="theme-button-black buy-now w_100 text-align-center"><small>BUY IT
                             NOW</small></a>
                             {% else %}
-                            <a href="#" class="theme-button-black buy-now w_100 text-align-center none_pointers"><small>BUY IT
+                            <a href="{% if user.is_authenticated %} {% url 'shop' %} {% else %} {% url 'login' %}{% endif %}" class="theme-button-black buy-now w_100 text-align-center none_pointers"><small>BUY IT
                               NOW</small></a>   
                             {% endif %}
                       </div><!-- /.col-lg-12 -->
@@ -281,11 +281,16 @@
                       <img loading="lazy" src="{{related.Image.url}}" alt="">
                       <figcaption>
                         <div class="top-icons">
-                          <a href="#"><i class="icon-favourite product-carousel-position-icons"></i></a>
+                          <a href="{% if user.is_authenticated %}{% url 'toggle_wishlist' related.id %}{% else %}{% url 'login' %}{% endif %}"><i class="icon-favourite product-carousel-position-icons"></i></a>  
                           <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
                         </div><!-- /.top-icons -->
+                        {% if user.is_authenticated %}
                         <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
                           SHOP</a>
+                          {% else %}
+                          <a href="{% url 'login' %}" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                            SHOP</a>
+                            {% endif %}
                           {% if related.sale %}
                         <span class="sale-off">-{{related.sale}}%</span>
                         {% else %}
