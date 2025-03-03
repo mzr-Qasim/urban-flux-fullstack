@@ -12,6 +12,13 @@
             </section><!-- /.theme-hero-section -->
             <section class="login-section">
                 <div class="container">
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-warning just-center mb-5 alert-message" role="alert">
+                        {{message}}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
                     <div class="login-section-inner">
                         <div class="row">
                             <div class="col-lg-6 mx-auto">
@@ -40,10 +47,10 @@
                                                 <input type="password" id="register_password" name="password" required>
                                                 <label>Password *</label>
                                             </div>
-                                            <!-- <div class="input-field login-field mb-5">
+                                            <div class="input-field login-field mb-5">
                                                 <input type="password" id="register_rpassword" name="rpassword" required>
                                                 <label>Re-enter Password *</label>
-                                            </div> -->
+                                            </div>
                                             <div class="forget">
                                                 <a href="{% url 'login' %}" class="lost-password theme-underline-button"><small>Already have an account? Log in here</small></a>
                                             </div>

@@ -9,6 +9,7 @@ from Our_Locations.models import Our_Locations
 from Locations_map.models import Locations_map
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 def home(request):
     site_settings = Site_Settings.objects.all()
@@ -181,10 +182,24 @@ def registerUser(request):
     r_username = request.POST['username']
     r_email = request.POST['email']
     r_password = request.POST['password'] 
-    # r_rpassword = request.POST['rpassword']
+    r_rpassword = request.POST['rpassword']
 
-    user = User.objects.create_user(first_name = r_fname, last_name = r_lname ,username = r_username, email = r_email, password = r_password)
-    return render(request, 'login.html')
+    if len(r_password) < 8 :
+            messages.warning(request, "Password too short")
+    elif r_password != r_rpassword :
+            messages.warning(request, "Passwords do not match")
+    else:
+        user = User.objects.create_user(first_name = r_fname, last_name = r_lname ,username = r_username, email = r_email, password = r_password)
+        messages.warning(request, "Account created successfully")
+        return redirect('login')
+    
+    site_settings = Site_Settings.objects.all()
+    Data = {
+        "site_settings_data": site_settings,
+    }
+
+   
+    return render(request, 'sign-up.html', Data)
 
 
 
@@ -193,14 +208,24 @@ def loginUser(request):
     r_username = request.POST['username']
     r_password = request.POST['password'] 
 
+    if r_username == '' or r_password == '':
+        messages.warning(request, "Please provide a username and password")
+        return redirect('login')
+        
+
     user = authenticate(request, username=r_username, password=r_password)
     if user is not None:
         login(request, user)
         request.session['first_name'] = user.first_name
         return redirect('/')
     else:
-        print("hello")
-    return render(request, 'login.html')
+        messages.warning(request, "User does not exist.")
+
+    site_settings = Site_Settings.objects.all()
+    Data = {
+        "site_settings_data": site_settings,
+    }
+    return render(request, 'login.html', Data)
 
 def logoutUser(request):
     logout(request)

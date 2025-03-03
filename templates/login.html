@@ -1,51 +1,61 @@
 {% include 'header.html' %}
-        <main class="main-content">
-            <section class="theme-hero-section">
-                <figure>
-                    {% for theme in site_settings_data %}
-                    <img src="{{theme.theme_hero_section.url}}" alt="">
-                    {% endfor %}
-                    <figcaption>
-                        <h4 class="main-heading-font-medium">Login</h4>
-                    </figcaption>
-                </figure>
-            </section><!-- /.theme-hero-section -->
-            <section class="login-section">
-                <div class="container">
-                    <div class="login-section-inner">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <div class="login-section-main d_flex col-inner">
-                                    <div class="inner">
-                                        <form action="{% url 'login-user' %}" method="post">
-                                            {% csrf_token %}
-                                            <h4 class="main-heading-font-small-medium title">Login</h4>
-                                            <div class="input-field login-field">
-                                                <input type="text" name="username" id="login_username" required>
-                                                <label>Username *</label>
-                                            </div>
-                                            <div class="input-field login-field">
-                                                <input type="password" name="password" id="login_password" required>
-                                                <label>Password *</label>
-                                            </div>
-                                            <div class="forget">
-                                                <a href="#" class="lost-password theme-underline-button"><small>Lost your password?</small></a>
-                                            </div>
-                                            <button type="submit" class="submit-button theme-button-black">Log In</button>
-                                        </form>
-                                    </div><!-- /.inner -->
-                                </div><!-- /.login-section-left -->
-                            </div><!-- /.col-lg-6 -->
-                            <div class="col-lg-5 offset-lg-2">
-                                <div class="login-section-right col-inner">
-                                    <h4 class="main-heading-font-small-medium title">I'm new here</h4>
-                                    <p class="mb-4">Sign up for early Sale access plus tailored new arrivals, trends and promotions. To opt out, click unsubscribe in our emails.</p>
-                                    <a href="{% url 'sign-up' %}" class="theme-underline-button register-button">Register<i class="icon-theme-link link-arrow"></i></a>
-                                </div><!-- /.login-section-right -->
-                            </div><!-- /.col-lg-6 -->
-                        </div><!-- /.row -->
-                    </div><!-- /.login-section-inner -->
-                </div><!-- /.container -->
-            </section><!-- /.login-section -->
-        </main><!-- /.main-content -->
-        {% include 'footer.html' %}
+<main class="main-content">
+    <section class="theme-hero-section">
+        <figure>
+            {% for theme in site_settings_data %}
+            <img src="{{theme.theme_hero_section.url}}" alt="">
+            {% endfor %}
+            <figcaption>
+                <h4 class="main-heading-font-medium">Login</h4>
+            </figcaption>
+        </figure>
+    </section><!-- /.theme-hero-section -->
+    <section class="login-section">
+        <div class="container">
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-warning just-center mb-5 alert-message" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+            {% endif %}
+            <div class="login-section-inner">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="login-section-main d_flex col-inner">
+                            <div class="inner">
+                                <form action="{% url 'login-user' %}" method="post">
+                                    {% csrf_token %}
+                                    <h4 class="main-heading-font-small-medium title">Login</h4>
+                                    <div class="input-field login-field">
+                                        <input type="text" name="username" id="login_username" >
+                                        <label>Username *</label>
+                                    </div>
+                                    <div class="input-field login-field">
+                                        <input type="password" name="password" id="login_password" >
+                                        <label>Password *</label>
+                                    </div>
+                                    <div class="forget">
+                                        <a href="#" class="lost-password theme-underline-button"><small>Lost your
+                                                password?</small></a>
+                                    </div>
+                                    <button type="submit" class="submit-button theme-button-black">Log In</button>
+                                </form>
+                            </div><!-- /.inner -->
+                        </div><!-- /.login-section-left -->
+                    </div><!-- /.col-lg-6 -->
+                    <div class="col-lg-5 offset-lg-2">
+                        <div class="login-section-right col-inner">
+                            <h4 class="main-heading-font-small-medium title">I'm new here</h4>
+                            <p class="mb-4">Sign up for early Sale access plus tailored new arrivals, trends and
+                                promotions. To opt out, click unsubscribe in our emails.</p>
+                            <a href="{% url 'sign-up' %}" class="theme-underline-button register-button">Register<i
+                                    class="icon-theme-link link-arrow"></i></a>
+                        </div><!-- /.login-section-right -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div><!-- /.login-section-inner -->
+        </div><!-- /.container -->
+    </section><!-- /.login-section -->
+</main><!-- /.main-content -->
+{% include 'footer.html' %}

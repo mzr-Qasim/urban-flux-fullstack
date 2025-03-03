@@ -30,7 +30,7 @@
       </div><!-- /.container -->
     </div><!-- /.search-bar -->
     <header class="header">
-      <nav class="navbar navbar-expand-lg main-navbar">
+      <nav class="navbar navbar-expand-xl main-navbar">
         <div class="container container-lg">
           {% for logo in site_settings_data %}
           <a class="navbar-brand" href="#">
@@ -113,7 +113,7 @@
               </div><!-- /.nav-item -->
               </li>
               {% else %}
-              <li><a href="{% url 'login' %}" class="links-hover lg-hide"><i class="icon-login"></i></a></li>
+              <li><a href="{% url 'login' %}" class="links-hover"><i class="icon-login"></i></a></li>
               {% endif %}
             <li><a href="{% url 'wishlist' %}" class="links-hover count"><i class="icon-favourite"></i><span><small>2</small></span></a></li>
             <li><a href="{% url 'Shopping-cart' %}" class="links-hover count"><i class="icon-cart"></i><span><small>2</small></span></a></li>
