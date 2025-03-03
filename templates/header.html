@@ -75,7 +75,21 @@
                 <li>
                   <button class="lg-hide links-hover" id="search-btn"><i  class="icon-search"></i></button>
                 </li>
+              {% if user.is_authenticated %}
+              <li class="lg-hide">
+                <div class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      Hi, {{user.first_name}}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'logout-user' %}">Logout</a></li>
+                  </ul>
+              </div><!-- /.nav-item -->
+              </li>
+              {% else %}
               <li><a href="{% url 'login' %}" class="links-hover lg-hide"><i class="icon-login"></i></a></li>
+              {% endif %}
               <li><a href="{% url 'wishlist' %}" class="links-hover lg-hide count"><i class="icon-favourite"></i><span><small>2</small></span></a></li>
               <li><a href="{% url 'Shopping-cart' %}" class="links-hover lg-hide count"><i class="icon-cart"></i><span><small>2</small></span></a></li>
             </ul><!-- /.nav-right-links -->
@@ -86,7 +100,21 @@
               <li>
                 <button class="links-hover" id="search-btn-2"><i  class="icon-search"></i></button>
               </li>
-            <li><a href="{% url 'login' %}" class="links-hover"><i class="icon-login"></i></a></li>
+              {% if user.is_authenticated %}
+              <li>
+                <div class="nav-item dropup">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      Hi, {{user.first_name}}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{% url 'logout-user' %}">Logout</a></li>
+                  </ul>
+              </div><!-- /.nav-item -->
+              </li>
+              {% else %}
+              <li><a href="{% url 'login' %}" class="links-hover lg-hide"><i class="icon-login"></i></a></li>
+              {% endif %}
             <li><a href="{% url 'wishlist' %}" class="links-hover count"><i class="icon-favourite"></i><span><small>2</small></span></a></li>
             <li><a href="{% url 'Shopping-cart' %}" class="links-hover count"><i class="icon-cart"></i><span><small>2</small></span></a></li>
           </ul><!-- /.nav-right-links-mobile -->

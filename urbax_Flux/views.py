@@ -1,4 +1,4 @@
-from django.shortcuts import render,  get_object_or_404
+from django.shortcuts import redirect, render,  get_object_or_404
 from django.core.paginator import Paginator
 from Site_Settings.models import Site_Settings
 from Hero_Slider.models import Hero_Slider
@@ -7,6 +7,8 @@ from Store.models import Store
 from Sale_Section.models import Sale_Section
 from Our_Locations.models import Our_Locations
 from Locations_map.models import Locations_map
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 def home(request):
     site_settings = Site_Settings.objects.all()
@@ -146,7 +148,7 @@ def contact_us(request):
 
 
 
-def login(request):
+def loginpage(request):
     site_settings = Site_Settings.objects.all()
     Data = {
         "site_settings_data": site_settings,
@@ -169,6 +171,57 @@ def wish_list(request):
         "site_settings_data": site_settings,
     }
     return render(request, 'wishlist.html' , Data)
+
+
+
+
+def registerUser(request):
+    r_fname = request.POST['first_name']
+    r_lname = request.POST['last_name']
+    r_username = request.POST['username']
+    r_email = request.POST['email']
+    r_password = request.POST['password'] 
+    # r_rpassword = request.POST['rpassword']
+
+    user = User.objects.create_user(first_name = r_fname, last_name = r_lname ,username = r_username, email = r_email, password = r_password)
+    return render(request, 'login.html')
+
+
+
+
+def loginUser(request):
+    r_username = request.POST['username']
+    r_password = request.POST['password'] 
+
+    user = authenticate(request, username=r_username, password=r_password)
+    if user is not None:
+        login(request, user)
+        request.session['first_name'] = user.first_name
+        return redirect('/')
+    else:
+        print("hello")
+    return render(request, 'login.html')
+
+def logoutUser(request):
+    logout(request)
+    return redirect('/')
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def shopping_cart(request):
