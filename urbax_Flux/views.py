@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from wish_list.models import wish_list
+from django.http import HttpResponseRedirect
 
 def home(request):
     site_settings = Site_Settings.objects.all()
@@ -59,8 +60,13 @@ def search_results(request):
     searchTerm = request.GET['Search']
     search_product = Store.objects.filter(product_name__icontains = searchTerm )
     search_product_count = search_product.count()
+    if request.user.is_authenticated:
+        wishlist_count = wish_list.objects.filter(user=request.user).count()
+    else:
+        wishlist_count = 0
     Data = {
         "site_settings_data": site_settings,
+        "wishlist_count" : wishlist_count,
         "categories_data": categories,
         "SearchTerm" : searchTerm,
         "Search_products": search_product,
@@ -82,9 +88,14 @@ def shop(request):
     page_obj = Products.get_page(page)
     page_obj_count =  [x+1 for x in range(Products.num_pages)]
     categories =  Category.objects.all()
+    if request.user.is_authenticated:
+        wishlist_count = wish_list.objects.filter(user=request.user).count()
+    else:
+        wishlist_count = 0
 
     Data = {
         "site_settings_data": site_settings,
+        "wishlist_count" : wishlist_count,
         "Product_Data" : Products,
         "categories_data": categories,
         "product_data" : product_data,
@@ -105,11 +116,18 @@ def shop(request):
 
 def product_detail(request, id): 
     site_settings = Site_Settings.objects.all()   
+    categories =  Category.objects.all()
     Products = Store.objects.all()
     single_product = Store.objects.get(id__exact=id)
+    if request.user.is_authenticated:
+        wishlist_count = wish_list.objects.filter(user=request.user).count()
+    else:
+        wishlist_count = 0
 
     Data = {
         "site_settings_data": site_settings,
+        "categories_data": categories,
+        "wishlist_count" : wishlist_count,
         "product_data" : Products,
         "single_product_data": single_product,
         "current_id": int(id),
@@ -122,10 +140,15 @@ def product_category(request, category):
     category_obj = get_object_or_404(Category, id=category)
     product_by_cat = Store.objects.filter( category_id=category)
     site_settings = Site_Settings.objects.all()
+    if request.user.is_authenticated:
+        wishlist_count = wish_list.objects.filter(user=request.user).count()
+    else:
+        wishlist_count = 0
     
     
     Data = {
         "site_settings_data": site_settings,
+        "wishlist_count" : wishlist_count,
         "categories_data": categories,
         "cat_obj" : category_obj,
         "product_by_cat_data" : product_by_cat 
@@ -139,10 +162,16 @@ def contact_us(request):
     categories =  Category.objects.all()
     our_Stores_section = Our_Locations.objects.all()
     locations_map_section = Locations_map.objects.all()
+    if request.user.is_authenticated:
+        wishlist_count = wish_list.objects.filter(user=request.user).count()
+    else:
+        wishlist_count = 0
+
 
 
     Data = {
         "site_settings_data": site_settings,
+        "wishlist_count" : wishlist_count,
         "Our_Stores_section_data" : our_Stores_section,
         "locations_map_data" : locations_map_section,
         "categories_data": categories,
@@ -205,7 +234,7 @@ def registerUser(request):
             messages.warning(request, "Passwords do not match")
     else:
         user = User.objects.create_user(first_name = r_fname, last_name = r_lname ,username = r_username, email = r_email, password = r_password)
-        messages.warning(request, "Account created successfully")
+        messages.success(request, "Account created successfully")
         return redirect('login')
     
     site_settings = Site_Settings.objects.all()
@@ -249,7 +278,9 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
+    messages.success(request, "Logged out successfully.")
     return redirect('login')
+
 
 
     
@@ -272,9 +303,17 @@ def logoutUser(request):
 def shopping_cart(request):
     site_settings = Site_Settings.objects.all()
     current_url_name = request.resolver_match.url_name.replace('-',' ')
+    if request.user.is_authenticated:
+        wishlist_count = wish_list.objects.filter(user=request.user).count()
+    else:
+        wishlist_count = 0
+    categories =  Category.objects.all()
+
 
     Data = {
         "site_settings_data": site_settings,
+        "categories_data": categories,
+        "wishlist_count" : wishlist_count,
         "url_name" : current_url_name
     }
     return render(request, 'shopping-cart.html', Data)
@@ -282,8 +321,17 @@ def shopping_cart(request):
 
 def checkout(request):
     site_settings = Site_Settings.objects.all()
+    categories =  Category.objects.all()
+
+    if request.user.is_authenticated:
+        wishlist_count = wish_list.objects.filter(user=request.user).count()
+    else:
+        wishlist_count = 0
+
     Data = {
         "site_settings_data": site_settings,
+        "categories_data": categories,
+        "wishlist_count" : wishlist_count,
     }
     return render(request, 'checkout.html', Data)
 
@@ -312,11 +360,10 @@ def toggle_wishlist(request, product_id):
     
     if not created:  # If the item already exists, remove it
         wishlist_item.delete()
-        messages.warning(request, "Product removed from wishlist")
-        return redirect('wishlist')
-
+        messages.success(request, "Product removed from wishlist")
     
-    return redirect('/', id=product_id)  # Redirect back to the product detail page
+    # Redirect back to the page the user was on
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
 

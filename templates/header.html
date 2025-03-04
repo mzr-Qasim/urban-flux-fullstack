@@ -115,8 +115,8 @@
               {% else %}
               <li><a href="{% url 'login' %}" class="links-hover"><i class="icon-login"></i></a></li>
               {% endif %}
-            <li><a href="{% if user.is_authenticated %} {% url 'wishlist' %}  {% else %} {% url 'login' %}{% endif %}" class="links-hover count"><i class="icon-favourite"></i><span><small>{{wishlist_count}}</small></span></a></li>
-            <li><a href="{% if user.is_authenticated %} {% url 'Shopping-cart' %}  {% else %} {% url 'login' %}{% endif %}" class="links-hover count"><i class="icon-cart"></i><span><small>2</small></span></a></li>
+            <li><a href="{% if user.is_authenticated %} {% url 'wishlist' %}  {% else %} {% url 'login' %}{% endif %}" class="links-hover {% if user.is_authenticated %}count{% endif %}"><i class="icon-favourite"></i>{% if user.is_authenticated %}<span><small>{{wishlist_count}}</small></span>{% endif %}</a></li>
+            <li><a href="{% if user.is_authenticated %} {% url 'Shopping-cart' %}   {% else %} {% url 'login' %}{% endif %}" class="links-hover {% if user.is_authenticated %}count{% endif %}"><i class="icon-cart"></i>{% if user.is_authenticated %}<span><small>2</small></span>{% endif %}</a></li>
           </ul><!-- /.nav-right-links-mobile -->
         </div><!-- /.container -->
           </div><!-- /.nav-right-links-mobile -->

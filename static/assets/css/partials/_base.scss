@@ -14,6 +14,8 @@ $luxury-gold-color: #FFD700;
 $luxury-color: #000080;
 $luxury-color-2: #00FFFF;
 
+$success-message-color: #28a745;
+
 
 
 $section-space: 2rem;
@@ -117,8 +119,14 @@ small{
     border-radius: 3px;
 }
 
-.alert-message{
+.alert-warning{
     background-color: $theme-color-red!important;
+    color: $uni-color-2!important;
+}
+
+
+.alert-success{
+    background-color: $success-message-color!important;
     color: $uni-color-2!important;
 }
 
