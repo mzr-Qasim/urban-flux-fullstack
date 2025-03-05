@@ -77,44 +77,67 @@
                       </div>
                       </div> -->
                       <div class="col-lg-6">
-                        <div class="col-inner mb-4 d_flex" style="flex-direction: column; align-items: flex-start;">
+                        <div class="col-inner mb-4 d_flex select-product-inner">
                           <small class="mb-2">Select Size</small>
                           <div class="select-product-detail">
+                            {% if single_product_data.Size_1 %}
                             <label>
                               <input type="radio" name="radio" checked />
                               <div class="front-end box">
-                                <span>S</span>
+                                <span>{{single_product_data.Size_1}}</span>
                               </div>
                             </label>
+                            {% endif %}
+                            {% if single_product_data.Size_2 %}
                             <label>
-                              <input type="radio" name="radio"/>
+                              <input type="radio" name="radio" checked />
                               <div class="front-end box">
-                                <span>M</span>
+                                <span>{{single_product_data.Size_2}}</span>
                               </div>
                             </label>
+                            {% endif %}
+                            {% if single_product_data.Size_3 %}
+                            <label>
+                              <input type="radio" name="radio" checked/>
+                              <div class="front-end box">
+                                <span>{{single_product_data.Size_3}}</span>
+                              </div>
+                            </label>
+                            {% endif %}
                           </div><!-- /.select-product-detail -->
                         </div><!-- /.col-inner -->
                       </div><!-- /.col-lg-6 -->
                       <div class="col-lg-6">
-                        <div class="col-inner mb-4 d_flex"  style="flex-direction: column; align-items: flex-start;">
+                        <div class="col-inner mb-4 d_flex  select-product-inner" >
                           <small class="mb-2">Select Color</small>
                           <div class="select-product-detail">
+                            {% if single_product_data.Color_1 %}
                             <label>
                               <input type="radio" name="radio1" checked />
                               <div class="front-end box">
-                                <span>White</span>
+                                <span>{{single_product_data.Color_1}}</span>
                               </div>
                             </label>
+                            {% endif %}
+                            {% if single_product_data.Color_2 %}
                             <label>
-                              <input type="radio" name="radio1"/>
+                              <input type="radio" name="radio1" checked/>
                               <div class="front-end box">
-                                <span>Black</span>
+                                <span>{{single_product_data.Color_2}}</span>
                               </div>
                             </label>
+                            {% endif %}
+                            {% if single_product_data.Color_3 %}
+                            <label>
+                              <input type="radio" name="radio1" checked/>
+                              <div class="front-end box">
+                                <span>{{single_product_data.Color_3}}</span>
+                              </div>
+                            </label>
+                            {% endif %}
                           </div><!-- /.select-product-detail -->
                         </div><!-- /.col-inner -->
-                      </div><!-- /.col-lg-6 -->
-                      
+                      </div><!-- /.col-lg-6 -->               
                       <div class="col-lg-12 col-inner">
                         {% if single_product_data.is_available %}
                         <a href="{% if user.is_authenticated %} {% url 'shop' %} {% else %} {% url 'login' %}{% endif %}" class="theme-button-black w_100 text-align-center"><small>Add to cart -
@@ -127,7 +150,6 @@
                       <div class="col-lg-6">
                         <div class="shipping-detail light-border">
                           <i class="icon-delievery-icon mb-3"></i>
-                          <!-- <p><small>Estimate delivery times: <b>12-26 days</b> (International), <b>3-6 days</b> (United States).</small></p> -->
                           {% for settings in site_settings_data %}
                           <p><small>{{settings.estimated_delivery}}</small></p>
                           {% endfor %}
@@ -139,7 +161,6 @@
                           {% for settings in site_settings_data %}
                           <p><small>{{settings.return_time}}</small></p>
                           {% endfor %}
-                          <!-- <p><small>Return within <b>30 days</b> of purchase. Duties & taxes are non-refundable.</small></p> -->
                         </div><!-- /.shipping-detail -->
                       </div><!-- /.col-lg-5 -->
                     </div><!-- /.row -->

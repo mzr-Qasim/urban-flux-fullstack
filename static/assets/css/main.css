@@ -13896,6 +13896,11 @@ section.checkout .checkout__order__widget label .checkmark:after {
   content: "";
 }
 
+.select-product-inner {
+  flex-direction: column;
+  align-items: flex-start !important;
+}
+
 .select-product-detail input[type=radio] {
   display: none;
 }
@@ -13911,6 +13916,8 @@ section.checkout .checkout__order__widget label .checkmark:after {
 .select-product-detail .box {
   width: 3rem;
   height: 3rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   background-color: #fff;
   transition: all 250ms ease;
   will-change: transition;
