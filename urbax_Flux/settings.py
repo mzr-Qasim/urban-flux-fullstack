@@ -29,7 +29,7 @@ DEBUG = True
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['urbanflux.malikqasim.info','www.urbanflux.malikqasim.info']
 
-
+ 
 # Application definition
 
 INSTALLED_APPS = [
