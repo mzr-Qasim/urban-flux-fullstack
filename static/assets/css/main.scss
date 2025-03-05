@@ -1525,44 +1525,6 @@ section.checkout {
 
 // Product Detail
 
-
-// .select-form{
-//     position: relative;
-//     width: 4rem;
-//     height: 4rem;
-//     .product-select-label {
-//         position: absolute;
-
-
-//         top: 50%;
-//         left: 50%;
-//         transform: translate(-50%, -50%);
-
-//         .product-input {
-
-//           width: 100%;
-//           height: 100%;
-//           border-radius: 0 !important;
-//           border: 1px solid $uni-color-1;
-//           z-index: -1; // Keep the input behind other content
-//           visibility: 0; // Hide the input but keep it interactive
-
-//           &:focus {
-//             outline: none !important;
-//             box-shadow: none !important;
-//           }
-
-//           &:checked {
-//             background-color: $uni-color-1;
-//             --bs-form-check-bg-image: none; // Remove the custom background image when checked
-//           }
-//         }
-//       }
-
-
-
-
-
 .select-product-detail {
 
     input[type="radio"] {
