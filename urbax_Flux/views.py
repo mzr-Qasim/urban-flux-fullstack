@@ -23,7 +23,7 @@ def home(request):
     if request.user.is_authenticated:
         wishlist_count = wish_list.objects.filter(user=request.user).count()
     else:
-        wishlist_count = 0
+        wishlist_count = 0      
     
 
 
@@ -36,6 +36,7 @@ def home(request):
         "sale_section_data" : sale_section,
         "Product_Data" : Products,
         "Our_Stores_section_data" : our_Stores_section,
+        
         
     }
     return render(request, 'index.html', Data)

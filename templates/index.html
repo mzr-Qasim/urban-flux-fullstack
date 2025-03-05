@@ -131,8 +131,7 @@
                 <img loading="lazy" src="{{best_seller.Image.url}}" alt="">
                 <figcaption {% if best_seller.category.type == 'LUXURY' %} class="class-prod luxury-prod" {% elif best_seller.category.type == 'FORMAL' %} class="class-prod formal-prod" {% else %}{% endif %}>
                   <div class="top-icons">
-  
-                       <a href="{% if user.is_authenticated %}{% url 'toggle_wishlist' best_seller.id %}{% else %}{% url 'login' %}{% endif %}"><i class="icon-favourite product-carousel-position-icons"></i></a>       
+                  <a href="{% if user.is_authenticated %}{% url 'toggle_wishlist' best_seller.id %}{% else %}{% url 'login' %}{% endif %}"><i class="icon-favourite product-carousel-position-icons"></i></a>     
               
                     <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
                   </div><!-- /.top-icons -->
