@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'Our_Locations',
     'Locations_map',
     'wish_list',
+    'product_variations',
 ]
 
 MIDDLEWARE = [

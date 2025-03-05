@@ -11,6 +11,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from wish_list.models import wish_list
+from product_variations.models import product_variations
 from django.http import HttpResponseRedirect
 
 def home(request):
@@ -45,21 +46,12 @@ def home(request):
 
 
 
-
-
-
-
-
-
-
-
-
-
 def search_results(request):
     site_settings = Site_Settings.objects.all()
     categories =  Category.objects.all()
-    searchTerm = request.GET['Search']
-    search_product = Store.objects.filter(product_name__icontains = searchTerm )
+    searchTerm = request.GET.get('Search', '').strip()
+    cleaned_searchTerm = ' '.join(searchTerm.split())
+    search_product = Store.objects.filter(product_name__icontains = cleaned_searchTerm )
     search_product_count = search_product.count()
     if request.user.is_authenticated:
         wishlist_count = wish_list.objects.filter(user=request.user).count()
@@ -110,16 +102,12 @@ def shop(request):
 
 
 
-
-
-
-
-
 def product_detail(request, id): 
     site_settings = Site_Settings.objects.all()   
     categories =  Category.objects.all()
     Products = Store.objects.all()
     single_product = Store.objects.get(id__exact=id)
+    product_variation = product_variations.objects.filter(product=single_product)
     if request.user.is_authenticated:
         wishlist_count = wish_list.objects.filter(user=request.user).count()
     else:
@@ -132,6 +120,7 @@ def product_detail(request, id):
         "product_data" : Products,
         "single_product_data": single_product,
         "current_id": int(id),
+        "product_variations_data" : product_variation,
     }
     return render(request, 'product-detail.html', Data)
 
@@ -183,12 +172,6 @@ def contact_us(request):
 
 
 
-
-
-
-
-
-
 def loginpage(request):
     site_settings = Site_Settings.objects.all()
     categories =  Category.objects.all()
@@ -210,16 +193,6 @@ def sign_up(request):
     return render(request, 'sign-up.html', Data)
 
 
-# def wish_list(request):
-#     site_settings = Site_Settings.objects.all()
-
-#     Data = {
-#         "site_settings_data": site_settings,
-#     }
-#     return render(request, 'wishlist.html' , Data)
-
-
-
 
 def registerUser(request):
     r_fname = request.POST['first_name']
@@ -229,7 +202,10 @@ def registerUser(request):
     r_password = request.POST['password'] 
     r_rpassword = request.POST['rpassword']
 
-    if len(r_password) < 8 :
+    if r_fname == '' or r_lname == '' or r_username == '' or r_email == '' or r_password == '' or r_rpassword == '':
+        messages.warning(request, "Please fill all fields")
+
+    elif len(r_password) < 8 :
             messages.warning(request, "Password too short")
     elif r_password != r_rpassword :
             messages.warning(request, "Passwords do not match")
@@ -358,15 +334,14 @@ def wishlist_view(request):
 def toggle_wishlist(request, product_id):
     product = get_object_or_404(Store, id=product_id)
     wishlist_item, created = wish_list.objects.get_or_create(user=request.user, product=product)
+    # messages.success(request, f"'{product.product_name}' is added to your wishlist.")
     
-    if not created:  # If the item already exists, remove it
+    if not created: 
         wishlist_item.delete()
-        messages.success(request, "Product removed from wishlist")
+        messages.warning(request, f"'{product.product_name}' has been removed from your wishlist.")
     
     # Redirect back to the page the user was on
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-
-
 
 
 

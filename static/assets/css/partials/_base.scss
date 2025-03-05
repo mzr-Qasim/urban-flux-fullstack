@@ -869,10 +869,6 @@ small{
 
 
 
-
-
-
-
 .form-select.size_color_option{
     border: 1px solid black;
     &:focus{
@@ -880,5 +876,15 @@ small{
         box-shadow: none !important;
         border: 1px solid black;
 
+    }
+}
+
+.form-select{
+    cursor: pointer;
+    border: 1px solid $loading-color;
+    &:focus{
+        outline: none !important;
+        box-shadow: none !important;
+        border: 1px solid $loading-color;
     }
 }

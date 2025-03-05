@@ -12774,6 +12774,16 @@ small, .small {
   border: 1px solid black;
 }
 
+.form-select {
+  cursor: pointer;
+  border: 1px solid #dcdcdc;
+}
+.form-select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid #dcdcdc;
+}
+
 .main-navbar {
   padding: 1rem 0;
   background-color: #ffffff;
