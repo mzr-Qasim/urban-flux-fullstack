@@ -54,10 +54,3 @@ if settings.DEBUG:
 
 
 
-
-
-
-
-
-
-
