@@ -30,6 +30,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['urbanflux.malikqasim.info','www.urbanflux.malikqasim.info']
 
  
+CART_SESSION_ID = 'cart'
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -48,6 +51,7 @@ INSTALLED_APPS = [
     'Locations_map',
     'wish_list',
     'product_variations',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -73,6 +77,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'cart.context_processor.cart_total_amount',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',

@@ -13,6 +13,7 @@ from django.contrib import messages
 from wish_list.models import wish_list
 from product_variations.models import product_variations
 from django.http import HttpResponseRedirect
+from cart.cart import Cart
 
 def home(request):
     site_settings = Site_Settings.objects.all()
@@ -338,11 +339,56 @@ def toggle_wishlist(request, product_id):
     
     if not created: 
         wishlist_item.delete()
-        messages.warning(request, f"'{product.product_name}' has been removed from your wishlist.")
+        messages.warning(request, f"'{product.name}' has been removed from your wishlist.")
     
     # Redirect back to the page the user was on
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
+
+
+
+
+def cart_add(request, id):
+    cart = Cart(request)
+    product = Store.objects.get(id=id)
+    cart.add(product=product)
+    return redirect("Shopping-cart")
+
+
+
+def item_clear(request, id):
+    cart = Cart(request)
+    product = Store.objects.get(id=id)
+    cart.remove(product)
+    return redirect("Shopping-cart")
+
+
+
+def item_increment(request, id):
+    cart = Cart(request)
+    product = Store.objects.get(id=id)
+    cart.add(product=product)
+    return redirect("Shopping-cart")
+
+
+
+def item_decrement(request, id):
+    cart = Cart(request)
+    product = Store.objects.get(id=id)
+    cart.decrement(product=product)
+    return redirect("Shopping-cart")
+
+
+
+def cart_clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect("Shopping-cart")
+
+
+
+def cart_detail(request):
+    return render(request, 'checkout.html')
 
 

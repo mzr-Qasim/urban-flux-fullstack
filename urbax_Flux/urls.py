@@ -35,10 +35,15 @@ urlpatterns = [
     path('logout-user/', views.logoutUser, name='logout-user'),
     path('register/', views.sign_up, name='sign-up'), 
     path('register-user', views.registerUser, name='register-user'), 
-    # path('wishlist/', views.wish_list, name='wishlist'), 
     path('toggle-wishlist/<int:product_id>/', toggle_wishlist, name='toggle_wishlist'),
     path('wishlist/', views.wishlist_view, name='wishlist'),
     path('cart/', views.shopping_cart, name='Shopping-cart'), 
+    path('cart/add/<int:id>/', views.cart_add, name='cart_add'),
+    path('cart/item_clear/<int:id>/', views.item_clear, name='item_clear'),
+    path('cart/item_increment/<int:id>/', views.item_increment, name='item_increment'),
+    path('cart/item_decrement/<int:id>/', views.item_decrement, name='item_decrement'),
+    path('cart/cart_clear/', views.cart_clear, name='cart_clear'),
+    path('cart/cart-detail/',views.cart_detail,name='cart_detail'),
     path('checkout/', views.checkout, name='checkout'), 
 ]
 

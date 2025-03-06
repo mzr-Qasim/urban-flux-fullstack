@@ -1,6 +1,7 @@
 {% load custom_tags %}
 {% load static %}
 {% include 'header.html' %}
+{% load cart_tag %}
 
 <main class="main-content">
   <section class="main-hero-section">
@@ -128,20 +129,15 @@
             <div class="swiper-slide product-cards">
               <a href="{% url 'product-detail' best_seller.id %}">
               <figure>
-                <img loading="lazy" src="{{best_seller.Image.url}}" alt="">
+                <img loading="lazy" src="{{best_seller.image.url}}" alt="">
                 <figcaption {% if best_seller.category.type == 'LUXURY' %} class="class-prod luxury-prod" {% elif best_seller.category.type == 'FORMAL' %} class="class-prod formal-prod" {% else %}{% endif %}>
                   <div class="top-icons">
                   <a href="{% if user.is_authenticated %}{% url 'toggle_wishlist' best_seller.id %}{% else %}{% url 'login' %}{% endif %}"><i class="icon-favourite product-carousel-position-icons"></i></a>     
               
                     <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
                   </div><!-- /.top-icons -->
-                  {% if user.is_authenticated %}
-                  <a href="#" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
-                    SHOP</a>
-                  {% else %}
-                  <a href="{% url 'login' %}" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
-                    SHOP</a>
-                  {% endif %}
+                  <a href="{% url 'product-detail' best_seller.id %}" class="product-carousel-shop-button quick-shop"><i class="icon-cart"></i>QUICK
+                    SHOP</a>             
                   {% if best_seller.sale %}
                   <span class="sale-off">-{{best_seller.sale}}%</span>
                   {% else %}
@@ -157,7 +153,7 @@
                 <span><i class="icon-rating"></i></span>
                 <span><i class="icon-rating"></i></span>
                 <a href="{% url 'product-detail' best_seller.id %}"
-                  class="product-carousel-anchor">{{best_seller.product_name}}</a>
+                  class="product-carousel-anchor">{{best_seller.name}}</a>
                   {% if best_seller.sale >= 1 %}
                   <small class="before-price">${{best_seller.price}}</small><span><small  class="red_color px-3  {% if best_seller.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${% calculate_discount_price best_seller.price best_seller.sale %}</small></span>
                   {% else %}

@@ -6,7 +6,7 @@ from django.urls import reverse
 from Category.models import Category
 
 class Store(models.Model):
-    product_name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     price = models.IntegerField(null=True)
     product_type = models.CharField(max_length=15, blank=True)
     description = models.TextField(max_length=500)
@@ -14,7 +14,7 @@ class Store(models.Model):
     sale = models.IntegerField(null=True, blank=True)
     is_available = models.BooleanField(default = True)
     slug =models.SlugField(max_length=100, unique=True)
-    Image = models.ImageField(upload_to='Products')
+    image = models.ImageField(upload_to='Products')
     product_image_1 = models.ImageField(upload_to='Products')
     product_image_2 = models.ImageField(upload_to='Products')
     product_image_3 = models.ImageField(upload_to='Products')
@@ -33,6 +33,6 @@ class Store(models.Model):
 
 
     def __str__(self):
-        return self.product_name 
+        return self.name 
 
 

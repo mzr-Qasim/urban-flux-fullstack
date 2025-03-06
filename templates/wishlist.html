@@ -38,13 +38,13 @@
                         <div class="product-cards">
                             <a href="{% url 'product-detail' item.product.id %}">
                                 <figure>
-                                    <img loading="lazy" src="{{item.product.Image.url}}" alt="">
+                                    <img loading="lazy" src="{{item.product.image.url}}" alt="">
                                     <figcaption>
                                         <div class="top-icons">
                                             <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
                                         </div><!-- /.top-icons -->
                                         
-                                        <a href="" class="product-carousel-shop-button quick-shop"><i
+                                        <a href="{% url 'product-detail' item.product.id %}" class="product-carousel-shop-button quick-shop"><i
                                                 class="icon-cart"></i>QUICK
                                             SHOP</a>
                                         {% if item.product.sale %}
@@ -64,7 +64,7 @@
                                 <span><i class="icon-rating"></i></span>
                                 <span><i class="icon-rating"></i></span>
                                 <span><i class="icon-rating"></i></span>
-                                <a href="{% url 'product-detail' item.product.id %}" class="product-carousel-anchor">{{item.product.product_name}}</a>
+                                <a href="{% url 'product-detail' item.product.id %}" class="product-carousel-anchor">{{item.product.name}}</a>
                                 {% if item.product.sale >= 1 %}
                                 <small class="before-price">${{item.product.price}}</small><span><small
                                         class="red_color px-3  {% if item.product.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${% calculate_discount_price item.product.price item.product.sale %}</small></span>
