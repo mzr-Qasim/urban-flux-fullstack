@@ -52,7 +52,7 @@ def search_results(request):
     categories =  Category.objects.all()
     searchTerm = request.GET.get('Search', '').strip()
     cleaned_searchTerm = ' '.join(searchTerm.split())
-    search_product = Store.objects.filter(product_name__icontains = cleaned_searchTerm )
+    search_product = Store.objects.filter(name__icontains = cleaned_searchTerm )
     search_product_count = search_product.count()
     if request.user.is_authenticated:
         wishlist_count = wish_list.objects.filter(user=request.user).count()
@@ -354,6 +354,10 @@ def cart_add(request, id):
     product = Store.objects.get(id=id)
     cart.add(product=product)
     return redirect("Shopping-cart")
+
+
+
+
 
 
 

@@ -25,15 +25,17 @@
                                 <div class="product-cards">
                                     <a href="{% url 'product-detail' product.id %}">
                                     <figure>
-                                        <img loading="lazy" src="{{product.Image.url}}" alt="">
+                                        <img loading="lazy" src="{{product.image.url}}" alt="">
                                         <figcaption {% if product.category.type == 'LUXURY' %} class="class-prod luxury-prod" {% elif product.category.type == 'FORMAL' %} class="class-prod formal-prod" {% else %}{% endif %}>
                                             <div class="top-icons">
-                                                <a href="#"><i
-                                                        class="icon-favourite product-carousel-position-icons"></i></a>
+                                                {% if is_in_wishlist_data %}
+                                                {% else %}
+                                                <a href="{% if user.is_authenticated %}{% url 'toggle_wishlist' product.id %}{% else %}{% url 'login' %}{% endif %}"><i class="icon-favourite product-carousel-position-icons"></i></a>     
+                                                {% endif %}
                                                 <a href="#"><i
                                                         class="icon-compare product-carousel-position-icons"></i></a>
                                             </div><!-- /.top-icons -->
-                                            <a href="#" class="product-carousel-shop-button quick-shop"><i
+                                            <a href="{% url 'product-detail' product.id %}" class="product-carousel-shop-button quick-shop"><i
                                                     class="icon-cart"></i>QUICK
                                                 SHOP</a>
                                                 {% if product.sale %}
@@ -50,7 +52,7 @@
                                         <span><i class="icon-rating"></i></span>
                                         <span><i class="icon-rating"></i></span>
                                         <span><i class="icon-rating"></i></span>
-                                        <a href="{% url 'product-detail' product.id %}" class="product-carousel-anchor">{{product.product_name}}</a>
+                                        <a href="{% url 'product-detail' product.id %}" class="product-carousel-anchor">{{product.name}}</a>
                                         {% if product.sale >= 1 %}
                                         <small class="before-price">${{product.price}}</small><span><small  class="red_color px-3  {% if product.category.type == 'LUXURY' %} luxury_color {% else %}{% endif %}">${% calculate_discount_price product.price product.sale %}</small></span>
                                         {% else %}

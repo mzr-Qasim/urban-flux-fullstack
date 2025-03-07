@@ -16,3 +16,6 @@ class product_variations(models.Model):
     class Meta:
         verbose_name = ''
         verbose_name_plural = 'Product Variations'
+
+
+

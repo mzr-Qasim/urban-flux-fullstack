@@ -170,5 +170,42 @@ filter_button.addEventListener('click', function () {
 
 // Quantity Selector
 
+// Function to handle adding the product to the cart
+// function addToCart(event) {
+//   event.preventDefault(); // Prevent default anchor behavior
+  
+//   // Get the selected size and color
+//   var selectedSize = document.querySelector('input[name="size"]:checked');
+//   var selectedColor = document.querySelector('input[name="color"]:checked');
+  
+//   if (!selectedSize || !selectedColor) {
+//       alert("Please select both size and color.");
+//       return;
+//   }
+  
+//   // Get the product ID from the data attribute on the link
+//   var productId = event.target.getAttribute("data-product-id");
+  
+//   // Prepare the data to send via GET or AJAX
+//   var url = `/cart/add/${productId}/?size=${selectedSize.value}&color=${selectedColor.value}`;
+
+//   // Using Fetch API for GET request (you can use AJAX or jQuery if you prefer)
+//   fetch(url, {
+//       method: "GET",
+//   })
+//   .then(response => response.json())
+//   .then(data => {
+//       if (data.success) {
+//           alert("Item added to the cart!");
+//           window.location.href = "/cart/"; // Redirect to cart page
+//       } else {
+//           alert("Failed to add item to cart.");
+//       }
+//   })
+//   .catch(error => {
+//       console.error("Error adding to cart:", error);
+//       alert("An error occurred. Please try again.");
+//   });
+// }
 
 
