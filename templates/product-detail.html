@@ -68,14 +68,9 @@
                     {% else %}
                     <h4 class="mb-4">${{single_product_data.price}}</h4>
                     {% endif %}
+                    <form {% if user.is_authenticated %} action="{% url 'cart_add' single_product_data.id %}" {% else %} action="{% url 'login'%}" {% endif %} method="POST">
+                      {% csrf_token %}
                     <div class="row">
-                      <!-- <div class="col-lg-4 col-inner">
-                       
-                        <div data-mdb-input-init class="form-outline quantity-selector">
-                          <input class="quantity mb-2" type="number" id="typeNumber" class="form-control" style="pointer-events: none;" {% if single_product_data.is_available  %}{% else %}disabled{% endif %} value="1" min="1" max="{{single_product_data.stock}}" />
-                          <label class="form-label" for="typeNumber">Select Quantity</label>
-                      </div>
-                      </div> -->
                       <div class="col-lg-6">
                         <div class="col-inner mb-4 d_flex select-product-inner">
                           <small class="mb-2">Select Size</small>
@@ -83,7 +78,7 @@
                             {% for variation in product_variations_data %}
                             {% if variation.size %}
                             <label >
-                              <input type="radio" name="radio"{% if forloop.counter == 1 %} checked {% endif %}/>
+                              <input type="radio" name="size" value="{{variation.size}}" {% if forloop.counter == 1 %} checked {% endif %}/>
                               <div class="front-end box " >
                                 <span>{{variation.size}}</span>
                               </div>
@@ -100,7 +95,7 @@
                             {% for variation in product_variations_data %}
                             {% if variation.color %}
                             <label>
-                              <input type="radio" name="radio1"{% if forloop.counter == 1 %} checked {% endif %}/>
+                              <input type="radio" name="color" value="{{variation.color}}" {% if forloop.counter == 1 %} checked {% endif %}/>
                               <div class="front-end box">
                                 <span>{{variation.color}}</span>
                               </div>
@@ -111,14 +106,20 @@
                         </div><!-- /.col-inner -->
                       </div><!-- /.col-lg-6 -->         
                       <div class="col-lg-12 col-inner">
-                        {% if single_product_data.is_available %}
+                        {% if user.is_authenticated %}
+                        <button class="theme-button-black w_100 text-align-center" type="submit">Add to Cart</button>
+                        {% else %}
+                        <button class="theme-button-black w_100 text-align-center">Add to Cart</button>
+                        {% endif %}
+                        <!-- {% if single_product_data.is_available %}
                         <a href="{% if user.is_authenticated %} {% url 'cart_add' single_product_data.id %} {% else %} {% url 'login' %}{% endif %}" class="theme-button-black w_100 text-align-center"><small>Add to cart -
                             ${% calculate_discount_price single_product_data.price single_product_data.sale %}</small></a>
                         {% else %}
                         <a href="{% if user.is_authenticated %} {% url 'cart_add' single_product_data.id %} {% else %} {% url 'login' %}{% endif %}" class="theme-button-black w_100 text-align-center none_pointers"><small>Add to cart -
                           ${% calculate_discount_price single_product_data.price single_product_data.sale %}</small></a>
-                        {% endif %}
+                        {% endif %} -->
                       </div><!-- /.col-lg-12 -->
+              
                       <div class="col-lg-6">
                         <div class="shipping-detail light-border">
                           <i class="icon-delievery-icon mb-3"></i>
@@ -136,6 +137,7 @@
                         </div><!-- /.shipping-detail -->
                       </div><!-- /.col-lg-5 -->
                     </div><!-- /.row -->
+                  </form>
                   </div><!-- /.col-inner -->
                 </div><!-- /.col-lg-6 -->
               </div><!-- /.row -->

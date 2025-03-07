@@ -13560,11 +13560,10 @@ section.shopping-cart .shop__cart__table tbody tr .cart__product__item img {
 }
 section.shopping-cart .shop__cart__table tbody tr .cart__product__item .cart__product__item__title {
   overflow: hidden;
-  padding-top: 23px;
 }
 section.shopping-cart .shop__cart__table tbody tr .cart__product__item .cart__product__item__title h6, section.shopping-cart .shop__cart__table tbody tr .cart__product__item .cart__product__item__title .h6 {
   color: #000000;
-  font-weight: 600;
+  font-weight: 400;
 }
 section.shopping-cart .shop__cart__table tbody tr .cart__price {
   font-size: 16px;
@@ -14011,6 +14010,9 @@ section.checkout .checkout__order__widget label .checkmark:after {
   }
   section.shopping-cart .shop__cart__table {
     overflow-x: auto !important;
+  }
+  section.shopping-cart .shop__cart__table tbody tr .cart__product__item .cart__product__item__title {
+    padding-top: 23px;
   }
   section.shopping-cart .shop__cart__table tbody tr .cart__product__item img {
     float: none;

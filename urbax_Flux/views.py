@@ -14,6 +14,7 @@ from wish_list.models import wish_list
 from product_variations.models import product_variations
 from django.http import HttpResponseRedirect
 from cart.cart import Cart
+from django.template.defaultfilters import floatformat
 
 def home(request):
     site_settings = Site_Settings.objects.all()
@@ -288,11 +289,12 @@ def shopping_cart(request):
     categories =  Category.objects.all()
 
 
+
     Data = {
         "site_settings_data": site_settings,
         "categories_data": categories,
         "wishlist_count" : wishlist_count,
-        "url_name" : current_url_name
+        "url_name" : current_url_name,
     }
     return render(request, 'shopping-cart.html', Data)
 
@@ -347,13 +349,25 @@ def toggle_wishlist(request, product_id):
 
 
 
-
-
 def cart_add(request, id):
-    cart = Cart(request)
-    product = Store.objects.get(id=id)
-    cart.add(product=product)
-    return redirect("Shopping-cart")
+    if request.method == 'POST':
+        cart = Cart(request)
+        product = get_object_or_404(Store, id=id)
+        
+        
+        selected_size = request.POST.get('size')
+        selected_color = request.POST.get('color')
+        
+        
+
+        cart.add(
+            product=product,
+            size=selected_size,  
+            color=selected_color  
+        )
+    
+
+    return redirect('Shopping-cart')
 
 
 
@@ -362,10 +376,26 @@ def cart_add(request, id):
 
 
 def item_clear(request, id):
-    cart = Cart(request)
-    product = Store.objects.get(id=id)
-    cart.remove(product)
+    if request.method == 'POST':
+        cart = Cart(request)
+        product = get_object_or_404(Store, id=id)
+
+        selected_size = request.POST.get('size')
+        selected_color = request.POST.get('color')
+
+
+
+        cart.remove(
+                product=product,
+                size=selected_size,  
+                color=selected_color  
+            )
+    
+
+
     return redirect("Shopping-cart")
+
+
 
 
 

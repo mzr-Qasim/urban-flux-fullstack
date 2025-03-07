@@ -28,15 +28,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for key,value in request.session.cart.items %}
+                                {% for id,value in request.session.cart.items %}
                                 <tr>
-                                    <td class="cart__product__item">
+                                    <td class="cart__product__item" >
                                         <img src="{{value.image}}" alt="">
                                         <div class="cart__product__item__title">
-                                            <h6>{{value.name}}</h6>
+                                            <h5>{{value.name}}</h5>
+                                            <h6>Color: {{value.color}}</h6>
+                                            <h6>Size: {{value.size}}</h6>
                                         </div>
                                     </td>
-                                    <td class="cart__price">${{value.price}}</td>
+                                    <td class="cart__price">${% calculate_discount_price value.price value.sale %}</td>
                                     <td class="cart__quantity">
                                         <div class="pro-qty">
                                             <a href="" class="qtybtn inc">-</a>
@@ -44,10 +46,15 @@
                                             <a href="" class="qtybtn dec">+</a>
                                         </div>
                                     </td>
-                                    <td class="cart__total">$ 300.0</td>
+                                    <td class="cart__total">${% calculate_discount_price value.price|multiply:value.quantity value.sale %}</td>
+                                    <form action="{% url 'item_clear' value.product_id %}" method="POST">
+                                        {% csrf_token %}
                                     <td class="cart__close">
-                                        <a href="" class="remove-product"><i class="icon-close-icon"></i></a>
+                                        <input type="hidden" name="size" value="{{ value.size }}">
+                                        <input type="hidden" name="color" value="{{ value.color }}">
+                                        <button class="remove-product" type="submit"><i class="icon-close-icon"></i></button>             
                                     </td>
+                                </form>
                                 </tr>
                                 {% endfor %}
                             </tbody>
