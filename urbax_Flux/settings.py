@@ -103,7 +103,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', 
         'NAME': 'malikqas_urbanflux',
         # 'USER': 'root',
-        # 'PASSWORD': '',
+        # 'PASSWORD': '', 
         'USER': 'malikqas_qasim_dev',   		
 
         'PASSWORD': 'v2AT;$b7M??~',
