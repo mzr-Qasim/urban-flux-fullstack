@@ -288,6 +288,8 @@ def shopping_cart(request):
         wishlist_count = 0
     categories =  Category.objects.all()
 
+    
+
 
 
     Data = {
@@ -400,17 +402,37 @@ def item_clear(request, id):
 
 
 def item_increment(request, id):
-    cart = Cart(request)
-    product = Store.objects.get(id=id)
-    cart.add(product=product)
+
+    if request.method == 'POST':
+        cart = Cart(request)
+        product = get_object_or_404(Store, id=id)
+        
+        
+        selected_size = request.POST.get('size')
+        selected_color = request.POST.get('color')
+        
+        
+
+        cart.add(
+            product=product,
+            size=selected_size,  
+            color=selected_color  
+        )
     return redirect("Shopping-cart")
 
 
 
 def item_decrement(request, id):
     cart = Cart(request)
-    product = Store.objects.get(id=id)
-    cart.decrement(product=product)
+    product = get_object_or_404(Store, id=id)      
+    selected_size = request.POST.get('size')
+    selected_color = request.POST.get('color')
+
+    cart.decrement(
+            product=product,
+            size=selected_size,  
+            color=selected_color  
+        )
     return redirect("Shopping-cart")
 
 

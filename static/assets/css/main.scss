@@ -1108,11 +1108,12 @@ section.shopping-cart {
                         padding: 0;
                         width: 110px;
                         border-radius: 0;
+                        display: flex;
+                        align-items: center;
 
-                        input {
+                        span {
                             color: #444444;
                             width: 84px;
-                            height: 48px;
                             float: left;
                             text-align: center;
                             border: none;
@@ -1121,7 +1122,6 @@ section.shopping-cart {
                         .qtybtn {
                             font-size: 2rem;
                             color: $uni-color-1;
-                            width: 12px;
                             line-height: 46px;
                         }
 

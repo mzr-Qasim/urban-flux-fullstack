@@ -13579,11 +13579,12 @@ section.shopping-cart .shop__cart__table tbody tr .cart__quantity .pro-qty {
   padding: 0;
   width: 110px;
   border-radius: 0;
+  display: flex;
+  align-items: center;
 }
-section.shopping-cart .shop__cart__table tbody tr .cart__quantity .pro-qty input {
+section.shopping-cart .shop__cart__table tbody tr .cart__quantity .pro-qty span {
   color: #444444;
   width: 84px;
-  height: 48px;
   float: left;
   text-align: center;
   border: none;
@@ -13591,7 +13592,6 @@ section.shopping-cart .shop__cart__table tbody tr .cart__quantity .pro-qty input
 section.shopping-cart .shop__cart__table tbody tr .cart__quantity .pro-qty .qtybtn {
   font-size: 2rem;
   color: #000000;
-  width: 12px;
   line-height: 46px;
 }
 section.shopping-cart .shop__cart__table tbody tr .cart__quantity .pro-qty .inc {

@@ -12,6 +12,21 @@
             </figcaption>
         </figure>
     </section><!-- /.theme-hero-section -->
+    {% if request.session.cart|length == 0 %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6  mx-auto">
+                    <div class="inner my-5 text-align-center">
+                        <h4 class="pb-3">Shopping Cart is empty.</h4>
+                        <p class="pb-5">You don't have any products in the shopping cart yet. You will find a lot of interesting products on our "Shop" page.</p>
+                        <a href="{% url 'shop' %}" class="theme-button-black">Return to shop</a>
+                    </div><!-- /.inner -->
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+    {% else %}
     <section class="shopping-cart spad">
         <div class="container">
             <div class="row">
@@ -34,19 +49,37 @@
                                         <img src="{{value.image}}" alt="">
                                         <div class="cart__product__item__title">
                                             <h5>{{value.name}}</h5>
-                                            <h6>Color: {{value.color}}</h6>
                                             <h6>Size: {{value.size}}</h6>
+                                            <h6>Color: {{value.color}}</h6>                                       
                                         </div>
                                     </td>
-                                    <td class="cart__price">${% calculate_discount_price value.price value.sale %}</td>
+                                    <td class="cart__price">$ {% calculate_discount_price value.price value.sale %}</td>
                                     <td class="cart__quantity">
                                         <div class="pro-qty">
-                                            <a href="" class="qtybtn inc">-</a>
-                                            <input type="text" value="1">
-                                            <a href="" class="qtybtn dec">+</a>
+                                            <form action="{% url 'item_decrement' value.product_id %}" method="POST">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="size" value="{{ value.size }}">
+                                                <input type="hidden" name="color" value="{{ value.color }}">
+                                                {% if value.quantity == 1 %}
+                                                <button class="qtybtn inc d_none" type="submit">-</button>     
+                                                {% else %}    
+                                                <button class="qtybtn inc" type="submit">-</button>     
+                                                {% endif %} 
+                                             </form>
+                                            <span>{{value.quantity}}</span>
+                                            <form action="{% url 'item_increment' value.product_id %}" method="POST">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="size" value="{{ value.size }}">
+                                                <input type="hidden" name="color" value="{{ value.color }}">
+                                                {% if value.quantity == value.stock %}
+                                                <button class="qtybtn inc d_none" type="submit">+</button>     
+                                                {% else %}
+                                                <button class="qtybtn inc" type="submit">+</button>        
+                                                {% endif %}     
+                                             </form>
                                         </div>
                                     </td>
-                                    <td class="cart__total">${% calculate_discount_price value.price|multiply:value.quantity value.sale %}</td>
+                                    <td class="cart__total">$ {% calculate_discount_price value.price|multiply:value.quantity value.sale %}</td>
                                     <form action="{% url 'item_clear' value.product_id %}" method="POST">
                                         {% csrf_token %}
                                     <td class="cart__close">
@@ -88,7 +121,8 @@
                     <div class="cart__total__procced">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>$ 750.0</span></li>
+                            <li>Subtotal <span>$ 120</span></li>
+                            <li>Tax <span>5</span></li>
                             <li>Total <span>$ 750.0</span></li>
                         </ul>
                         <a href="{% url 'checkout' %}" class="theme-button-black">Proceed to checkout</a>
@@ -97,5 +131,6 @@
             </div>
         </div>
     </section>
+    {% endif %}
 </main><!-- /.main-content -->
 {% include 'footer.html' %}
