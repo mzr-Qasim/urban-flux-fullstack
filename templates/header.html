@@ -77,7 +77,7 @@
                   <button class="lg-hide links-hover" id="search-btn"><i  class="icon-search"></i></button>
                 </li>
               {% if user.is_authenticated %}
-              <li class="lg-hide">
+              <!-- <li class="lg-hide">
                 <div class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                       data-bs-toggle="dropdown" aria-expanded="false">
@@ -86,8 +86,9 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="{% url 'logout-user' %}">Logout</a></li>
                   </ul>
-              </div><!-- /.nav-item -->
-              </li>
+              </div>
+              </li> -->
+              <li class="lg-hide"><a href="{% url 'my-account' %}" class="links-hover"><i class="icon-login"></i></a></li>
               {% else %}
               <li><a href="{% url 'login' %}" class="links-hover lg-hide"><i class="icon-login"></i></a></li>
               {% endif %}
@@ -102,7 +103,8 @@
                 <button class="links-hover" id="search-btn-2"><i  class="icon-search"></i></button>
               </li>
               {% if user.is_authenticated %}
-              <li>
+              <li><a href="{% url 'my-account' %}" class="links-hover"><i class="icon-login"></i></a></li>
+              <!-- <li>
                 <div class="nav-item dropup">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                       data-bs-toggle="dropdown" aria-expanded="false">
@@ -111,8 +113,8 @@
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="{% url 'logout-user' %}">Logout</a></li>
                   </ul>
-              </div><!-- /.nav-item -->
-              </li>
+              </div>
+              </li> -->
               {% else %}
               <li><a href="{% url 'login' %}" class="links-hover"><i class="icon-login"></i></a></li>
               {% endif %}

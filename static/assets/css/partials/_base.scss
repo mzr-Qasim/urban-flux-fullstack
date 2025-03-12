@@ -15,12 +15,14 @@ $luxury-color: #000080;
 $luxury-color-2: #00FFFF;
 
 $success-message-color: #28a745;
+$light-blue-theme-color : #e2f7fb;
 
 
 
 $section-space: 2rem;
 $section-space-large: 6rem;
 
+$dashboard-width: 250px;
 
 
 :root {
@@ -337,7 +339,7 @@ small{
 .swiper-buttons{
     .swiper-button-next{
         &::after{
-            content: "\e913";
+            content: "\e918";
             font-family: 'icomoon';
             font-size: 1.6rem;
             text-transform: none !important;
@@ -364,7 +366,7 @@ small{
     .swiper-button-prev{
 
         &::after{
-        content: "\e913";
+        content: "\e918";
         rotate: 180deg;
         font-family: 'icomoon';
         font-size: 1.6rem;
@@ -395,7 +397,7 @@ small{
     .swiper-button-next{
 
         &::after{
-            content: "\e913";
+            content: "\e918";
             font-family: 'icomoon';
             font-size: 1rem;
             text-transform: none !important;
@@ -421,7 +423,7 @@ small{
     
     .swiper-button-prev{
         &::after{
-            content: "\e913";
+            content: "\e918";
             rotate: 180deg;
             font-family: 'icomoon';
             font-size: 1rem;
@@ -784,7 +786,7 @@ small{
 .luxury-prod{
     &::before{
         font-family: 'icomoon' !important;
-        content: "\e90d";
+        content: "\e911";
         color:  $uni-color-1;
         background-color: $luxury-color-2;
     }
@@ -793,7 +795,7 @@ small{
 .formal-prod{
     &::before{
         font-family: 'icomoon' !important;
-        content: "\e909";
+        content: "\e90b";
         color: $uni-color-1;
         background-color: $uni-color-2;
     }
@@ -887,4 +889,43 @@ small{
         box-shadow: none !important;
         border: 1px solid $loading-color;
     }
+}
+
+
+
+// my account
+
+
+.aside-section .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: $uni-color-2;
+    background-color: $uni-color-1;
+}
+
+
+.dashboard-content-inner{
+    background-color: $uni-color-2;
+    padding: 2rem 1rem;
+    border-radius: 20px;
+    strong{
+        font-weight: 500;
+        font-size: calc(1rem + .2vw);
+    }
+}
+
+.add-card-button{
+    color: $uni-color-1;
+    font-weight: 600;
+}
+
+
+.asideMenu-smallwidth{
+    transform: translateX(-100%);
+    transition: all ease-in-out .4s;
+
+}
+
+
+.dashboard-content-width{
+    margin-left: 0 !important;
+    transition: all ease-in-out .4s;
 }

@@ -168,6 +168,17 @@ filter_button.addEventListener('click', function () {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 // Quantity Selector
 
 // Function to handle adding the product to the cart

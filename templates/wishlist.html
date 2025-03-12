@@ -39,7 +39,7 @@
                             <a href="{% url 'product-detail' item.product.id %}">
                                 <figure>
                                     <img loading="lazy" src="{{item.product.image.url}}" alt="">
-                                    <figcaption>
+                                    <figcaption {% if item.category.type == 'LUXURY' %} class="class-prod luxury-prod" {% elif item.category.type == 'FORMAL' %} class="class-prod formal-prod" {% else %}{% endif %}>
                                         <div class="top-icons">
                                             <a href="#"><i class="icon-compare product-carousel-position-icons"></i></a>
                                         </div><!-- /.top-icons -->

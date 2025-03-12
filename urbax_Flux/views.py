@@ -194,6 +194,23 @@ def sign_up(request):
     }
     return render(request, 'sign-up.html', Data)
 
+def my_accountpage(request):
+    if request.user.is_authenticated:
+        site_settings = Site_Settings.objects.all()
+        categories =  Category.objects.all()
+        wishlist_count = wish_list.objects.filter(user=request.user).count()
+    
+
+        Data = {
+        "site_settings_data": site_settings,
+        "categories_data": categories,
+        "wishlist_count" : wishlist_count,
+    }
+        return render(request, "my-account.html", Data)
+    else:
+        return redirect('login')
+    
+
 
 
 def registerUser(request):
@@ -242,7 +259,7 @@ def loginUser(request):
     if user is not None:
         login(request, user)
         request.session['first_name'] = user.first_name
-        return redirect('/')
+        return redirect('my-account')
     else:
         messages.warning(request, "User does not exist.")
 
@@ -259,21 +276,6 @@ def logoutUser(request):
     logout(request)
     messages.success(request, "Logged out successfully.")
     return redirect('login')
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -307,7 +309,6 @@ def shopping_cart(request):
                 price = product_details.get('price')
                 sale = product_details.get('sale')
                 quantity = product_details.get('quantity')
-                print(sale, '---------')
                 
                 # Convert price, sale, and quantity to integers (if they exist)
                 if price is not None:
@@ -332,13 +333,6 @@ def shopping_cart(request):
     except:
         pass
 
-
-        
-
-    
-
-
-
     Data = {
         "site_settings_data": site_settings,
         "categories_data": categories,
@@ -352,44 +346,102 @@ def shopping_cart(request):
 
 
 def checkout(request):
-    site_settings = Site_Settings.objects.all()
-    categories =  Category.objects.all()
-
     if request.user.is_authenticated:
-        wishlist_count = wish_list.objects.filter(user=request.user).count()
-    else:
-        wishlist_count = 0
 
-    Data = {
-        "site_settings_data": site_settings,
-        "categories_data": categories,
-        "wishlist_count" : wishlist_count,
-    }
-    return render(request, 'checkout.html', Data)
+        site_settings = Site_Settings.objects.all()
+        categories =  Category.objects.all()
+
+        if request.user.is_authenticated:
+            wishlist_count = wish_list.objects.filter(user=request.user).count()
+        else:
+            wishlist_count = 0
+
+        cart = request.session.get('cart', {})
+
+        if len(cart) == 0:
+            return redirect('Shopping-cart')
+
+
+        cart = Cart(request)
+
+        # Convert cart.session.values() to a list for easier inspection
+        items = list(cart.session.values())
+
+        # Initialize variables to store the total discounted price
+        total_discounted_price = 0
+
+        # Iterate over all items in the cart
+        for item in items:
+            # Check if the item is a dictionary
+            if isinstance(item, dict):
+                # Iterate over the nested dictionaries inside the item
+                for product_key, product_details in item.items():
+                    # Fetch price, sale, and quantity values
+                    price = product_details.get('price')
+                    sale = product_details.get('sale')
+                    quantity = product_details.get('quantity')
+
+                    # Convert price, sale, and quantity to integers (if they exist)
+                    if price is not None:
+                        price = int(price)
+                    if sale is not None:
+                        sale = int(sale)
+                    if quantity is not None:
+                        quantity = int(quantity)
+
+                    # Calculate discounted_price for the current product
+                    if price is not None and sale is not None and quantity is not None:
+                        discounted_price =  price * (1 - sale / 100) * quantity
+                        total_discounted_price += discounted_price
+                    else:
+                        discounted_price = price * (1 - (sale if sale is not None else 0) / 100) * quantity
+
+        try:
+            for tax in site_settings:
+                tax_value = tax.tax_rate  
+            tax_price = tax_value * total_discounted_price / 100
+            final_price = tax_price + total_discounted_price
+        except:
+            pass
+
+
+        Data = {
+            "site_settings_data": site_settings,
+            "categories_data": categories,
+            "wishlist_count" : wishlist_count,
+            "total_discounted_price" : total_discounted_price,
+            "tax_value_price" : tax_price,
+            "final_price" : final_price,
+        }
+        return render(request, 'checkout.html', Data)
+    else:
+        return redirect('login')
 
 
 
 def wishlist_view(request):
-    site_settings = Site_Settings.objects.all()
-    categories =  Category.objects.all()
-    wishlist_items = wish_list.objects.filter(user=request.user)
     if request.user.is_authenticated:
-        wishlist_count = wish_list.objects.filter(user=request.user).count()
+        site_settings = Site_Settings.objects.all()
+        categories =  Category.objects.all()
+        wishlist_items = wish_list.objects.filter(user=request.user)
+        if request.user.is_authenticated:
+            wishlist_count = wish_list.objects.filter(user=request.user).count()
+        else:
+            wishlist_count = 0
+        Data = {
+            "site_settings_data": site_settings,
+            "wishlist_items" : wishlist_items,
+            "wishlist_count" : wishlist_count,
+            "categories_data": categories,
+        }
+        return render(request, 'wishlist.html', Data)
     else:
-        wishlist_count = 0
-    Data = {
-        "site_settings_data": site_settings,
-        "wishlist_items" : wishlist_items,
-        "wishlist_count" : wishlist_count,
-        "categories_data": categories,
-    }
-    return render(request, 'wishlist.html', Data)
+        return redirect('login')
 
 
 def toggle_wishlist(request, product_id):
     product = get_object_or_404(Store, id=product_id)
     wishlist_item, created = wish_list.objects.get_or_create(user=request.user, product=product)
-    # messages.success(request, f"'{product.product_name}' is added to your wishlist.")
     
     if not created: 
         wishlist_item.delete()
@@ -495,6 +547,7 @@ def cart_clear(request):
 
 
 def cart_detail(request):
+
     return render(request, 'checkout.html')
 
 

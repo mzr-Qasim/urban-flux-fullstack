@@ -22,24 +22,8 @@
 }
 @font-face {
   font-family: "icomoon";
-  src: url("fonts/icomoon.eot?1yt00u");
-  src: url("fonts/icomoon.eot?1yt00u#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?1yt00u") format("truetype"), url("fonts/icomoon.woff?1yt00u") format("woff"), url("fonts/icomoon.svg?1yt00u#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-@font-face {
-  font-family: "icomoon";
-  src: url("fonts/icomoon.eot?5fe4z6");
-  src: url("fonts/icomoon.eot?5fe4z6#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?5fe4z6") format("truetype"), url("fonts/icomoon.woff?5fe4z6") format("woff"), url("fonts/icomoon.svg?5fe4z6#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block;
-}
-@font-face {
-  font-family: "icomoon";
-  src: url("fonts/icomoon.eot?1yt00u");
-  src: url("fonts/icomoon.eot?1yt00u#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?1yt00u") format("truetype"), url("fonts/icomoon.woff?1yt00u") format("woff"), url("fonts/icomoon.svg?1yt00u#icomoon") format("svg");
+  src: url("fonts/icomoon.eot?4xnzq7");
+  src: url("fonts/icomoon.eot?4xnzq7#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?4xnzq7") format("truetype"), url("fonts/icomoon.woff?4xnzq7") format("woff"), url("fonts/icomoon.svg?4xnzq7#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -58,96 +42,116 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-cart:before {
+.icon-account-settings:before {
   content: "\e900";
 }
 
-.icon-close-icon:before {
+.icon-back-to-icons-aside:before {
   content: "\e901";
 }
 
-.icon-compare:before {
+.icon-cart:before {
   content: "\e902";
 }
 
-.icon-delete-icon:before {
+.icon-close-icon:before {
   content: "\e903";
 }
 
-.icon-delievery-icon:before {
+.icon-compare:before {
   content: "\e904";
 }
 
-.icon-extra-long-arrow:before {
+.icon-delete-icon:before {
   content: "\e905";
 }
 
-.icon-facebook:before {
+.icon-delievery-icon:before {
   content: "\e906";
 }
 
-.icon-favourite:before {
+.icon-extra-long-arrow:before {
   content: "\e907";
 }
 
-.icon-filter-icon:before {
+.icon-facebook:before {
   content: "\e908";
 }
 
-.icon-formal-icon:before {
+.icon-favourite:before {
   content: "\e909";
 }
 
-.icon-instagram:before {
+.icon-filter-icon:before {
   content: "\e90a";
 }
 
-.icon-login:before {
+.icon-formal-icon:before {
   content: "\e90b";
 }
 
-.icon-long-arrow:before {
+.icon-full-aside:before {
   content: "\e90c";
 }
 
-.icon-luxury-icon:before {
+.icon-instagram:before {
   content: "\e90d";
 }
 
-.icon-pinterest:before {
+.icon-login:before {
   content: "\e90e";
 }
 
-.icon-quick-view:before {
+.icon-logout:before {
   content: "\e90f";
 }
 
-.icon-rating:before {
+.icon-long-arrow:before {
   content: "\e910";
 }
 
-.icon-return-icon:before {
+.icon-luxury-icon:before {
   content: "\e911";
 }
 
-.icon-search:before {
+.icon-pinterest:before {
   content: "\e912";
 }
 
-.icon-small-arrow:before {
+.icon-quick-view:before {
   content: "\e913";
 }
 
-.icon-theme-link:before {
+.icon-rating:before {
   content: "\e914";
 }
 
-.icon-tiktok:before {
+.icon-return-icon:before {
   content: "\e915";
 }
 
-.icon-twitter:before {
+.icon-search:before {
   content: "\e916";
+}
+
+.icon-signature_icon:before {
+  content: "\e917";
+}
+
+.icon-small-arrow:before {
+  content: "\e918";
+}
+
+.icon-theme-link:before {
+  content: "\e919";
+}
+
+.icon-tiktok:before {
+  content: "\e91a";
+}
+
+.icon-twitter:before {
+  content: "\e91b";
 }
 
 /*!
@@ -12389,7 +12393,7 @@ small, .small {
 }
 
 .swiper-buttons .swiper-button-next::after {
-  content: "\e913";
+  content: "\e918";
   font-family: "icomoon";
   font-size: 1.6rem;
   text-transform: none !important;
@@ -12406,7 +12410,7 @@ small, .small {
   color: #ffffff;
 }
 .swiper-buttons .swiper-button-prev::after {
-  content: "\e913";
+  content: "\e918";
   rotate: 180deg;
   font-family: "icomoon";
   font-size: 1.6rem;
@@ -12425,7 +12429,7 @@ small, .small {
 }
 
 .swiper-default .swiper-button-next::after {
-  content: "\e913";
+  content: "\e918";
   font-family: "icomoon";
   font-size: 1rem;
   text-transform: none !important;
@@ -12443,7 +12447,7 @@ small, .small {
   color: #ffffff;
 }
 .swiper-default .swiper-button-prev::after {
-  content: "\e913";
+  content: "\e918";
   rotate: 180deg;
   font-family: "icomoon";
   font-size: 1rem;
@@ -12705,14 +12709,14 @@ small, .small {
 
 .luxury-prod::before {
   font-family: "icomoon" !important;
-  content: "\e90d";
+  content: "\e911";
   color: #000000;
   background-color: #00FFFF;
 }
 
 .formal-prod::before {
   font-family: "icomoon" !important;
-  content: "\e909";
+  content: "\e90b";
   color: #000000;
   background-color: #ffffff;
 }
@@ -12782,6 +12786,36 @@ small, .small {
   outline: none !important;
   box-shadow: none !important;
   border: 1px solid #dcdcdc;
+}
+
+.aside-section .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.dashboard-content-inner {
+  background-color: #ffffff;
+  padding: 2rem 1rem;
+  border-radius: 20px;
+}
+.dashboard-content-inner strong {
+  font-weight: 500;
+  font-size: calc(1rem + 0.2vw);
+}
+
+.add-card-button {
+  color: #000000;
+  font-weight: 600;
+}
+
+.asideMenu-smallwidth {
+  transform: translateX(-100%);
+  transition: all ease-in-out 0.4s;
+}
+
+.dashboard-content-width {
+  margin-left: 0 !important;
+  transition: all ease-in-out 0.4s;
 }
 
 .main-navbar {
@@ -13948,7 +13982,170 @@ section.checkout .checkout__order__widget label .checkmark:after {
   color: #000000;
 }
 
+.discount-strip {
+  background-color: #e2f7fb;
+}
+
+.discount-strip-inner {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+}
+.discount-strip-inner p {
+  color: #000000;
+  font-size: calc(1rem + 0.2vw);
+}
+
+.main-dashboard {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.main-dashboard .aside-section {
+  overflow: hidden;
+  overflow-y: auto;
+  position: absolute;
+  background-color: #ffffff;
+  width: 250px;
+  height: 100vh;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all ease-in-out 0.5s;
+}
+.main-dashboard .aside-section .aside-tabs {
+  margin-bottom: 2rem;
+}
+.main-dashboard .aside-section ul {
+  display: flex;
+  flex-direction: column;
+}
+.main-dashboard .aside-section ul li {
+  display: flex;
+  flex-direction: column;
+}
+.main-dashboard .aside-section ul li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.main-dashboard .aside-section ul li button {
+  display: flex;
+  align-items: center;
+  color: #000000;
+  font-weight: 600;
+  font-size: calc(0.8rem + 0.2vw);
+  margin: 0 1rem;
+}
+.main-dashboard .aside-section ul li button i {
+  margin-right: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.main-dashboard .aside-section ul li .logout-button {
+  display: flex;
+  align-items: center;
+  color: #000000;
+  font-weight: 600;
+  font-size: calc(0.8rem + 0.2vw);
+  margin: 0 1rem;
+}
+.main-dashboard .aside-section ul li .logout-button i {
+  margin-right: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.main-dashboard .dashboard-content {
+  background-color: #fcfbf9;
+  padding: 2rem 0;
+  margin-left: 250px;
+  flex: 1;
+  min-height: 70vh;
+  padding-left: 2rem;
+  padding-right: 250px;
+  transition: all ease-in-out 0.5s;
+}
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.order-info .name p {
+  font-size: calc(0.7rem + 0.2vw);
+  font-weight: 500;
+}
+.order-info .name b {
+  font-size: calc(1.25rem + 0.2vw);
+}
+.order-info .new-order {
+  display: flex;
+  align-items: center;
+  line-height: 2rem;
+  font-size: calc(0.8rem + 0.2vw);
+}
+.order-info .new-order i {
+  margin-left: 1rem;
+}
+
+.content-info .row [class^=col-] {
+  margin-bottom: 3rem;
+}
+
+.account-settings .col-inner {
+  height: 100%;
+}
+.account-settings .col-inner .update-button {
+  display: flex;
+  justify-content: center;
+}
+.account-settings .col-inner input {
+  padding: 0 1rem;
+  width: 100%;
+  height: 2.5rem;
+}
+.account-settings .col-inner input:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.account-settings .col-inner strong {
+  display: block;
+}
+.account-settings .contact-info-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-content-inner {
+  background-color: #ffffff;
+  color: #000000;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.col-content-inner .content b {
+  font-weight: 600;
+  font-size: calc(3rem + 0.2vw);
+}
+.col-content-inner .content p {
+  font-weight: 500;
+  font-size: calc(1rem + 0.2vw);
+}
+
+@media (max-width: 1400px) {
+  .dashboard-content {
+    padding-right: 0 !important;
+    padding: 2rem !important;
+  }
+}
 @media (max-width: 1200px) {
+  .account-settings .row [class^=col-]:not(:last-child) {
+    margin-bottom: 2rem;
+  }
   .footer-inner .row [class^=col-] {
     padding-bottom: 1rem !important;
   }
@@ -14019,6 +14216,18 @@ section.checkout .checkout__order__widget label .checkmark:after {
   }
   footer.footer {
     margin-bottom: 5.5rem;
+  }
+  .main-dashboard .aside-section {
+    width: 70px;
+  }
+  .main-dashboard .aside-section button {
+    justify-content: center;
+  }
+  .main-dashboard .aside-section .lg-hide {
+    display: none !important;
+  }
+  .main-dashboard .dashboard-content {
+    margin-left: 70px;
   }
 }
 @media (max-width: 767px) {
