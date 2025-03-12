@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 # Create your models here.
@@ -11,7 +12,9 @@ class Store(models.Model):
     product_type = models.CharField(max_length=15, blank=True)
     description = models.TextField(max_length=500)
     stock = models.IntegerField()
-    sale = models.IntegerField(null=True, blank=True)
+    sale = models.IntegerField(null=True,
+        validators=[MinValueValidator(0), MaxValueValidator(100)]
+    )
     is_available = models.BooleanField(default = True)
     slug =models.SlugField(max_length=100, unique=True)
     image = models.ImageField(upload_to='Products')

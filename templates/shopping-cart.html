@@ -121,8 +121,9 @@
                     <div class="cart__total__procced">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>$ {{total_discounted_price}}</span></li>
-                            <li>Total <span>$ {{total_discounted_price}}</span></li>
+                            <li>Subtotal <span>$ {{total_discounted_price|floatformat:2}}</span></li>
+                            <li>Tax <span>$ {{tax_value_price|floatformat:2}}</span></li>
+                            <li>Total <span>$ {{final_price|floatformat:2}}</span></li>
                         </ul>
                         <a href="{% url 'checkout' %}" class="theme-button-black">Proceed to checkout</a>
                     </div>

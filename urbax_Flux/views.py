@@ -288,6 +288,7 @@ def shopping_cart(request):
         wishlist_count = 0
     categories =  Category.objects.all()
 
+
     cart = Cart(request)
     
     # Convert cart.session.values() to a list for easier inspection
@@ -306,6 +307,7 @@ def shopping_cart(request):
                 price = product_details.get('price')
                 sale = product_details.get('sale')
                 quantity = product_details.get('quantity')
+                print(sale, '---------')
                 
                 # Convert price, sale, and quantity to integers (if they exist)
                 if price is not None:
@@ -319,6 +321,19 @@ def shopping_cart(request):
                 if price is not None and sale is not None and quantity is not None:
                     discounted_price =  price * (1 - sale / 100) * quantity
                     total_discounted_price += discounted_price
+                else:
+                    discounted_price = price * (1 - (sale if sale is not None else 0) / 100) * quantity
+
+    try:
+        for tax in site_settings:
+            tax_value = tax.tax_rate  
+        tax_price = tax_value * total_discounted_price / 100
+        final_price = tax_price + total_discounted_price
+    except:
+        pass
+
+
+        
 
     
 
@@ -330,6 +345,8 @@ def shopping_cart(request):
         "wishlist_count" : wishlist_count,
         "url_name" : current_url_name,
         "total_discounted_price" : total_discounted_price,
+        "tax_value_price" : tax_price,
+        "final_price" : final_price,
     }
     return render(request, 'shopping-cart.html', Data)
 
