@@ -14249,4 +14249,13 @@ section.checkout .checkout__order__widget label .checkmark:after {
   .product-cards figure {
     aspect-ratio: 1/1.1;
   }
+}
+@media (max-width: 575px) {
+  .order-info {
+    flex-direction: column;
+    align-items: start;
+  }
+  .order-info .name {
+    margin-bottom: 2rem;
+  }
 }/*# sourceMappingURL=main.css.map */

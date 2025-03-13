@@ -184,6 +184,12 @@
 
 
 @media (max-width: 575px){
-
+    .order-info {
+        flex-direction: column;
+        align-items: start;
+        .name {
+            margin-bottom: 2rem;
+        }
+    }
 
 }
