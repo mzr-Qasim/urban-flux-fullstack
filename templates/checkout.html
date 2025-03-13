@@ -85,7 +85,7 @@
                                                   <span class="top__text__right">Total</span>
                                               </li>
                                               {% for id,value in request.session.cart.items %}
-                                              <li>({{ forloop.counter }}) {{value.name}} <strong>x {{value.quantity}}</strong><br>Color: <strong>{{value.color}}</strong><br>Size: <strong> ({{value.size}})</strong><span>$ {% calculate_discount_price value.price|multiply:value.quantity value.sale %}</span></li>
+                                              <li>{{ forloop.counter }}- {{value.name}} <strong>x {{value.quantity}}</strong><br>Color: <strong>{{value.color}}</strong><br>Size: <strong> ({{value.size}})</strong><span>$ {% calculate_discount_price value.price|multiply:value.quantity value.sale %}</span></li>
                                               {% endfor %}
                                           </ul>
                                       </div>
