@@ -772,8 +772,8 @@
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100vh;
-    padding: 3rem 0;
+    height: 100%!important;
+    padding-top: 3rem!important;
     background-color: $uni-color-2;
     opacity: .995;
     z-index: 100;

@@ -20,6 +20,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from .views import toggle_wishlist, wishlist_view
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +34,17 @@ urlpatterns = [
     path('my-account', views.my_accountpage, name='my-account'), 
     path('login/', views.loginpage, name='login'), 
     path('login-user/', views.loginUser, name='login-user'), 
+    path('password-reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+
+    # URL when the password reset email is sent
+    path('password-reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+
+    # URL for the user to confirm and reset their password
+    path('password-reset-confirm/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+
+    # URL when the password has been successfully reset
+    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
     path('logout-user/', views.logoutUser, name='logout-user'),
     path('register/', views.sign_up, name='sign-up'), 
     path('register-user', views.registerUser, name='register-user'), 

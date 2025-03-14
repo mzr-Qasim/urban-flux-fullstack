@@ -15,6 +15,7 @@ from product_variations.models import product_variations
 from django.http import HttpResponseRedirect
 from cart.cart import Cart
 from django.template.defaultfilters import floatformat
+from django.db.models import Q
 
 def home(request):
     site_settings = Site_Settings.objects.all()
@@ -53,7 +54,7 @@ def home(request):
 def search_results(request):
     site_settings = Site_Settings.objects.all()
     categories =  Category.objects.all()
-    Products = reversed(Store.objects.all())
+    products = reversed(Store.objects.all())
     searchTerm = request.GET.get('Search', '').strip()
     if searchTerm == '':
         return redirect('/')
@@ -63,7 +64,10 @@ def search_results(request):
         error_result = ""
 
     cleaned_searchTerm = ' '.join(searchTerm.split())
-    search_product = Store.objects.filter(name__icontains = cleaned_searchTerm )
+    search_product = Store.objects.filter(
+    Q(name__icontains=cleaned_searchTerm) | Q(category__category_name__contains=cleaned_searchTerm)
+)
+    
     search_product_count = search_product.count()
     if request.user.is_authenticated:
         wishlist_count = wish_list.objects.filter(user=request.user).count()
@@ -72,12 +76,13 @@ def search_results(request):
     Data = {
         "site_settings_data": site_settings,
         "wishlist_count" : wishlist_count,
-        "Product_Data" : Products,
+        "product_Data" : products,
         "categories_data": categories,
         "SearchTerm" : searchTerm,
         "Search_products": search_product,
         "search_product_count_data" : search_product_count,
         "error_result": error_result,
+
     }
     return render (request, 'search_results.html', Data)
 
@@ -243,6 +248,22 @@ def my_accountpage(request):
     else:
         return redirect('login')
     
+
+# def lostPassword(request):
+#     if request.user.is_authenticated:
+#         return redirect('my-account')
+#     else:
+#         site_settings = Site_Settings.objects.all()
+#         categories =  Category.objects.all()
+#         products = reversed(Store.objects.all())
+
+
+#         Data = {
+#         "site_settings_data": site_settings,
+#         "categories_data": categories,
+#         "product_Data" : products,
+#         }
+#         return render (request, "lost-password.html", Data)
 
 
 
