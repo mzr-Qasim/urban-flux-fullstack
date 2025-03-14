@@ -12134,6 +12134,10 @@ body {
   max-width: 1800px;
 }
 
+.ov-hidden {
+  overflow: hidden;
+}
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, p, ul, li, figure {
   margin: 0;
   padding: 0;
@@ -13367,18 +13371,21 @@ small, .small {
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 100vh;
   padding: 3rem 0;
   background-color: #ffffff;
+  opacity: 0.995;
   z-index: 100;
   transform: translateY(-100%);
   transition: ease-in-out 0.5s;
+  overflow-y: auto !important;
 }
 .search-bar .searchinput {
   position: relative;
 }
 .search-bar .searchinput .main-search-bar {
   width: 100%;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
   padding-left: 1rem;
   padding-right: 3rem;
 }
@@ -13389,6 +13396,9 @@ small, .small {
   margin-right: 1rem;
   transform: translate(0, -50%);
   z-index: 100;
+}
+.search-bar .searchinput .search-submit-btn i {
+  font-size: 1.5rem;
 }
 .search-bar.search-bar-activate {
   transform: translateY(0);

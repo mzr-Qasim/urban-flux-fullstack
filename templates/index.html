@@ -124,7 +124,7 @@
         </div><!-- /.title -->
         <div class="swiper mySwiper2">
           <div class="swiper-wrapper">
-            {% for best_seller in Product_Data %}
+            {% for best_seller in best_seller_Data %}
             {% if best_seller.product_type == 'best seller' %}
             <div class="swiper-slide product-cards">
               <a href="{% url 'product-detail' best_seller.id %}">

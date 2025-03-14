@@ -20,7 +20,8 @@ def home(request):
     site_settings = Site_Settings.objects.all()
     hero_slider = Hero_Slider.objects.all()
     categories =  Category.objects.all()
-    Products = reversed(Store.objects.all())
+    products = reversed(Store.objects.all())
+    best_seller = reversed(Store.objects.all())
     sale_section = Sale_Section.objects.all()
     our_Stores_section = Our_Locations.objects.all()
     if request.user.is_authenticated:
@@ -37,7 +38,8 @@ def home(request):
         "hero_slider_data": hero_slider,
         "categories_data": categories,
         "sale_section_data" : sale_section,
-        "Product_Data" : Products,
+        "product_Data" : products,
+        "best_seller_Data" : best_seller,
         "Our_Stores_section_data" : our_Stores_section,
         
         
@@ -51,7 +53,15 @@ def home(request):
 def search_results(request):
     site_settings = Site_Settings.objects.all()
     categories =  Category.objects.all()
+    Products = reversed(Store.objects.all())
     searchTerm = request.GET.get('Search', '').strip()
+    if searchTerm == '':
+        return redirect('/')
+    if len(searchTerm) == 1:
+        error_result = 0
+    else:
+        error_result = ""
+
     cleaned_searchTerm = ' '.join(searchTerm.split())
     search_product = Store.objects.filter(name__icontains = cleaned_searchTerm )
     search_product_count = search_product.count()
@@ -62,10 +72,12 @@ def search_results(request):
     Data = {
         "site_settings_data": site_settings,
         "wishlist_count" : wishlist_count,
+        "Product_Data" : Products,
         "categories_data": categories,
         "SearchTerm" : searchTerm,
         "Search_products": search_product,
-        "search_product_count_data" : search_product_count
+        "search_product_count_data" : search_product_count,
+        "error_result": error_result,
     }
     return render (request, 'search_results.html', Data)
 
@@ -75,6 +87,7 @@ def search_results(request):
 
 def shop(request):
     site_settings = Site_Settings.objects.all()
+    products = reversed(Store.objects.all())
     Products = Store.objects.all()
     product_data = Products.count()
     products_limit = 8
@@ -91,9 +104,10 @@ def shop(request):
     Data = {
         "site_settings_data": site_settings,
         "wishlist_count" : wishlist_count,
-        "Product_Data" : Products,
+        "product_Data" : products,
         "categories_data": categories,
         "product_data" : product_data,
+        "Product_Data" : Products,
         "products_show_data" : products_limit,
         "products_per_page" : page_obj,
         "page_obj_count" : page_obj_count,
@@ -107,6 +121,7 @@ def shop(request):
 def product_detail(request, id): 
     site_settings = Site_Settings.objects.all()   
     categories =  Category.objects.all()
+    products = reversed(Store.objects.all())
     Products = Store.objects.all()
     single_product = Store.objects.get(id__exact=id)
     product_variation = product_variations.objects.filter(product=single_product)
@@ -118,6 +133,7 @@ def product_detail(request, id):
     Data = {
         "site_settings_data": site_settings,
         "categories_data": categories,
+        "product_Data" : products,
         "wishlist_count" : wishlist_count,
         "product_data" : Products,
         "single_product_data": single_product,
@@ -130,6 +146,7 @@ def product_detail(request, id):
 def product_category(request, category):
     categories =  Category.objects.all()
     category_obj = get_object_or_404(Category, id=category)
+    products = reversed(Store.objects.all())
     product_by_cat = Store.objects.filter( category_id=category)
     site_settings = Site_Settings.objects.all()
     if request.user.is_authenticated:
@@ -141,6 +158,7 @@ def product_category(request, category):
     Data = {
         "site_settings_data": site_settings,
         "wishlist_count" : wishlist_count,
+        "product_Data" : products,
         "categories_data": categories,
         "cat_obj" : category_obj,
         "product_by_cat_data" : product_by_cat 
@@ -152,6 +170,7 @@ def product_category(request, category):
 def contact_us(request):
     site_settings = Site_Settings.objects.all()  
     categories =  Category.objects.all()
+    products = reversed(Store.objects.all())
     our_Stores_section = Our_Locations.objects.all()
     locations_map_section = Locations_map.objects.all()
     if request.user.is_authenticated:
@@ -164,6 +183,7 @@ def contact_us(request):
     Data = {
         "site_settings_data": site_settings,
         "wishlist_count" : wishlist_count,
+        "product_Data" : products,
         "Our_Stores_section_data" : our_Stores_section,
         "locations_map_data" : locations_map_section,
         "categories_data": categories,
@@ -175,35 +195,48 @@ def contact_us(request):
 
 
 def loginpage(request):
-    site_settings = Site_Settings.objects.all()
-    categories =  Category.objects.all()
+    if request.user.is_authenticated:
+        return redirect('my-account') 
+    else:
+        site_settings = Site_Settings.objects.all()
+        categories =  Category.objects.all()
+        products = reversed(Store.objects.all())
 
-    Data = {
-        "site_settings_data": site_settings,
-        "categories_data": categories,
-    }
-    return render(request, 'login.html', Data)
+
+        Data = {
+            "site_settings_data": site_settings,
+            "categories_data": categories,
+            "product_Data" : products,
+        }
+        return render(request, 'login.html', Data)
 
 def sign_up(request):  
-    site_settings = Site_Settings.objects.all()
-    categories =  Category.objects.all()
- 
-    Data = {
-        "site_settings_data": site_settings,
-        "categories_data": categories,
-    }
-    return render(request, 'sign-up.html', Data)
+    if request.user.is_authenticated:
+        return redirect('my-account') 
+    else:
+        site_settings = Site_Settings.objects.all()
+        categories =  Category.objects.all()
+        products = reversed(Store.objects.all())
+    
+        Data = {
+            "site_settings_data": site_settings,
+            "categories_data": categories,
+            "product_Data" : products,
+        }
+        return render(request, 'sign-up.html', Data)
 
 def my_accountpage(request):
     if request.user.is_authenticated:
         site_settings = Site_Settings.objects.all()
         categories =  Category.objects.all()
+        products = reversed(Store.objects.all())
         wishlist_count = wish_list.objects.filter(user=request.user).count()
     
 
         Data = {
         "site_settings_data": site_settings,
         "categories_data": categories,
+        "product_Data" : products,
         "wishlist_count" : wishlist_count,
     }
         return render(request, "my-account.html", Data)
@@ -249,12 +282,9 @@ def registerUser(request):
 def loginUser(request):
     r_username = request.POST['username']
     r_password = request.POST['password'] 
-
     if r_username == '' or r_password == '':
         messages.warning(request, "Please provide a username and password")
         return redirect('login')
-        
-
     user = authenticate(request, username=r_username, password=r_password)
     if user is not None:
         login(request, user)
@@ -262,13 +292,11 @@ def loginUser(request):
         return redirect('my-account')
     else:
         messages.warning(request, "User does not exist.")
-
     site_settings = Site_Settings.objects.all()
     categories =  Category.objects.all()
     Data = {
         "site_settings_data": site_settings,
         "categories_data": categories,
-
     }
     return render(request, 'login.html', Data)
 
@@ -282,67 +310,72 @@ def logoutUser(request):
 
 
 def shopping_cart(request):
-    site_settings = Site_Settings.objects.all()
-    current_url_name = request.resolver_match.url_name.replace('-',' ')
     if request.user.is_authenticated:
-        wishlist_count = wish_list.objects.filter(user=request.user).count()
+        site_settings = Site_Settings.objects.all()
+        products = reversed(Store.objects.all())
+        current_url_name = request.resolver_match.url_name.replace('-',' ')
+        if request.user.is_authenticated:
+            wishlist_count = wish_list.objects.filter(user=request.user).count()
+        else:
+            wishlist_count = 0
+        categories =  Category.objects.all()
+
+
+        cart = Cart(request)
+
+        # Convert cart.session.values() to a list for easier inspection
+        items = list(cart.session.values())
+
+        # Initialize variables to store the total discounted price
+        total_discounted_price = 0
+
+        # Iterate over all items in the cart
+        for item in items:
+            # Check if the item is a dictionary
+            if isinstance(item, dict):
+                # Iterate over the nested dictionaries inside the item
+                for product_key, product_details in item.items():
+                    # Fetch price, sale, and quantity values
+                    price = product_details.get('price')
+                    sale = product_details.get('sale')
+                    quantity = product_details.get('quantity')
+
+                    # Convert price, sale, and quantity to integers (if they exist)
+                    if price is not None:
+                        price = int(price)
+                    if sale is not None:
+                        sale = int(sale)
+                    if quantity is not None:
+                        quantity = int(quantity)
+
+                    # Calculate discounted_price for the current product
+                    if price is not None and sale is not None and quantity is not None:
+                        discounted_price =  price * (1 - sale / 100) * quantity
+                        total_discounted_price += discounted_price
+                    else:
+                        discounted_price = price * (1 - (sale if sale is not None else 0) / 100) * quantity
+
+        try:
+            for tax in site_settings:
+                tax_value = tax.tax_rate  
+            tax_price = tax_value * total_discounted_price / 100
+            final_price = tax_price + total_discounted_price
+        except:
+            pass
+
+        Data = {
+            "site_settings_data": site_settings,
+            "categories_data": categories,
+            "product_Data" : products,
+            "wishlist_count" : wishlist_count,
+            "url_name" : current_url_name,
+            "total_discounted_price" : total_discounted_price,
+            "tax_value_price" : tax_price,
+            "final_price" : final_price,
+        }
+        return render(request, 'shopping-cart.html', Data)
     else:
-        wishlist_count = 0
-    categories =  Category.objects.all()
-
-
-    cart = Cart(request)
-    
-    # Convert cart.session.values() to a list for easier inspection
-    items = list(cart.session.values())
-    
-    # Initialize variables to store the total discounted price
-    total_discounted_price = 0
-    
-    # Iterate over all items in the cart
-    for item in items:
-        # Check if the item is a dictionary
-        if isinstance(item, dict):
-            # Iterate over the nested dictionaries inside the item
-            for product_key, product_details in item.items():
-                # Fetch price, sale, and quantity values
-                price = product_details.get('price')
-                sale = product_details.get('sale')
-                quantity = product_details.get('quantity')
-                
-                # Convert price, sale, and quantity to integers (if they exist)
-                if price is not None:
-                    price = int(price)
-                if sale is not None:
-                    sale = int(sale)
-                if quantity is not None:
-                    quantity = int(quantity)
-                
-                # Calculate discounted_price for the current product
-                if price is not None and sale is not None and quantity is not None:
-                    discounted_price =  price * (1 - sale / 100) * quantity
-                    total_discounted_price += discounted_price
-                else:
-                    discounted_price = price * (1 - (sale if sale is not None else 0) / 100) * quantity
-
-    try:
-        for tax in site_settings:
-            tax_value = tax.tax_rate  
-        tax_price = tax_value * total_discounted_price / 100
-        final_price = tax_price + total_discounted_price
-    except:
-        pass
-
-    Data = {
-        "site_settings_data": site_settings,
-        "categories_data": categories,
-        "wishlist_count" : wishlist_count,
-        "url_name" : current_url_name,
-        "total_discounted_price" : total_discounted_price,
-        "tax_value_price" : tax_price,
-        "final_price" : final_price,
-    }
-    return render(request, 'shopping-cart.html', Data)
+        return redirect('login')
 
 
 def checkout(request):
@@ -350,6 +383,7 @@ def checkout(request):
 
         site_settings = Site_Settings.objects.all()
         categories =  Category.objects.all()
+        products = reversed(Store.objects.all())
 
         if request.user.is_authenticated:
             wishlist_count = wish_list.objects.filter(user=request.user).count()
@@ -408,6 +442,7 @@ def checkout(request):
         Data = {
             "site_settings_data": site_settings,
             "categories_data": categories,
+             "product_Data" : products,
             "wishlist_count" : wishlist_count,
             "total_discounted_price" : total_discounted_price,
             "tax_value_price" : tax_price,
@@ -423,6 +458,7 @@ def wishlist_view(request):
     if request.user.is_authenticated:
         site_settings = Site_Settings.objects.all()
         categories =  Category.objects.all()
+        products = reversed(Store.objects.all())
         wishlist_items = wish_list.objects.filter(user=request.user)
         if request.user.is_authenticated:
             wishlist_count = wish_list.objects.filter(user=request.user).count()
@@ -431,6 +467,7 @@ def wishlist_view(request):
         Data = {
             "site_settings_data": site_settings,
             "wishlist_items" : wishlist_items,
+            "product_Data" : products,
             "wishlist_count" : wishlist_count,
             "categories_data": categories,
         }

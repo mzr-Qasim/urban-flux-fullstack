@@ -131,6 +131,7 @@ var mySwiper_related_product = new Swiper(".mySwiper_related_products", {
 
 document.addEventListener('DOMContentLoaded', function () {
   // Store references to the elements in variables
+  const ov_hidden = document.getElementById('ov-hidden')
   const searchBarClose = document.getElementById('search-bar-close');
   const searchBtn = document.getElementById('search-btn');
   const searchBtn2 = document.getElementById('search-btn-2');
@@ -140,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Reusable function to toggle the class
       function toggleSearchBar() {
           searchTopBar.classList.toggle('search-bar-activate');
+          ov_hidden.classList.toggle('ov-hidden');
       }
 
       // Add event listeners using the variables and reusable function

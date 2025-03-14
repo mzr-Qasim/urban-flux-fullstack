@@ -86,6 +86,7 @@
     width: 100%;
     padding-top: 2rem;
     padding-bottom: 1rem;
+
     background-color: $uni-color-2;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transform: translateX(-100%);
@@ -771,20 +772,27 @@
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 100vh;
     padding: 3rem 0;
     background-color: $uni-color-2;
+    opacity: .995;
     z-index: 100;
     transform: translateY(-100%);
     transition: ease-in-out .5s;
+    overflow-y: auto!important;
+
+
 
     .searchinput {
         position: relative;
 
         .main-search-bar {
             width: 100%;
-            padding: .5rem 0;
+            padding: 1rem 0;
             padding-left: 1rem;
             padding-right: 3rem;
+
+
         }
 
         .search-submit-btn {
@@ -794,6 +802,10 @@
             margin-right: 1rem;
             transform: translate(0, -50%);
             z-index: 100;
+
+            i{
+                font-size: 1.5rem;
+            }
         }
     }
 

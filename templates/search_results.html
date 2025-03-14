@@ -7,6 +7,11 @@
                     {% for theme in site_settings_data %}
                     <img src="{{theme.theme_hero_section.url}}" alt="">
                     {% endfor %}
+                    {% if error_result == 0 %}
+                    <figcaption>
+                        <h4 class="main-heading-font-medium">0 items found for " {{SearchTerm}} "</h4>
+                    </figcaption>
+                    {% endif %}
                     <figcaption>
                         <h4 class="main-heading-font-medium">{{search_product_count_data}} {% if search_product_count_data <= 1 %}item{% else %}items{% endif %} found for "{{SearchTerm}}"</h4>
                     </figcaption>
@@ -19,6 +24,9 @@
                                 {% if search_product_count_data < 1 %}
                                     <h4 class="pb-3 main-heading-font-medium">No Products Found</h4>
                                     <p class="main-heading-font-small-medium">We couldn't find any products matching your search criteria.</p>
+                                {% elif error_result == 0 %}
+                                <h4 class="pb-3 main-heading-font-medium">No Products Found</h4>
+                                <p class="main-heading-font-small-medium">We couldn't find any products matching your search criteria.</p>
                                 {% else %}
                                     {% for product in Search_products %}
                                         <div class="col-md-6 col-lg-4 col-xl-3 product-item" data-category="{{ product.category.id }}">
