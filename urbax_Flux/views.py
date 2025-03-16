@@ -611,10 +611,15 @@ def checkout_session(request):
                     quantity = product_details.get('quantity')
                     name = product_details.get('name')
                     image = product_details.get('image')
+                    if image.startswith('/media/'):
+                        image = image.replace('/media/', '', 1)  # Remove the first occurrence of 'media/'
+
 
                     if price is not None and quantity is not None:
                         # Construct the full image URL
                         image_url = request.build_absolute_uri(settings.MEDIA_URL + image)
+
+
 
 
                         line_items.append({
