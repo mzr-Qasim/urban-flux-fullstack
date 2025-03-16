@@ -12,9 +12,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
 
 
 # Quick-start development settings - unsuitable for production
@@ -54,6 +58,8 @@ INSTALLED_APPS = [
     'wish_list',
     'product_variations',
     'cart',
+    'users',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +71,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'Store.middleware.NoCacheMiddleware',
+    # 'Store.middleware.NoCacheMiddleware',
+
 
 
 ]

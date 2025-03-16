@@ -58,6 +58,10 @@ urlpatterns = [
     path('cart/cart_clear/', views.cart_clear, name='cart_clear'),
     path('cart/cart-detail/',views.cart_detail,name='cart_detail'),
     path('checkout/', views.checkout, name='checkout'), 
+    path('process-checkout', views.process_checkout, name= 'process_checkout'),
+    path('checkout_session', views.checkout_session, name= 'checkout_session'),
+    path('payment-success/', views.successPage, name='success'),
+    path('payment-failed/', views.cancelPage, name='cancel'),
 ]
 
 
