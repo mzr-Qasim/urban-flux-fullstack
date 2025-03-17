@@ -575,11 +575,14 @@ def checkout_session(request):
                     # Fetch price, quantity, name, and image values
                     price = product_details.get('price')
                     quantity = product_details.get('quantity')
+                    sale = product_details.get('sale')
                     name = product_details.get('name')
                     image = product_details.get('image')
 
+         
+
                     # Debugging: Print the fetched values
-                    print(f"Price: {price}, Quantity: {quantity}, Name: {name}, Image: {image}")
+                    print(f"Price: {price}, Quantity: {quantity}, Name: {name}, Image: {image}, sale:{sale}")
 
                     # Validate and calculate base_amount
                     if price is not None and quantity is not None:
@@ -599,7 +602,14 @@ def checkout_session(request):
 
     tax_rate = 0.10
 
-    aftertax = base_amount + (base_amount * final_tax)  # Total amount after tax
+    tax_price = int(final_tax * base_amount / 100)
+    print(tax_price,'----------------')
+
+    aftertax = base_amount + tax_price # Total amount after tax
+
+
+            #     tax_price = tax_value * total_discounted_price / 100
+            # final_price = tax_price + total_discounted_price
 
     try:
         # Create line items for Stripe checkout
@@ -641,10 +651,9 @@ def checkout_session(request):
             'price_data': {
                 'currency': 'usd',
                 'product_data': {
-                    'name': 'Tax (10%)',
+                    'name': f'Tax ({final_tax}%)', 
                 },
-                'unit_amount': int(final_tax * aftertax / 100),  # Convert to paisa
-                # tax_price = tax_value * total_discounted_price / 100
+                'unit_amount': tax_price * 100,  # tax amount
 
             },
             'quantity': 1,
